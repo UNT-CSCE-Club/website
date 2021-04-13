@@ -27,7 +27,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
             {/* Mobile menu button */}
             <button
               type='button'
-              className='inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+              className='inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-gray-500 hover:bg-gray-100'
               aria-controls='mobile-menu'
               aria-expanded='false'
               onClick={() => setOpen(true)}
@@ -67,7 +67,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
           </div>
           <div className='flex items-center justify-start flex-1 sm:items-stretch sm:justify-start'>
             <Link href='/'>
-              <a className='flex items-center flex-shrink-0 rounded focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'>
+              <a className='flex items-center flex-shrink-0 rounded'>
                 <img
                   className='block w-auto h-8 ml-2 sm:ml-0'
                   src='/Eagle.svg'
@@ -82,38 +82,38 @@ const Nav = ({ open, setOpen }: NavProps) => {
               {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
               <a
                 href='#'
-                className='inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900 border-b-2 border-primary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                className='inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900 border-b-2 border-primary'
               >
                 About
               </a>
               <a
                 href='#'
-                className='inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                className='inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700'
               >
                 Events
               </a>
               <a
                 href='#'
-                className='inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                className='inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700'
               >
                 Opportunities
               </a>
               <a
                 href='#'
-                className='inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                className='inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700'
               >
                 Officers
               </a>
               <a
                 href='#'
-                className='inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                className='inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700'
               >
                 Contact
               </a>
             </div>
           </div>
           <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
-            <button className='p-1 text-gray-400 bg-white rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-soft'>
+            <button className='p-1 text-gray-400 bg-white rounded-full hover:text-gray-500'>
               <span className='sr-only'>View notifications</span>
               {/* Heroicon name: outline/bell */}
               <svg
@@ -138,7 +138,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
                   type='button'
                   className={`${
                     discordMenuOpen ? '' : ''
-                  }flex text-sm bg-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-soft`}
+                  }flex text-sm bg-white p-1 rounded-full`}
                   id='user-menu'
                   aria-expanded={discordMenuOpen}
                   aria-haspopup='true'
@@ -165,7 +165,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
                 >
                   <a
                     href='#'
-                    className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                    className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
                     role='menuitem'
                     onClick={() => setDiscordMenuOpen(false)}
                   >
@@ -173,7 +173,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
                   </a>
                   <a
                     href='#'
-                    className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                    className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
                     role='menuitem'
                     onClick={() => setDiscordMenuOpen(false)}
                   >

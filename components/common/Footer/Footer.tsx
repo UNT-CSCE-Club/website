@@ -12,7 +12,7 @@ const Footer = () => {
           <div className='px-5 py-2'>
             <a
               href='#'
-              className='text-base text-gray-500 rounded hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-soft'
+              className='text-base text-gray-500 rounded hover:text-gray-900'
             >
               About
             </a>
@@ -20,7 +20,7 @@ const Footer = () => {
           <div className='px-5 py-2'>
             <a
               href='#'
-              className='text-base text-gray-500 rounded hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-soft'
+              className='text-base text-gray-500 rounded hover:text-gray-900'
             >
               Events
             </a>
@@ -28,7 +28,7 @@ const Footer = () => {
           <div className='px-5 py-2'>
             <a
               href='#'
-              className='text-base text-gray-500 rounded hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-soft'
+              className='text-base text-gray-500 rounded hover:text-gray-900'
             >
               Opportunities
             </a>
@@ -36,7 +36,7 @@ const Footer = () => {
           <div className='px-5 py-2'>
             <a
               href='#'
-              className='text-base text-gray-500 rounded hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-soft'
+              className='text-base text-gray-500 rounded hover:text-gray-900'
             >
               Officers
             </a>
@@ -44,7 +44,7 @@ const Footer = () => {
           <div className='px-5 py-2'>
             <a
               href='#'
-              className='text-base text-gray-500 rounded hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-soft'
+              className='text-base text-gray-500 rounded hover:text-gray-900'
             >
               Contact
             </a>
@@ -52,7 +52,7 @@ const Footer = () => {
           <div className='px-5 py-2'>
             <a
               href='#'
-              className='text-base text-gray-500 rounded hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-soft'
+              className='text-base text-gray-500 rounded hover:text-gray-900'
             >
               Discord
             </a>
@@ -61,7 +61,7 @@ const Footer = () => {
         <div className='flex justify-center mt-8 space-x-8'>
           <a
             href='#'
-            className='text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-soft'
+            className='text-gray-400 rounded-full hover:text-gray-500'
           >
             <span className='sr-only'>Twitter</span>
             <svg
@@ -75,7 +75,7 @@ const Footer = () => {
           </a>
           <a
             href='#'
-            className='text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-soft'
+            className='text-gray-400 rounded-full hover:text-gray-500'
           >
             <span className='sr-only'>Instagram</span>
             <svg
@@ -93,7 +93,7 @@ const Footer = () => {
           </a>
           <a
             href='#'
-            className='text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-soft'
+            className='text-gray-400 rounded-full hover:text-gray-500'
           >
             <span className='sr-only'>GitHub</span>
             <svg
@@ -111,7 +111,7 @@ const Footer = () => {
           </a>
         </div>
         <Link href='/'>
-          <a className='block mt-8 text-base text-center text-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-soft'>
+          <a className='block mt-8 text-base text-center text-gray-400 rounded'>
             © {new Date().getFullYear()} UNT CSCE Club. All rights reserved.
           </a>
         </Link>

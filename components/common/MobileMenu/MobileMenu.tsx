@@ -25,7 +25,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
               <Link href='/'>
                 <a
                   onClick={() => toggle(false)}
-                  className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                  className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50'
                 >
                   <img
                     className='w-auto h-9'
@@ -40,7 +40,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
               <div className='-mr-2'>
                 <button
                   type='button'
-                  className='inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                  className='inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100'
                   onClick={() => toggle(false)}
                 >
                   <span className='sr-only'>Close menu</span>
@@ -68,7 +68,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
                 <a
                   onClick={() => toggle(false)}
                   href='#about'
-                  className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                  className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50'
                 >
                   <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
                     {/* Heroicon name: outline/chart-bar */}
@@ -95,7 +95,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
                 <a
                   onClick={() => toggle(false)}
                   href='#events'
-                  className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                  className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50'
                 >
                   <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
                     {/* Heroicon name: outline/cursor-click */}
@@ -122,7 +122,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
                 <a
                   onClick={() => toggle(false)}
                   href='#opportunities'
-                  className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                  className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50'
                 >
                   <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
                     {/* Heroicon name: outline/shield-check */}
@@ -149,7 +149,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
                 <a
                   onClick={() => toggle(false)}
                   href='#officers'
-                  className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                  className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50'
                 >
                   <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
                     {/* Heroicon name: outline/view-grid */}
@@ -176,7 +176,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
                 <a
                   onClick={() => toggle(false)}
                   href='#contact'
-                  className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                  className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50'
                 >
                   <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
                     {/* Heroicon name: outline/view-grid */}
@@ -207,7 +207,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
             <a
               onClick={() => toggle(false)}
               href='#'
-              className='flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+              className='flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-primary hover:bg-primary-dark'
             >
               Join the Discord
             </a>
@@ -215,7 +215,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
               <a
                 onClick={() => toggle(false)}
                 href='#'
-                className='text-gray-400 rounded hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                className='text-gray-400 rounded hover:text-gray-500'
               >
                 <span className='sr-only'>Twitter</span>
                 <svg
@@ -230,7 +230,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
               <a
                 onClick={() => toggle(false)}
                 href='#'
-                className='text-gray-400 rounded hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                className='text-gray-400 rounded hover:text-gray-500'
               >
                 <span className='sr-only'>Instagram</span>
                 <svg
@@ -249,7 +249,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
               <a
                 onClick={() => toggle(false)}
                 href='#'
-                className='text-gray-400 rounded hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-soft'
+                className='text-gray-400 rounded hover:text-gray-500'
               >
                 <span className='sr-only'>GitHub</span>
                 <svg
