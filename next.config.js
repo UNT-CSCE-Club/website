@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: ['unsplash.com'],
+    domains: ['images.unsplash.com'],
   },
   target: 'serverless',
 };

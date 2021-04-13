@@ -2,9 +2,9 @@ import React from 'react';
 
 const HomePage = () => {
   return (
-    <div className='min-h-screen'>
+    <main className='min-h-screen pt-16'>
       <h1 className='text-primary text-9xl'>Home</h1>
-    </div>
+    </main>
   );
 };
 
