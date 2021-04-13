@@ -7,7 +7,7 @@ const Layout: React.FC = ({ children }) => {
   return (
     <>
       <Nav open={mobileMenuOpen} setOpen={setMobileMenuOpen} />
-      {children}
+      <main className='min-h-screen pt-16'>{children}</main>
       <Footer />
       {/* <MobileMenu show={mobileMenuOpen} toggle={setMobileMenuOpen} /> */}
     </>
