@@ -19,6 +19,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
     setNotificationsOpen,
     discordRef,
     notificationsRef,
+    currentIndex,
   } = useNav();
 
   return (
@@ -84,37 +85,66 @@ const Nav = ({ open, setOpen }: NavProps) => {
               </a>
             </Link>
             <div className='hidden sm:ml-6 sm:flex sm:space-x-8'>
-              {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-              <a
-                href='#'
-                className='inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900 border-b-2 border-primary'
-              >
-                About
-              </a>
-              <a
-                href='#'
-                className='inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700'
-              >
-                Events
-              </a>
-              <a
-                href='#'
-                className='inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700'
-              >
-                Opportunities
-              </a>
-              <a
-                href='#'
-                className='inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700'
-              >
-                Officers
-              </a>
-              <a
-                href='#'
-                className='inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700'
-              >
-                Contact
-              </a>
+              <Link href='#about'>
+                <a
+                  className={classNames(
+                    'inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2',
+                    currentIndex === 1
+                      ? 'border-primary text-gray-900'
+                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                  )}
+                >
+                  About
+                </a>
+              </Link>
+              <Link href='#events'>
+                <a
+                  className={classNames(
+                    'inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2',
+                    currentIndex === 2
+                      ? 'border-primary text-gray-900'
+                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                  )}
+                >
+                  Events
+                </a>
+              </Link>
+              <Link href='#opportunities'>
+                <a
+                  className={classNames(
+                    'inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2',
+                    currentIndex === 3
+                      ? 'border-primary text-gray-900'
+                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                  )}
+                >
+                  Opportunities
+                </a>
+              </Link>
+              <Link href='#officers'>
+                <a
+                  className={classNames(
+                    'inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2',
+                    currentIndex === 4
+                      ? 'border-primary text-gray-900'
+                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                  )}
+                >
+                  Officers
+                </a>
+              </Link>
+              <Link href='#contact'>
+                <a
+                  className={classNames(
+                    'inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2',
+                    currentIndex === 5
+                      ? 'border-primary text-gray-900'
+                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                  )}
+                >
+                  Contact
+                </a>
+              </Link>
             </div>
           </div>
           <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
@@ -170,7 +200,11 @@ const Nav = ({ open, setOpen }: NavProps) => {
               />
             </div>
           </div>
-          <MobileMenu show={open} toggle={setOpen} />
+          <MobileMenu
+            show={open}
+            toggle={setOpen}
+            currentIndex={currentIndex}
+          />
         </div>
       </div>
     </nav>

@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Transition } from '@headlessui/react';
 import useMobileMenu from './useMobileMenu';
+import { classNames } from 'lib/classNames';
 import { SiDiscord } from 'react-icons/si';
 import {
   FiCalendar,
@@ -14,9 +15,10 @@ import {
 interface MobileMenuProps {
   show: boolean;
   toggle: React.Dispatch<React.SetStateAction<boolean>>;
+  currentIndex: number;
 }
 
-const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
+const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
   const { menuRef } = useMobileMenu({ toggle });
 
   return (
@@ -79,66 +81,86 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
           </div>
           <div className='mt-6'>
             <nav className='grid grid-cols-1 gap-7'>
-              <a
-                onClick={() => toggle(false)}
-                href='#about'
-                className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50'
-              >
-                <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
-                  <FiInfo className='w-6 h-6' />
-                </div>
-                <div className='ml-4 text-base font-medium text-gray-900'>
-                  About the Club
-                </div>
-              </a>
-              <a
-                onClick={() => toggle(false)}
-                href='#events'
-                className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50'
-              >
-                <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
-                  <FiCalendar className='w-6 h-6' />
-                </div>
-                <div className='ml-4 text-base font-medium text-gray-900'>
-                  Events
-                </div>
-              </a>
-              <a
-                onClick={() => toggle(false)}
-                href='#opportunities'
-                className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50'
-              >
-                <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
-                  <FiChevronsRight className='w-6 h-6' />
-                </div>
-                <div className='ml-4 text-base font-medium text-gray-900'>
-                  Opportunities
-                </div>
-              </a>
-              <a
-                onClick={() => toggle(false)}
-                href='#officers'
-                className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50'
-              >
-                <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
-                  <FiUsers className='w-6 h-6' />
-                </div>
-                <div className='ml-4 text-base font-medium text-gray-900'>
-                  Meet the Officers
-                </div>
-              </a>
-              <a
-                onClick={() => toggle(false)}
-                href='#contact'
-                className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50'
-              >
-                <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
-                  <FiMessageSquare className='w-6 h-6' />
-                </div>
-                <div className='ml-4 text-base font-medium text-gray-900'>
-                  Contact Us
-                </div>
-              </a>
+              <Link href='#about'>
+                <a
+                  onClick={() => toggle(false)}
+                  className={classNames(
+                    'flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50',
+                    currentIndex === 1 ? 'bg-gray-100' : 'bg-white'
+                  )}
+                >
+                  <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
+                    <FiInfo className='w-6 h-6' />
+                  </div>
+                  <div className='ml-4 text-base font-medium text-gray-900'>
+                    About the Club
+                  </div>
+                </a>
+              </Link>
+              <Link href='#events'>
+                <a
+                  onClick={() => toggle(false)}
+                  className={classNames(
+                    'flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50',
+                    currentIndex === 2 ? 'bg-gray-100' : 'bg-white'
+                  )}
+                >
+                  <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
+                    <FiCalendar className='w-6 h-6' />
+                  </div>
+                  <div className='ml-4 text-base font-medium text-gray-900'>
+                    Events
+                  </div>
+                </a>
+              </Link>
+              <Link href='#opportunities'>
+                <a
+                  onClick={() => toggle(false)}
+                  className={classNames(
+                    'flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50',
+                    currentIndex === 3 ? 'bg-gray-100' : 'bg-white'
+                  )}
+                >
+                  <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
+                    <FiChevronsRight className='w-6 h-6' />
+                  </div>
+                  <div className='ml-4 text-base font-medium text-gray-900'>
+                    Opportunities
+                  </div>
+                </a>
+              </Link>
+              <Link href='#officers'>
+                <a
+                  onClick={() => toggle(false)}
+                  className={classNames(
+                    'flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50',
+                    currentIndex === 4 ? 'bg-gray-100' : 'bg-white'
+                  )}
+                >
+                  <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
+                    <FiUsers className='w-6 h-6' />
+                  </div>
+                  <div className='ml-4 text-base font-medium text-gray-900'>
+                    Meet the Officers
+                  </div>
+                </a>
+              </Link>
+              <Link href='#contact'>
+                <a
+                  onClick={() => toggle(false)}
+                  className={classNames(
+                    'flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50',
+                    currentIndex === 5 ? 'bg-gray-100' : 'bg-white'
+                  )}
+                >
+                  <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
+                    <FiMessageSquare className='w-6 h-6' />
+                  </div>
+                  <div className='ml-4 text-base font-medium text-gray-900'>
+                    Contact Us
+                  </div>
+                </a>
+              </Link>
             </nav>
           </div>
         </div>
