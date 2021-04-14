@@ -23,17 +23,17 @@ const Nav = ({ open, setOpen }: NavProps) => {
   } = useNav();
 
   return (
-    <nav className='fixed top-0 left-0 right-0 bg-white shadow'>
-      <div className='px-2 mx-auto max-w-7xl sm:px-6 lg:px-8'>
+    <nav className='fixed top-0 left-0 right-0 z-30 bg-white shadow'>
+      <div className='my-container'>
         <div className='relative flex justify-between h-16'>
-          <div className='inset-y-0 left-0 flex items-center sm:hidden'>
+          <div className='inset-y-0 left-0 flex items-center -ml-4 sm:hidden'>
             {/* Mobile menu button */}
             <button
               type='button'
               title='Open Main Menu'
               aria-controls='mobile-menu'
               aria-expanded='false'
-              className='inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-gray-500 hover:bg-gray-100'
+              className='inline-flex items-center justify-center px-4 py-4 text-gray-400 rounded-md hover:text-gray-500 hover:bg-gray-100'
               onClick={() => setOpen(true)}
             >
               <svg
@@ -75,7 +75,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
                 className='flex items-center flex-shrink-0 rounded'
               >
                 <img
-                  className='block w-auto h-8 ml-2 sm:ml-0'
+                  className='block w-auto h-8 sm:ml-0'
                   src='/Eagle.svg'
                   alt='Image of UNT Screaming Eagle'
                 />
@@ -91,7 +91,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
                     'inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2',
                     currentIndex === 1
                       ? 'border-primary text-gray-900'
-                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-800'
                   )}
                 >
                   About
@@ -147,13 +147,13 @@ const Nav = ({ open, setOpen }: NavProps) => {
               </Link>
             </div>
           </div>
-          <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
+          <div className='absolute inset-y-0 right-0 flex items-center sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
             <div ref={notificationsRef} className='relative flex items-center'>
               <button
                 title='Open Notifications'
                 aria-expanded={notificationsOpen}
                 aria-haspopup='true'
-                className='p-1 text-gray-400 bg-white rounded-full hover:text-gray-500'
+                className='text-gray-400 bg-white rounded-full hover:text-gray-500 focus:text-gray-500'
                 onClick={() => setNotificationsOpen(!notificationsOpen)}
               >
                 <svg
@@ -185,13 +185,10 @@ const Nav = ({ open, setOpen }: NavProps) => {
                 id='user-menu'
                 aria-expanded={discordMenuOpen}
                 aria-haspopup='true'
-                className='flex p-1 text-sm bg-white rounded-full'
+                className='flex text-sm bg-white rounded-full text-primary hover:text-blurple focus:text-blurple'
                 onClick={() => setDiscordMenuOpen(!discordMenuOpen)}
               >
-                <SiDiscord
-                  title='Open Discord Menu'
-                  className='w-6 h-6 text-gray-500'
-                />
+                <SiDiscord title='Open Discord Menu' className='w-6 h-6' />
               </button>
               <DiscordMenu
                 open={discordMenuOpen}

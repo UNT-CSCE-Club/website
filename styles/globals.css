@@ -3,8 +3,16 @@
 @tailwind utilities;
 
 @layer utilities {
+  .my-container {
+    @apply container px-4 mx-auto sm:px-6 lg:px-8;
+  }
+
   .cursor-zoom-in {
     cursor: zoom-in;
+  }
+
+  .abstract-bg {
+    background-image: url('/abstract.svg');
   }
 }
 

@@ -25,7 +25,7 @@ const DiscordMenu = ({ open, setOpen, position }: DiscordMenuProps) => {
           target='_blank'
           rel='noopener'
           role='menuitem'
-          className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
+          className='block px-4 py-2 text-sm text-gray-700 rounded hover:bg-gray-100'
           onClick={() => setOpen(false)}
         >
           Open Discord
@@ -35,7 +35,7 @@ const DiscordMenu = ({ open, setOpen, position }: DiscordMenuProps) => {
           target='_blank'
           rel='noopener'
           role='menuitem'
-          className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
+          className='block px-4 py-2 text-sm text-gray-700 rounded hover:bg-gray-100'
           onClick={() => setOpen(false)}
         >
           Join the Discord

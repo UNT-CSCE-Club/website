@@ -15,44 +15,39 @@ const Footer = () => {
           aria-label='Footer'
         >
           <div className='px-5 py-2'>
-            <a
-              href='#'
-              className='text-base text-gray-600 rounded hover:text-gray-900'
-            >
-              About
-            </a>
+            <Link href='#about'>
+              <a className='text-base text-gray-600 rounded hover:text-gray-900'>
+                About
+              </a>
+            </Link>
           </div>
           <div className='px-5 py-2'>
-            <a
-              href='#'
-              className='text-base text-gray-600 rounded hover:text-gray-900'
-            >
-              Events
-            </a>
+            <Link href='#events'>
+              <a className='text-base text-gray-600 rounded hover:text-gray-900'>
+                Events
+              </a>
+            </Link>
           </div>
           <div className='px-5 py-2'>
-            <a
-              href='#'
-              className='text-base text-gray-600 rounded hover:text-gray-900'
-            >
-              Opportunities
-            </a>
+            <Link href='#opportunities'>
+              <a className='text-base text-gray-600 rounded hover:text-gray-900'>
+                Opportunities
+              </a>
+            </Link>
           </div>
           <div className='px-5 py-2'>
-            <a
-              href='#'
-              className='text-base text-gray-600 rounded hover:text-gray-900'
-            >
-              Officers
-            </a>
+            <Link href='#officers'>
+              <a className='text-base text-gray-600 rounded hover:text-gray-900'>
+                Officers
+              </a>
+            </Link>
           </div>
           <div className='px-5 py-2'>
-            <a
-              href='#'
-              className='text-base text-gray-600 rounded hover:text-gray-900'
-            >
-              Contact
-            </a>
+            <Link href='#contact'>
+              <a className='text-base text-gray-600 rounded hover:text-gray-900'>
+                Contact
+              </a>
+            </Link>
           </div>
         </nav>
         <div className='flex justify-center mt-8 space-x-8'>

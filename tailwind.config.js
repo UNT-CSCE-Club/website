@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // UNT
         primary: {
           soft: '#B9DCD2',
           light: '#00A950',
@@ -21,6 +22,8 @@ module.exports = {
         'accent-blue': '#00A9E0',
         'accent-purple': '#AD1AAC',
         'accent-gray': '#53565A',
+        // Discord
+        blurple: '#7289DA',
       },
     },
   },
