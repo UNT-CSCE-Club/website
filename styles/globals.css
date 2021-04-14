@@ -21,13 +21,6 @@
     scroll-margin-top: 4rem;
   }
 
-  body {
-    font-family: Nunito, ui-sans-serif, system-ui, -apple-system,
-      BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-      'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-      'Segoe UI Symbol', 'Noto Color Emoji';
-  }
-
   a,
   button {
     @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-soft;
