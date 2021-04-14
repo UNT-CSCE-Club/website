@@ -2,7 +2,7 @@ import React from 'react';
 
 const Opportunities = () => {
   return (
-    <section id='opportunitites' className='py-12'>
+    <section id='opportunities' className='py-12'>
       <div className='my-container'>
         <header className='lg:text-center'>
           <h2 className='text-base font-semibold tracking-wide uppercase text-primary'>
