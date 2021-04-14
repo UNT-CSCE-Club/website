@@ -61,9 +61,9 @@ const Footer = () => {
         <div className='flex justify-center mt-8 space-x-8'>
           <a
             href='#'
+            title='UNT CSCE Club Twitter'
             className='text-gray-400 rounded-full hover:text-gray-500'
           >
-            <span className='sr-only'>Twitter</span>
             <svg
               className='w-6 h-6'
               fill='currentColor'
@@ -75,9 +75,9 @@ const Footer = () => {
           </a>
           <a
             href='#'
+            title='UNT CSCE Club Instagram'
             className='text-gray-400 rounded-full hover:text-gray-500'
           >
-            <span className='sr-only'>Instagram</span>
             <svg
               className='w-6 h-6'
               fill='currentColor'
@@ -92,10 +92,12 @@ const Footer = () => {
             </svg>
           </a>
           <a
-            href='#'
+            href='https://github.com/UNT-CSCE-Club'
+            target='_blank'
+            rel='noopener'
+            title='UNT CSCE Club Github'
             className='text-gray-400 rounded-full hover:text-gray-500'
           >
-            <span className='sr-only'>GitHub</span>
             <svg
               className='w-6 h-6'
               fill='currentColor'
@@ -111,7 +113,7 @@ const Footer = () => {
           </a>
         </div>
         <Link href='/'>
-          <a className='block mt-8 text-base text-center text-gray-400 rounded'>
+          <a className='block mt-8 text-base text-center text-gray-500 rounded'>
             © {new Date().getFullYear()} UNT CSCE Club. All rights reserved.
           </a>
         </Link>

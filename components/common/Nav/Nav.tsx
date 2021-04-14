@@ -27,12 +27,12 @@ const Nav = ({ open, setOpen }: NavProps) => {
             {/* Mobile menu button */}
             <button
               type='button'
-              className='inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-gray-500 hover:bg-gray-100'
+              title='Open Main Menu'
               aria-controls='mobile-menu'
               aria-expanded='false'
+              className='inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-gray-500 hover:bg-gray-100'
               onClick={() => setOpen(true)}
             >
-              <span className='sr-only'>Open main menu</span>
               <svg
                 className={classNames('w-6 h-6', open ? 'hidden' : 'block')}
                 xmlns='http://www.w3.org/2000/svg'
@@ -67,7 +67,10 @@ const Nav = ({ open, setOpen }: NavProps) => {
           </div>
           <div className='flex items-center justify-start flex-1 sm:items-stretch sm:justify-start'>
             <Link href='/'>
-              <a className='flex items-center flex-shrink-0 rounded'>
+              <a
+                title='Home Page'
+                className='flex items-center flex-shrink-0 rounded'
+              >
                 <img
                   className='block w-auto h-8 ml-2 sm:ml-0'
                   src='/Eagle.svg'
@@ -113,9 +116,10 @@ const Nav = ({ open, setOpen }: NavProps) => {
             </div>
           </div>
           <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
-            <button className='p-1 text-gray-400 bg-white rounded-full hover:text-gray-500'>
-              <span className='sr-only'>View notifications</span>
-              {/* Heroicon name: outline/bell */}
+            <button
+              title='Open Notifications'
+              className='p-1 text-gray-400 bg-white rounded-full hover:text-gray-500'
+            >
               <svg
                 className='w-6 h-6'
                 xmlns='http://www.w3.org/2000/svg'
@@ -136,16 +140,17 @@ const Nav = ({ open, setOpen }: NavProps) => {
               <div>
                 <button
                   type='button'
-                  className={`${
-                    discordMenuOpen ? '' : ''
-                  }flex text-sm bg-white p-1 rounded-full`}
+                  title='Open Discord Menu'
                   id='user-menu'
                   aria-expanded={discordMenuOpen}
                   aria-haspopup='true'
+                  className='flex p-1 text-sm bg-white rounded-full'
                   onClick={() => setDiscordMenuOpen(!discordMenuOpen)}
                 >
-                  <span className='sr-only'>Open Discord menu</span>
-                  <SiDiscord className='w-6 h-6 text-gray-500' />
+                  <SiDiscord
+                    title='Open Discord Menu'
+                    className='w-6 h-6 text-gray-500'
+                  />
                 </button>
               </div>
               <Transition
@@ -164,17 +169,21 @@ const Nav = ({ open, setOpen }: NavProps) => {
                   aria-labelledby='user-menu'
                 >
                   <a
-                    href='#'
-                    className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
+                    href='https://discord.com/channels/@me'
+                    target='_blank'
+                    rel='noopener'
                     role='menuitem'
+                    className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
                     onClick={() => setDiscordMenuOpen(false)}
                   >
                     Open Discord
                   </a>
                   <a
-                    href='#'
-                    className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
+                    href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL}
+                    target='_blank'
+                    rel='noopener'
                     role='menuitem'
+                    className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
                     onClick={() => setDiscordMenuOpen(false)}
                   >
                     Join the Discord

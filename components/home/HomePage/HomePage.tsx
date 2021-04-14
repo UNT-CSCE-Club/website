@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <>
       <NextSeo
-        title='UNT CSCE Club'
+        title='UNT Computer Science Club'
         description='The University of North Texas Computer Science Club offical website. Come join the community!'
         canonical='https://unt-csce-club.netlify.app/'
       />

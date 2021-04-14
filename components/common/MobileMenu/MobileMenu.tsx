@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Transition } from '@headlessui/react';
+import { SiDiscord } from 'react-icons/si';
 
 interface MobileMenuProps {
   show: boolean;
@@ -40,10 +41,10 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
               <div className='-mr-2'>
                 <button
                   type='button'
+                  title='Close Menu'
                   className='inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100'
                   onClick={() => toggle(false)}
                 >
-                  <span className='sr-only'>Close menu</span>
                   {/* Heroicon name: outline/x */}
                   <svg
                     className='w-6 h-6'
@@ -205,19 +206,22 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
           </div>
           <div className='px-5 py-6'>
             <a
-              onClick={() => toggle(false)}
-              href='#'
+              href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL}
+              target='_blank'
+              rel='noopener'
               className='flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-primary hover:bg-primary-dark'
+              onClick={() => toggle(false)}
             >
+              <SiDiscord className='mr-2' />
               Join the Discord
             </a>
             <span className='flex justify-center mt-6 space-x-8 text-base font-medium text-center text-gray-500'>
               <a
-                onClick={() => toggle(false)}
                 href='#'
+                title='UNT CSCE Club Twitter'
                 className='text-gray-400 rounded hover:text-gray-500'
+                onClick={() => toggle(false)}
               >
-                <span className='sr-only'>Twitter</span>
                 <svg
                   className='w-6 h-6'
                   fill='currentColor'
@@ -228,11 +232,11 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
                 </svg>
               </a>
               <a
-                onClick={() => toggle(false)}
                 href='#'
+                title='UNT CSCE Club Instagram'
                 className='text-gray-400 rounded hover:text-gray-500'
+                onClick={() => toggle(false)}
               >
-                <span className='sr-only'>Instagram</span>
                 <svg
                   className='w-6 h-6'
                   fill='currentColor'
@@ -247,11 +251,13 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
                 </svg>
               </a>
               <a
-                onClick={() => toggle(false)}
-                href='#'
+                href='https://github.com/UNT-CSCE-Club'
+                target='_blank'
+                rel='noopener'
+                title='UNT CSCE Club GitHub'
                 className='text-gray-400 rounded hover:text-gray-500'
+                onClick={() => toggle(false)}
               >
-                <span className='sr-only'>GitHub</span>
                 <svg
                   className='w-6 h-6'
                   fill='currentColor'
