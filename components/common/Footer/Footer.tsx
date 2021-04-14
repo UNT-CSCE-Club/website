@@ -1,9 +1,14 @@
-import Link from 'next/link';
 import React from 'react';
+import Link from 'next/link';
+import useFooter from './useFooter';
+import { DiscordMenu } from 'components/ui';
+import { SiDiscord } from 'react-icons/si';
 
 const Footer = () => {
+  const { discordMenuOpen, setDiscordMenuOpen, discordRef } = useFooter();
+
   return (
-    <footer className='bg-white'>
+    <footer className='bg-gray-100'>
       <div className='px-4 py-12 mx-auto overflow-hidden max-w-7xl sm:px-6 lg:px-8'>
         <nav
           className='flex flex-wrap justify-center -mx-5 -my-2'
@@ -12,7 +17,7 @@ const Footer = () => {
           <div className='px-5 py-2'>
             <a
               href='#'
-              className='text-base text-gray-500 rounded hover:text-gray-900'
+              className='text-base text-gray-600 rounded hover:text-gray-900'
             >
               About
             </a>
@@ -20,7 +25,7 @@ const Footer = () => {
           <div className='px-5 py-2'>
             <a
               href='#'
-              className='text-base text-gray-500 rounded hover:text-gray-900'
+              className='text-base text-gray-600 rounded hover:text-gray-900'
             >
               Events
             </a>
@@ -28,7 +33,7 @@ const Footer = () => {
           <div className='px-5 py-2'>
             <a
               href='#'
-              className='text-base text-gray-500 rounded hover:text-gray-900'
+              className='text-base text-gray-600 rounded hover:text-gray-900'
             >
               Opportunities
             </a>
@@ -36,7 +41,7 @@ const Footer = () => {
           <div className='px-5 py-2'>
             <a
               href='#'
-              className='text-base text-gray-500 rounded hover:text-gray-900'
+              className='text-base text-gray-600 rounded hover:text-gray-900'
             >
               Officers
             </a>
@@ -44,25 +49,34 @@ const Footer = () => {
           <div className='px-5 py-2'>
             <a
               href='#'
-              className='text-base text-gray-500 rounded hover:text-gray-900'
+              className='text-base text-gray-600 rounded hover:text-gray-900'
             >
               Contact
             </a>
           </div>
-          <div className='px-5 py-2'>
-            <a
-              href='#'
-              className='text-base text-gray-500 rounded hover:text-gray-900'
-            >
-              Discord
-            </a>
-          </div>
         </nav>
         <div className='flex justify-center mt-8 space-x-8'>
+          <div ref={discordRef} className='relative'>
+            <DiscordMenu
+              open={discordMenuOpen}
+              setOpen={setDiscordMenuOpen}
+              position='left-6 bottom-8 origin-bottom-left'
+            />
+            <button
+              type='button'
+              title='Open Discord Menu'
+              aria-expanded={discordMenuOpen}
+              aria-haspopup='true'
+              className='text-gray-500 rounded-full hover:text-gray-600'
+              onClick={() => setDiscordMenuOpen(!discordMenuOpen)}
+            >
+              <SiDiscord title='Open Discord Menu' className='w-6 h-6' />
+            </button>
+          </div>
           <a
             href='#'
             title='UNT CSCE Club Twitter'
-            className='text-gray-400 rounded-full hover:text-gray-500'
+            className='text-gray-500 rounded-full hover:text-gray-600'
           >
             <svg
               className='w-6 h-6'
@@ -76,7 +90,7 @@ const Footer = () => {
           <a
             href='#'
             title='UNT CSCE Club Instagram'
-            className='text-gray-400 rounded-full hover:text-gray-500'
+            className='text-gray-500 rounded-full hover:text-gray-600'
           >
             <svg
               className='w-6 h-6'
@@ -96,7 +110,7 @@ const Footer = () => {
             target='_blank'
             rel='noopener'
             title='UNT CSCE Club Github'
-            className='text-gray-400 rounded-full hover:text-gray-500'
+            className='text-gray-500 rounded-full hover:text-gray-600'
           >
             <svg
               className='w-6 h-6'
@@ -113,7 +127,7 @@ const Footer = () => {
           </a>
         </div>
         <Link href='/'>
-          <a className='block mt-8 text-base text-center text-gray-500 rounded'>
+          <a className='block mt-6 text-base text-center text-gray-600 rounded hover:text-gray-800'>
             © {new Date().getFullYear()} UNT CSCE Club. All rights reserved.
           </a>
         </Link>

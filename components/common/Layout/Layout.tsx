@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Footer, MobileMenu, Nav } from 'components/common';
+import { Footer, Nav } from 'components/common';
 
 const Layout: React.FC = ({ children }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -9,7 +9,6 @@ const Layout: React.FC = ({ children }) => {
       <Nav open={mobileMenuOpen} setOpen={setMobileMenuOpen} />
       <main className='min-h-screen pt-16'>{children}</main>
       <Footer />
-      {/* <MobileMenu show={mobileMenuOpen} toggle={setMobileMenuOpen} /> */}
     </>
   );
 };
