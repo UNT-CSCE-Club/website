@@ -83,7 +83,9 @@ const Footer = () => {
             </svg>
           </a>
           <a
-            href='#'
+            href={process.env.NEXT_PUBLIC_INSTAGRAM_URL}
+            target='_blank'
+            rel='noopener'
             title='UNT CSCE Club Instagram'
             className='text-gray-500 rounded-full hover:text-gray-600'
           >

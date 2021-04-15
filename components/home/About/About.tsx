@@ -9,11 +9,11 @@ const About = () => {
             About
           </h2>
           <p className='mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl'>
-            Lorem ipsum dolor sit amet consectetur
+            Our community is centered around Discord
           </p>
           <p className='max-w-2xl mt-4 text-xl text-gray-500 lg:mx-auto'>
-            Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam
-            voluptatum cupiditate veritatis in accusamus quisquam.
+            Meetings on Thursdays at 7:00pm in the General Voice Chat. Possimus
+            magnam voluptatum cupiditate veritatis in accusamus quisquam.
           </p>
         </header>
         <div className='mt-10'>

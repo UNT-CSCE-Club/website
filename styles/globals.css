@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer utilities {
   .my-container {
     @apply container px-4 mx-auto sm:px-6 lg:px-8;
@@ -18,7 +17,11 @@
 
 @layer base {
   *[id] {
-    scroll-margin-top: 4rem;
+    scroll-marginπ-top: 4rem;
+  }
+
+  main {
+    @apply bg-gray-100;
   }
 
   a,

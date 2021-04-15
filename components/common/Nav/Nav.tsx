@@ -88,7 +88,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
               <Link href='#about'>
                 <a
                   className={classNames(
-                    'inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2',
+                    'inline-flex items-center px-1 pt-1 text-base font-medium border-b-2',
                     currentIndex === 1
                       ? 'border-primary text-gray-900'
                       : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-800'
@@ -100,7 +100,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
               <Link href='#events'>
                 <a
                   className={classNames(
-                    'inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2',
+                    'inline-flex items-center px-1 pt-1 text-base font-medium border-b-2',
                     currentIndex === 2
                       ? 'border-primary text-gray-900'
                       : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
@@ -112,7 +112,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
               <Link href='#opportunities'>
                 <a
                   className={classNames(
-                    'inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2',
+                    'inline-flex items-center px-1 pt-1 text-base font-medium border-b-2',
                     currentIndex === 3
                       ? 'border-primary text-gray-900'
                       : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
@@ -124,7 +124,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
               <Link href='#officers'>
                 <a
                   className={classNames(
-                    'inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2',
+                    'inline-flex items-center px-1 pt-1 text-base font-medium border-b-2',
                     currentIndex === 4
                       ? 'border-primary text-gray-900'
                       : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
@@ -136,7 +136,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
               <Link href='#contact'>
                 <a
                   className={classNames(
-                    'inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2',
+                    'inline-flex items-center px-1 pt-1 text-base font-medium border-b-2',
                     currentIndex === 5
                       ? 'border-primary text-gray-900'
                       : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'

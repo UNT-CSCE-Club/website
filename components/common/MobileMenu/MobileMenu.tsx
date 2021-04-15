@@ -192,7 +192,9 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
               </svg>
             </a>
             <a
-              href='#'
+              href={process.env.NEXT_PUBLIC_INSTAGRAM_URL}
+              target='_blank'
+              rel='noopener'
               title='UNT CSCE Club Instagram'
               className='text-gray-400 rounded hover:text-gray-500'
               onClick={() => toggle(false)}
