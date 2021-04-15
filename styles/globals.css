@@ -17,11 +17,11 @@
 
 @layer base {
   *[id] {
-    scroll-marginπ-top: 4rem;
+    scroll-margin-top: 4rem;
   }
 
   main {
-    @apply bg-gray-100;
+    @apply bg-gray-50;
   }
 
   a,

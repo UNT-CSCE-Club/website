@@ -6,7 +6,7 @@ import {
   Events,
   Hero,
   Officers,
-  Opportunities,
+  Workshops,
 } from 'components/home';
 
 const HomePage = () => {
@@ -20,7 +20,7 @@ const HomePage = () => {
       <Hero />
       <About />
       <Events />
-      <Opportunities />
+      <Workshops />
       <Officers />
       <Contact />
     </>

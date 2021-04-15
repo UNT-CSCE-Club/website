@@ -32,7 +32,7 @@ const useNav: NavHook = () => {
       case '/#events':
         setCurrentIndex(2);
         break;
-      case '/#opportunities':
+      case '/#workshops':
         setCurrentIndex(3);
         break;
       case '/#officers':

@@ -113,7 +113,7 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
                   </div>
                 </a>
               </Link>
-              <Link href='#opportunities'>
+              <Link href='#workshops'>
                 <a
                   onClick={() => toggle(false)}
                   className={classNames(
@@ -125,7 +125,7 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
                     <FiChevronsRight className='w-6 h-6' />
                   </div>
                   <div className='ml-4 text-base font-medium text-gray-900'>
-                    Opportunities
+                    Workshops
                   </div>
                 </a>
               </Link>

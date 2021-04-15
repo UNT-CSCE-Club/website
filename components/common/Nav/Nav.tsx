@@ -109,7 +109,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
                   Events
                 </a>
               </Link>
-              <Link href='#opportunities'>
+              <Link href='#workshops'>
                 <a
                   className={classNames(
                     'inline-flex items-center px-1 pt-1 text-base font-medium border-b-2',
@@ -118,7 +118,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
                       : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
                   )}
                 >
-                  Opportunities
+                  Workshops
                 </a>
               </Link>
               <Link href='#officers'>
