@@ -62,7 +62,7 @@ const Footer = () => {
               title='Open Discord Menu'
               aria-expanded={discordMenuOpen}
               aria-haspopup='true'
-              className='text-gray-500 rounded-full hover:text-gray-600'
+              className='text-gray-500 rounded hover:text-gray-600'
               onClick={() => setDiscordMenuOpen(!discordMenuOpen)}
             >
               <SiDiscord title='Open Discord Menu' className='w-6 h-6' />
@@ -73,7 +73,7 @@ const Footer = () => {
             target='_blank'
             rel='noopener'
             title='UNT CSCE Club Twitter'
-            className='text-gray-500 rounded-full hover:text-gray-600'
+            className='text-gray-500 rounded hover:text-gray-600'
           >
             <svg
               className='w-6 h-6'
@@ -89,7 +89,7 @@ const Footer = () => {
             target='_blank'
             rel='noopener'
             title='UNT CSCE Club Instagram'
-            className='text-gray-500 rounded-full hover:text-gray-600'
+            className='text-gray-500 rounded hover:text-gray-600'
           >
             <svg
               className='w-6 h-6'
@@ -109,7 +109,7 @@ const Footer = () => {
             target='_blank'
             rel='noopener'
             title='UNT CSCE Club Github'
-            className='text-gray-500 rounded-full hover:text-gray-600'
+            className='text-gray-500 rounded hover:text-gray-600'
           >
             <svg
               className='w-6 h-6'

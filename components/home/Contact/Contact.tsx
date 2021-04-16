@@ -9,32 +9,10 @@ const Contact = () => {
           <div className='p-4 py-10 -mx-4 overflow-hidden lg:-ml-4 lg:mr-4'>
             <h3 className='text-lg font-medium'>Contact information</h3>
             <p className='max-w-3xl mt-6 text-base'>
-              Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat
-              massa dictumst amet. Sapien tortor lacus arcu.
+              Want to get in touch? Use the contact form or send us an email,
+              and we will get back to you as soon as possible.
             </p>
             <dl className='mt-8 space-y-6'>
-              <dt>
-                <span className='sr-only'>Phone number</span>
-              </dt>
-              <dd className='flex text-base'>
-                <svg
-                  className='flex-shrink-0 w-6 h-6 '
-                  x-description='Heroicon name: outline/phone'
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                  aria-hidden='true'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'
-                  />
-                </svg>
-                <span className='ml-3'>+1 (555) 123-4567</span>
-              </dd>
               <dt>
                 <span className='sr-only'>Email</span>
               </dt>
@@ -67,8 +45,9 @@ const Contact = () => {
               Send us a message
             </h3>
             <form
-              // action='#'
+              name='contact'
               method='POST'
+              data-netlify='true'
               className='grid grid-cols-1 mt-6 gap-y-6 sm:grid-cols-2 sm:gap-x-8'
             >
               <div>
@@ -187,7 +166,6 @@ const Contact = () => {
               <div className='sm:col-span-2 sm:flex sm:justify-end'>
                 <button
                   type='submit'
-                  disabled
                   className='inline-flex items-center justify-center w-full px-6 py-3 mt-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-primary hover:bg-primary-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-soft sm:w-auto'
                 >
                   Submit
