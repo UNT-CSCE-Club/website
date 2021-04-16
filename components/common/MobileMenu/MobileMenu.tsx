@@ -45,8 +45,8 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
               >
                 <img
                   className='w-auto h-9'
-                  src='/Eagle.svg'
-                  alt='Image of UNT Screaming Eagle'
+                  src='/logo.svg'
+                  alt='Image of logo'
                 />
                 <div className='ml-4 text-xl font-bold text-gray-900'>
                   UNT CSCE Club

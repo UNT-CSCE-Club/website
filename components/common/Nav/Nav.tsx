@@ -5,6 +5,8 @@ import { classNames } from 'lib/classNames';
 import { MobileMenu } from 'components/common';
 import { DiscordMenu, Notifications } from 'components/ui';
 import { SiDiscord } from 'react-icons/si';
+import { DiScriptcs } from 'react-icons/di';
+import { BiCodeBlock } from 'react-icons/bi';
 
 interface NavProps {
   open: boolean;
@@ -75,11 +77,12 @@ const Nav = ({ open, setOpen }: NavProps) => {
                 className='flex items-center flex-shrink-0 rounded'
               >
                 <img
-                  className='block w-auto h-8 sm:ml-0'
-                  src='/Eagle.svg'
-                  alt='Image of UNT Screaming Eagle'
+                  className='block w-auto h-8 mr-2 sm:mr-0 lg:mr-2'
+                  src='/logo.svg'
+                  alt='Image of logo'
                 />
-                <span className='ml-2 text-2xl font-bold sm:hidden text-primary lg:block'>
+                {/* <DiScriptcs className='block w-12 h-12 text-primary sm:ml-0' /> */}
+                <span className='text-2xl font-bold sm:hidden text-primary lg:block'>
                   CSCE Club
                 </span>
               </a>
