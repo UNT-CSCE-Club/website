@@ -1,20 +1,17 @@
 import React from 'react';
-import {
-  CloudUploadIcon,
-  CogIcon,
-  LockClosedIcon,
-  RefreshIcon,
-  ServerIcon,
-  ShieldCheckIcon,
-} from '@heroicons/react/outline';
+import { LockClosedIcon } from '@heroicons/react/outline';
+import { BiBitcoin, BiGame } from 'react-icons/bi';
+import { FiBarChart2 } from 'react-icons/fi';
+import { CgWebsite } from 'react-icons/cg';
+import { FaRobot } from 'react-icons/fa';
 
 const features = [
-  { name: 'Game Development', icon: CloudUploadIcon },
+  { name: 'Game Development', icon: BiGame },
   { name: 'Dogecoin 2.0', icon: LockClosedIcon },
-  { name: 'Crypto Investments', icon: RefreshIcon },
-  { name: 'AI / Machine Learning', icon: ShieldCheckIcon },
-  { name: 'Data Science', icon: CogIcon },
-  { name: 'Web Development', icon: ServerIcon },
+  { name: 'Crypto Investments', icon: BiBitcoin },
+  { name: 'AI / Machine Learning', icon: FaRobot },
+  { name: 'Data Science', icon: FiBarChart2 },
+  { name: 'Web Development', icon: CgWebsite },
 ];
 
 const Workshops = () => {
@@ -41,10 +38,18 @@ const Workshops = () => {
                   <div className='-mt-6'>
                     <div>
                       <span className='inline-flex items-center justify-center p-3 rounded-md shadow-lg bg-primary'>
-                        <feature.icon
-                          className='w-6 h-6 text-white'
-                          aria-hidden='true'
-                        />
+                        {feature.name === 'Dogecoin 2.0' ? (
+                          <img
+                            src='/vectors/doge.svg'
+                            alt='Doge icon'
+                            className='w-6 h-6'
+                          />
+                        ) : (
+                          <feature.icon
+                            className='w-6 h-6 text-white'
+                            aria-hidden='true'
+                          />
+                        )}
                       </span>
                     </div>
                     <h3 className='mt-8 text-lg font-medium tracking-tight text-gray-900'>
