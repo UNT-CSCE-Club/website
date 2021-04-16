@@ -8,13 +8,15 @@ const Hero = () => {
     <header className='bg-right-top bg-no-repeat lg:abstract-bg'>
       <div className='my-container lg:flex'>
         <section className='flex flex-col justify-center py-10 text-center lg:w-1/2 lg:text-left'>
-          <h1 className='text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl'>
+          <h1 className='text-4xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl'>
             <span className='block'>A community for</span>
-            <span className='block text-primary'>computer science</span>
+            <span className='block text-primary dark:text-primary-light'>
+              computer science
+            </span>
           </h1>
-          <p className='mt-3 text-lg text-gray-500 lg:max-w-xl sm:text-xl md:mt-5'>
+          <p className='mt-3 text-lg text-gray-500 lg:max-w-xl sm:text-xl md:mt-5 dark:text-gray-300'>
             Student led organization at the University of North Texas.
-            Discussions, workshops, talks, and events related programming,
+            Discussions, workshops, talks, and events related to programming,
             computers, and tech.
           </p>
           <div className='mt-6 sm:flex sm:justify-center lg:justify-start'>
@@ -23,7 +25,7 @@ const Hero = () => {
                 href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL}
                 target='_blank'
                 rel='noopener'
-                className='flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white border border-transparent rounded-md bg-primary hover:bg-primary-light md:py-4 md:text-lg md:px-10'
+                className='flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white border border-transparent rounded-md bg-primary hover:bg-primary-light md:py-4 md:text-lg md:px-10 dark:shadow-2xl'
               >
                 <SiDiscord className='mr-2' />
                 Join Club
@@ -31,7 +33,7 @@ const Hero = () => {
             </div>
             <div className='mt-3 border rounded-md shadow-md border-primary sm:mt-0 sm:ml-3'>
               <Link href='/#about'>
-                <a className='flex items-center justify-center w-full px-8 py-3 text-base font-medium bg-white border border-transparent rounded-md text-primary hover:bg-primary-soft hover:text-primary-dark md:py-4 md:text-lg md:px-10'>
+                <a className='flex items-center justify-center w-full px-8 py-3 text-base font-medium bg-white border border-transparent rounded-md dark:bg-gray-800 text-primary dark:text-primary-light hover:bg-primary-soft hover:text-primary-dark dark:shadow-2xl md:py-4 md:text-lg md:px-10'>
                   <FiInfo className='mr-2' />
                   About Us
                 </a>
@@ -44,7 +46,7 @@ const Hero = () => {
               target='_blank'
               rel='noopener'
               title='UNT CSCE Club Twitter'
-              className='text-gray-400 rounded hover:text-gray-500'
+              className='text-gray-400 rounded hover:text-gray-500 dark:hover:text-gray-200'
             >
               <svg
                 className='w-9 h-9'
@@ -60,7 +62,7 @@ const Hero = () => {
               target='_blank'
               rel='noopener'
               title='UNT CSCE Club Instagram'
-              className='text-gray-400 rounded hover:text-gray-500'
+              className='text-gray-400 rounded hover:text-gray-500 dark:hover:text-gray-200'
             >
               <svg
                 className='w-9 h-9'
@@ -80,7 +82,7 @@ const Hero = () => {
               target='_blank'
               rel='noopener'
               title='UNT CSCE Club GitHub'
-              className='text-gray-400 rounded hover:text-gray-500'
+              className='text-gray-400 rounded hover:text-gray-500 dark:hover:text-gray-200'
             >
               <svg
                 className='w-9 h-9'
@@ -109,7 +111,7 @@ const Hero = () => {
 
 <div className='w-full pt-16 pb-20 mx-auto text-center max-w-7xl lg:py-48 lg:text-left'>
   <div className='px-4 lg:w-1/2 sm:px-8 xl:pr-16'>
-    <h1 className='text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl'>
+    <h1 className='text-4xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl'>
       <span className='block xl:inline'>Data to enrich your</span>
       <span className='block text-indigo-600 xl:inline'>
         online business

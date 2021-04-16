@@ -5,11 +5,19 @@ export default {
     url: 'https://untcsce.club/',
     title: 'UNT Computer Science Club',
     description:
-      'The University of North Texas Computer Science Club offical website. Come join the community!',
+      'University of North Texas Computer Science Club offical website. Come join the community!',
+    images: [
+      {
+        url: 'https://untcsce.club/images/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Landing page',
+      },
+    ],
   },
   twitter: {
     handle: '@untcsceclub',
     site: '@untcsceclub',
-    cardType: 'summary',
+    cardType: 'summary_large_image',
   },
 };

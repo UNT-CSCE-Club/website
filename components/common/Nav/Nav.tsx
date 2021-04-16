@@ -25,7 +25,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
   } = useNav();
 
   return (
-    <nav className='fixed top-0 left-0 right-0 z-30 bg-white shadow'>
+    <nav className='fixed top-0 left-0 right-0 z-30 bg-white shadow dark:bg-gray-900'>
       <div className='my-container'>
         <div className='relative flex justify-between h-16'>
           <div className='inset-y-0 left-0 flex items-center -ml-4 sm:hidden'>
@@ -35,7 +35,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
               title='Open Main Menu'
               aria-controls='mobile-menu'
               aria-expanded='false'
-              className='inline-flex items-center justify-center px-4 py-4 text-gray-400 rounded-md hover:text-gray-500 hover:bg-gray-100'
+              className='inline-flex items-center justify-center px-4 py-4 text-gray-400 rounded-md hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-600'
               onClick={() => setOpen(true)}
             >
               <svg
@@ -82,7 +82,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
                   alt='Image of logo'
                 />
                 {/* <DiScriptcs className='block w-12 h-12 text-primary sm:ml-0' /> */}
-                <span className='text-2xl font-bold sm:hidden text-primary lg:block'>
+                <span className='text-2xl font-bold sm:hidden text-primary lg:block dark:text-primary-light'>
                   CSCE Club
                 </span>
               </a>
@@ -93,8 +93,8 @@ const Nav = ({ open, setOpen }: NavProps) => {
                   className={classNames(
                     'inline-flex items-center px-1 pt-1 text-base font-medium border-b-2',
                     currentIndex === 1
-                      ? 'border-primary text-gray-900'
-                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-800'
+                      ? 'border-primary text-gray-900 dark:text-gray-50'
+                      : 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 dark:hover:text-gray-100 hover:text-gray-800'
                   )}
                 >
                   About
@@ -105,8 +105,8 @@ const Nav = ({ open, setOpen }: NavProps) => {
                   className={classNames(
                     'inline-flex items-center px-1 pt-1 text-base font-medium border-b-2',
                     currentIndex === 2
-                      ? 'border-primary text-gray-900'
-                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                      ? 'border-primary text-gray-900 dark:text-gray-50'
+                      : 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 dark:hover:text-gray-100 hover:text-gray-800'
                   )}
                 >
                   Events
@@ -117,8 +117,8 @@ const Nav = ({ open, setOpen }: NavProps) => {
                   className={classNames(
                     'inline-flex items-center px-1 pt-1 text-base font-medium border-b-2',
                     currentIndex === 3
-                      ? 'border-primary text-gray-900'
-                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                      ? 'border-primary text-gray-900 dark:text-gray-50'
+                      : 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 dark:hover:text-gray-100 hover:text-gray-800'
                   )}
                 >
                   Workshops
@@ -129,8 +129,8 @@ const Nav = ({ open, setOpen }: NavProps) => {
                   className={classNames(
                     'inline-flex items-center px-1 pt-1 text-base font-medium border-b-2',
                     currentIndex === 4
-                      ? 'border-primary text-gray-900'
-                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                      ? 'border-primary text-gray-900 dark:text-gray-50'
+                      : 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 dark:hover:text-gray-100 hover:text-gray-800'
                   )}
                 >
                   Officers
@@ -141,8 +141,8 @@ const Nav = ({ open, setOpen }: NavProps) => {
                   className={classNames(
                     'inline-flex items-center px-1 pt-1 text-base font-medium border-b-2',
                     currentIndex === 5
-                      ? 'border-primary text-gray-900'
-                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                      ? 'border-primary text-gray-900 dark:text-gray-50'
+                      : 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 dark:hover:text-gray-100 hover:text-gray-800'
                   )}
                 >
                   Contact
@@ -156,7 +156,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
                 title='Open Notifications'
                 aria-expanded={notificationsOpen}
                 aria-haspopup='true'
-                className='text-gray-400 bg-white rounded-full hover:text-gray-500 focus:text-gray-500'
+                className='text-gray-400 rounded-full hover:text-gray-500 focus:text-gray-500 dark:text-gray-300 dark:hover:text-gray-100 dark:focus:text-gray-100'
                 onClick={() => setNotificationsOpen(!notificationsOpen)}
               >
                 <svg
@@ -188,10 +188,13 @@ const Nav = ({ open, setOpen }: NavProps) => {
                 id='user-menu'
                 aria-expanded={discordMenuOpen}
                 aria-haspopup='true'
-                className='flex text-sm bg-white rounded-full text-primary hover:text-blurple focus:text-blurple'
+                className='flex text-sm rounded-full text-primary hover:text-blurple focus:text-blurple dark:text-primary-light'
                 onClick={() => setDiscordMenuOpen(!discordMenuOpen)}
               >
-                <SiDiscord title='Open Discord Menu' className='w-6 h-6' />
+                <SiDiscord
+                  title='Open Discord Menu'
+                  className='w-6 h-6 fill-current'
+                />
               </button>
               <DiscordMenu
                 open={discordMenuOpen}

@@ -2,4 +2,12 @@
 
 The official University of North Texas Computer Science Club website.
 
-⚠️ This website is currently under construction. It is subject to change, and not everything is working yet.
+⚠️ This website is currently under construction. It is subject to change, content is still being written, and not everything is working yet.
+
+## Tech Stack
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [Node.js](https://nodejs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)

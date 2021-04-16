@@ -21,12 +21,12 @@
   }
 
   main {
-    @apply bg-gray-50;
+    @apply bg-gray-50 dark:bg-gray-700;
   }
 
   a,
   button {
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-soft;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-soft dark:focus:ring-primary-dark dark:focus:ring-offset-transparent;
   }
 
   /* nunito-200 - latin */

@@ -51,10 +51,10 @@ const Officers = () => {
       <div className='py-12 my-container lg:py-24'>
         <div className='grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-8'>
           <header className='space-y-5 sm:space-y-4'>
-            <h2 className='text-3xl font-extrabold tracking-tight sm:text-4xl'>
+            <h2 className='text-3xl font-extrabold tracking-tight sm:text-4xl dark:text-gray-50'>
               Meet our officers
             </h2>
-            <p className='text-xl text-gray-500'>
+            <p className='text-xl text-gray-500 dark:text-gray-300'>
               Libero fames augue nisl porttitor nisi, quis. Id ac elit odio
               vitae elementum enim vitae ullamcorper suspendisse. Vivamus
               fringilla.
@@ -71,8 +71,10 @@ const Officers = () => {
                       alt=''
                     />
                     <div className='space-y-1 text-lg font-medium leading-6'>
-                      <h3>{person.name}</h3>
-                      <p className='text-primary'>{person.role}</p>
+                      <h3 className='dark:text-gray-50'>{person.name}</h3>
+                      <p className='text-primary dark:text-primary-light'>
+                        {person.role}
+                      </p>
                     </div>
                   </div>
                 </li>

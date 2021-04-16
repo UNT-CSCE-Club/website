@@ -3,15 +3,15 @@ import { ChatAlt2Icon, UserGroupIcon } from '@heroicons/react/outline';
 
 const About = () => {
   return (
-    <section id='about' className='relative py-16 overflow-hidden'>
+    <section id='about' className='relative pb-16 overflow-hidden pt-28'>
       <header className='mb-16 lg:text-center my-container'>
-        <h2 className='text-base font-semibold tracking-wide uppercase text-primary'>
+        <h2 className='text-base font-semibold tracking-wide uppercase text-primary dark:text-primary-light'>
           About
         </h2>
-        <p className='mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl'>
+        <p className='mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl'>
           Our community is centered around Discord
         </p>
-        <p className='max-w-4xl mt-4 text-xl text-gray-500 lg:mx-auto'>
+        <p className='max-w-4xl mt-4 text-xl text-gray-500 lg:mx-auto dark:text-gray-300'>
           Meetings on Thursdays at 7:00pm in the General Voice Chat. Possimus
           magnam voluptatum cupiditate veritatis in accusamus quisquam.
         </p>
@@ -21,7 +21,7 @@ const About = () => {
           <div className='max-w-xl px-4 mx-auto sm:px-6 lg:py-32 lg:max-w-none lg:mx-0 lg:px-0 lg:col-start-2'>
             <div>
               <div>
-                <span className='flex items-center justify-center w-12 h-12 rounded-md bg-primary'>
+                <span className='flex items-center justify-center w-12 h-12 rounded-md bg-primary dark:shadow-2xl'>
                   <ChatAlt2Icon
                     className='w-6 h-6 text-white'
                     aria-hidden='true'
@@ -29,10 +29,10 @@ const About = () => {
                 </span>
               </div>
               <div className='mt-6'>
-                <h3 className='text-3xl font-extrabold tracking-tight text-gray-900'>
+                <h3 className='text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50'>
                   Discussions with your peers
                 </h3>
-                <p className='mt-4 text-lg text-gray-500'>
+                <p className='mt-4 text-lg text-gray-500 dark:text-gray-300'>
                   Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis
                   bibendum malesuada faucibus lacinia porttitor. Pulvinar
                   laoreet sagittis viverra duis. In venenatis sem arcu pretium
@@ -41,7 +41,7 @@ const About = () => {
                 <div className='mt-6'>
                   <a
                     href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL}
-                    className='inline-flex px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-primary hover:bg-primary-light'
+                    className='inline-flex px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-primary hover:bg-primary-light dark:shadow-2xl'
                   >
                     Get started
                   </a>
@@ -65,7 +65,7 @@ const About = () => {
           <div className='max-w-xl px-4 mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0'>
             <div>
               <div>
-                <span className='flex items-center justify-center w-12 h-12 rounded-md bg-primary'>
+                <span className='flex items-center justify-center w-12 h-12 rounded-md bg-primary dark:shadow-2xl'>
                   <UserGroupIcon
                     className='w-6 h-6 text-white'
                     aria-hidden='true'
@@ -73,10 +73,10 @@ const About = () => {
                 </span>
               </div>
               <div className='mt-6'>
-                <h3 className='text-3xl font-extrabold tracking-tight text-gray-900'>
+                <h3 className='text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50'>
                   Talks from members and guests
                 </h3>
-                <p className='mt-4 text-lg text-gray-500'>
+                <p className='mt-4 text-lg text-gray-500 dark:text-gray-300'>
                   Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis
                   bibendum malesuada faucibus lacinia porttitor. Pulvinar
                   laoreet sagittis viverra duis. In venenatis sem arcu pretium
@@ -85,7 +85,7 @@ const About = () => {
                 <div className='mt-6'>
                   <a
                     href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL}
-                    className='inline-flex px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-primary hover:bg-primary-light'
+                    className='inline-flex px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-primary hover:bg-primary-light dark:shadow-2xl'
                   >
                     Get started
                   </a>
@@ -95,7 +95,7 @@ const About = () => {
             <div className='pt-6 mt-8 border-t border-gray-200'>
               <blockquote>
                 <div>
-                  <p className='text-base text-gray-500'>
+                  <p className='text-base text-gray-500 dark:text-gray-200'>
                     &ldquo;Cras velit quis eros eget rhoncus lacus ultrices sed
                     diam. Sit orci risus aenean curabitur donec aliquet. Mi
                     venenatis in euismod ut.&rdquo;
@@ -110,7 +110,7 @@ const About = () => {
                         alt=''
                       />
                     </div>
-                    <div className='text-base font-medium text-gray-700'>
+                    <div className='text-base font-medium text-gray-700 dark:text-gray-300'>
                       Marcia Hill, Digital Marketing Manager
                     </div>
                   </div>

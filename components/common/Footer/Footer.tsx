@@ -8,7 +8,7 @@ const Footer = () => {
   const { discordMenuOpen, setDiscordMenuOpen, discordRef } = useFooter();
 
   return (
-    <footer className='bg-gray-100'>
+    <footer className='bg-gray-100 dark:bg-gray-900'>
       <div className='px-4 py-12 mx-auto overflow-hidden max-w-7xl sm:px-6 lg:px-8'>
         <nav
           className='flex flex-wrap justify-center -mx-5 -my-2'
@@ -16,35 +16,35 @@ const Footer = () => {
         >
           <div className='px-5 py-2'>
             <Link href='#about'>
-              <a className='text-base text-gray-600 rounded hover:text-gray-900'>
+              <a className='text-base text-gray-600 rounded hover:text-gray-900 dark:text-gray-200 dark:hover:text-white'>
                 About
               </a>
             </Link>
           </div>
           <div className='px-5 py-2'>
             <Link href='#events'>
-              <a className='text-base text-gray-600 rounded hover:text-gray-900'>
+              <a className='text-base text-gray-600 rounded hover:text-gray-900 dark:text-gray-200 dark:hover:text-white'>
                 Events
               </a>
             </Link>
           </div>
           <div className='px-5 py-2'>
             <Link href='#workshops'>
-              <a className='text-base text-gray-600 rounded hover:text-gray-900'>
+              <a className='text-base text-gray-600 rounded hover:text-gray-900 dark:text-gray-200 dark:hover:text-white'>
                 Workshops
               </a>
             </Link>
           </div>
           <div className='px-5 py-2'>
             <Link href='#officers'>
-              <a className='text-base text-gray-600 rounded hover:text-gray-900'>
+              <a className='text-base text-gray-600 rounded hover:text-gray-900 dark:text-gray-200 dark:hover:text-white'>
                 Officers
               </a>
             </Link>
           </div>
           <div className='px-5 py-2'>
             <Link href='#contact'>
-              <a className='text-base text-gray-600 rounded hover:text-gray-900'>
+              <a className='text-base text-gray-600 rounded hover:text-gray-900 dark:text-gray-200 dark:hover:text-white'>
                 Contact
               </a>
             </Link>
@@ -62,7 +62,7 @@ const Footer = () => {
               title='Open Discord Menu'
               aria-expanded={discordMenuOpen}
               aria-haspopup='true'
-              className='text-gray-500 rounded hover:text-gray-600'
+              className='text-gray-500 rounded hover:text-gray-600 dark:hover:text-gray-300'
               onClick={() => setDiscordMenuOpen(!discordMenuOpen)}
             >
               <SiDiscord title='Open Discord Menu' className='w-6 h-6' />
@@ -73,7 +73,7 @@ const Footer = () => {
             target='_blank'
             rel='noopener'
             title='UNT CSCE Club Twitter'
-            className='text-gray-500 rounded hover:text-gray-600'
+            className='text-gray-500 rounded hover:text-gray-600 dark:hover:text-gray-300'
           >
             <svg
               className='w-6 h-6'
@@ -89,7 +89,7 @@ const Footer = () => {
             target='_blank'
             rel='noopener'
             title='UNT CSCE Club Instagram'
-            className='text-gray-500 rounded hover:text-gray-600'
+            className='text-gray-500 rounded hover:text-gray-600 dark:hover:text-gray-300'
           >
             <svg
               className='w-6 h-6'
@@ -109,7 +109,7 @@ const Footer = () => {
             target='_blank'
             rel='noopener'
             title='UNT CSCE Club Github'
-            className='text-gray-500 rounded hover:text-gray-600'
+            className='text-gray-500 rounded hover:text-gray-600 dark:hover:text-gray-300'
           >
             <svg
               className='w-6 h-6'
@@ -126,7 +126,7 @@ const Footer = () => {
           </a>
         </div>
         <Link href='/'>
-          <a className='block mt-6 text-base text-center text-gray-600 rounded hover:text-gray-800'>
+          <a className='block mt-6 text-base text-center text-gray-600 rounded hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-50'>
             © {new Date().getFullYear()} UNT CSCE Club. All rights reserved.
           </a>
         </Link>
