@@ -8,8 +8,8 @@ export default {
       'The University of North Texas Computer Science Club offical website. Come join the community!',
   },
   twitter: {
-    handle: '@handle',
-    site: '@handle',
+    handle: '@untcsceclub',
+    site: '@untcsceclub',
     cardType: 'summary',
   },
 };

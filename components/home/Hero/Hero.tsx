@@ -40,7 +40,9 @@ const Hero = () => {
           </div>
           <span className='flex justify-center mt-6 space-x-8 text-base font-medium text-center text-gray-500 lg:justify-start'>
             <a
-              href='#'
+              href={process.env.NEXT_PUBLIC_TWITTER_URL}
+              target='_blank'
+              rel='noopener'
               title='UNT CSCE Club Twitter'
               className='text-gray-400 rounded hover:text-gray-500'
             >

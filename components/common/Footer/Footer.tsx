@@ -69,7 +69,9 @@ const Footer = () => {
             </button>
           </div>
           <a
-            href='#'
+            href={process.env.NEXT_PUBLIC_TWITTER_URL}
+            target='_blank'
+            rel='noopener'
             title='UNT CSCE Club Twitter'
             className='text-gray-500 rounded-full hover:text-gray-600'
           >
