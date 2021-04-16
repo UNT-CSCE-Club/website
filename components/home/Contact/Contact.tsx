@@ -50,6 +50,7 @@ const Contact = () => {
               data-netlify='true'
               className='grid grid-cols-1 mt-6 gap-y-6 sm:grid-cols-2 sm:gap-x-8'
             >
+              <input type='hidden' name='form-name' value='contact' />
               <div>
                 <label
                   htmlFor='first_name'
