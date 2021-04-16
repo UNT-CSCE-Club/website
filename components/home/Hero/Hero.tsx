@@ -96,7 +96,7 @@ const Hero = () => {
           </span>
         </section>
         <div className='lg:w-1/2'>
-          <img src='/club-members.svg' alt='club members learning' />
+          <img src='/vectors/club-members.svg' alt='club members learning' />
         </div>
       </div>
     </header>

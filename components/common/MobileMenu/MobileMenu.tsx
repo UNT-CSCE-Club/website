@@ -45,7 +45,7 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
               >
                 <img
                   className='w-auto h-9'
-                  src='/logo.svg'
+                  src='/vectors/logo.svg'
                   alt='Image of logo'
                 />
                 <div className='ml-4 text-xl font-bold text-gray-900'>
