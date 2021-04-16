@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiSend } from 'react-icons/fi';
 
 const Contact = () => {
   return (
@@ -48,9 +49,16 @@ const Contact = () => {
               name='contact'
               method='POST'
               data-netlify='true'
+              netlify-honeypot='bot-field'
               className='grid grid-cols-1 mt-6 gap-y-6 sm:grid-cols-2 sm:gap-x-8'
             >
               <input type='hidden' name='form-name' value='contact' />
+              <p className='hidden'>
+                <label>
+                  Don’t fill this out if you’re human:{' '}
+                  <input name='bot-field' />
+                </label>
+              </p>
               <div>
                 <label
                   htmlFor='first_name'
@@ -64,6 +72,7 @@ const Contact = () => {
                     name='first_name'
                     id='first_name'
                     autoComplete='given-name'
+                    required
                     className='block w-full px-4 py-3 text-gray-900 border-gray-300 rounded-md shadow-sm focus:ring-primary-soft focus:border-primary-soft'
                   />
                 </div>
@@ -81,6 +90,7 @@ const Contact = () => {
                     name='last_name'
                     id='last_name'
                     autoComplete='family-name'
+                    required
                     className='block w-full px-4 py-3 text-gray-900 border-gray-300 rounded-md shadow-sm focus:ring-primary-soft focus:border-primary-soft'
                   />
                 </div>
@@ -98,6 +108,7 @@ const Contact = () => {
                     name='email'
                     type='email'
                     autoComplete='email'
+                    required
                     className='block w-full px-4 py-3 text-gray-900 border-gray-300 rounded-md shadow-sm focus:ring-primary-soft focus:border-primary-soft'
                   />
                 </div>
@@ -116,7 +127,7 @@ const Contact = () => {
                 </div>
                 <div className='mt-1'>
                   <input
-                    type='text'
+                    type='tel'
                     name='phone'
                     id='phone'
                     autoComplete='tel'
@@ -137,6 +148,7 @@ const Contact = () => {
                     type='text'
                     name='subject'
                     id='subject'
+                    required
                     className='block w-full px-4 py-3 text-gray-900 border-gray-300 rounded-md shadow-sm focus:ring-primary-soft focus:border-primary-soft'
                   />
                 </div>
@@ -161,6 +173,7 @@ const Contact = () => {
                     className='block w-full px-4 py-3 text-gray-900 border-gray-300 rounded-md shadow-sm focus:ring-primary-soft focus:border-primary-soft'
                     aria-describedby='message-max'
                     defaultValue={''}
+                    required
                   />
                 </div>
               </div>
@@ -169,6 +182,7 @@ const Contact = () => {
                   type='submit'
                   className='inline-flex items-center justify-center w-full px-6 py-3 mt-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-primary hover:bg-primary-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-soft sm:w-auto'
                 >
+                  <FiSend className='mr-2' aria-hidden='true' />
                   Submit
                 </button>
               </div>
