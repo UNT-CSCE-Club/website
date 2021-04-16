@@ -1,28 +1,24 @@
 import React from 'react';
-import {
-  GlobeAltIcon,
-  LightningBoltIcon,
-  ScaleIcon,
-} from '@heroicons/react/outline';
+import { FiCode, FiFlag, FiLinkedin } from 'react-icons/fi';
 
 const features = [
   {
     name: 'Hackathons',
     description:
       'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: GlobeAltIcon,
+    icon: FiCode,
   },
   {
     name: 'Cyber Security CTF',
     description:
       'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: ScaleIcon,
+    icon: FiFlag,
   },
   {
     name: 'LinkedIn Learning',
     description:
       'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: LightningBoltIcon,
+    icon: FiLinkedin,
   },
 ];
 
