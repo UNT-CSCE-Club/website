@@ -39,3 +39,6 @@ cypress/videos
 cypress/screenshots
 .nyc_output
 cypress.env.json
+
+codegen.yml
+.env
