@@ -16,10 +16,8 @@ interface HomePageProps {
 
 const HomePage = ({ page }: HomePageProps) => {
   if (!page) {
-    return <p>Oops</p>;
+    return <p>Error fetching data</p>;
   }
-
-  // console.log(page);
 
   return (
     <>

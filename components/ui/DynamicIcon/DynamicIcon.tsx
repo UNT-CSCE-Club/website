@@ -1,5 +1,5 @@
-import dynamic from 'next/dynamic';
 import React from 'react';
+import dynamic from 'next/dynamic';
 
 interface Props extends React.SVGProps<SVGSVGElement> {
   name: string;
@@ -41,6 +41,7 @@ const DynamicIcon = ({ name, ...rest }: Props) => {
       );
       break;
   }
+
   return <Icon {...rest} />;
 };
 

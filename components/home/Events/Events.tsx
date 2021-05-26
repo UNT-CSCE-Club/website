@@ -1,15 +1,6 @@
-import { Entry } from 'contentful';
 import React from 'react';
-import { IEventFields, IEventsFields } from 'types/generated/contentful';
 import { DynamicIcon } from 'components/ui';
-
-// interface RealEvents extends Omit<IEventsFields, 'eventsList'> {
-//   eventsList: Entry<IEventFields>[] | Entry<{ [fieldId: string]: unknown }>[];
-// }
-
-// interface EventsProps {
-//   data: RealEvents;
-// }
+import { IEventsFields } from 'types/generated/contentful';
 
 interface EventsProps {
   data: IEventsFields;
@@ -17,7 +8,6 @@ interface EventsProps {
 
 const Events = ({ data }: EventsProps) => {
   const { title, description, eventsList } = data;
-  // console.log(eventsList);
 
   return (
     <section id='events' className='py-12'>

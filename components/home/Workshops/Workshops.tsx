@@ -1,6 +1,6 @@
 import React from 'react';
-import { IWorkshopsFields } from 'types/generated/contentful';
 import { DynamicIcon } from 'components/ui';
+import { IWorkshopsFields } from 'types/generated/contentful';
 
 interface WorkshopsProps {
   data: IWorkshopsFields;
