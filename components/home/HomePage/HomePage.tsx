@@ -8,13 +8,18 @@ import {
   Officers,
   Workshops,
 } from 'components/home';
+import { IHomePageFields } from 'types/generated/contentful';
 
-const HomePage = ({ page }) => {
-  console.log(page);
+interface HomePageProps {
+  page: IHomePageFields;
+}
 
+const HomePage = ({ page }: HomePageProps) => {
   if (!page) {
     return <p>Oops</p>;
   }
+
+  // console.log(page);
 
   return (
     <>

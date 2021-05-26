@@ -2,22 +2,35 @@ import Link from 'next/link';
 import React from 'react';
 import { FiInfo } from 'react-icons/fi';
 import { SiDiscord } from 'react-icons/si';
+import { IHeroFields } from 'types/generated/contentful';
 
-const Hero = ({ data }) => {
+interface HeroProps {
+  data: IHeroFields;
+}
+
+const Hero = ({ data }: HeroProps) => {
+  const { heading1, heading2 } = data;
+
   return (
     <header className='bg-right-top bg-no-repeat lg:abstract-bg'>
       <div className='my-container lg:flex'>
         <section className='flex flex-col justify-center py-10 text-center lg:w-1/2 lg:text-left'>
           <h1 className='text-4xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl'>
-            <span className='block'>A community for</span>
+            <span className='block'>
+              {heading1
+                .split(' ')
+                .slice(0, 3)
+                .join(' ')}
+            </span>
             <span className='block text-primary dark:text-primary-light'>
-              computer science
+              {heading1
+                .split(' ')
+                .slice(3, 5)
+                .join(' ')}
             </span>
           </h1>
           <p className='mt-3 text-lg text-gray-500 lg:max-w-xl sm:text-xl md:mt-5 dark:text-gray-300'>
-            Student led organization at the University of North Texas.
-            Discussions, workshops, talks, and events related to programming,
-            computers, and tech.
+            {heading2}
           </p>
           <div className='mt-6 sm:flex sm:justify-center lg:justify-start'>
             <div className='rounded-md shadow'>

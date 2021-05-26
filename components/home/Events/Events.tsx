@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiCode, FiFlag, FiLinkedin } from 'react-icons/fi';
+import { IEventsFields } from 'types/generated/contentful';
 
 const features = [
   {
@@ -22,7 +23,14 @@ const features = [
   },
 ];
 
-const Events = ({ data }) => {
+interface EventsProps {
+  data: IEventsFields;
+}
+
+const Events = ({ data }: EventsProps) => {
+  const { title, description, eventsList } = data;
+  console.log(eventsList);
+
   return (
     <section id='events' className='py-12'>
       <div className='my-container'>
@@ -31,11 +39,10 @@ const Events = ({ data }) => {
             Events
           </h2>
           <p className='mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl'>
-            Get involved with events and competitions
+            {title}
           </p>
           <p className='max-w-4xl mt-4 text-xl text-gray-500 dark:text-gray-300 lg:mx-auto'>
-            Compete in events like hackathons and cyber security capture the
-            flag tournaments. Enhance your skills with LinkedIn Learning.
+            {description}
           </p>
         </header>
         <div className='mt-10'>
