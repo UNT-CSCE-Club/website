@@ -29,8 +29,16 @@ const Officers = ({ data }: OfficersProps) => {
                     {officer.fields.profilePic ? (
                       <img
                         className='object-cover w-16 h-16 rounded-full lg:w-20 lg:h-20'
-                        src={`https:${officer.fields.profilePic['fields'].file.url}`}
-                        alt={officer.fields.profilePic['fields'].title}
+                        src={`https:${officer.fields.profilePic['fields'].file.url}?w=200`}
+                        alt={officer.fields.profilePic['fields'].description}
+                        width={
+                          officer.fields.profilePic['fields'].file.details.image
+                            .width
+                        }
+                        height={
+                          officer.fields.profilePic['fields'].file.details.image
+                            .height
+                        }
                       />
                     ) : (
                       <FiUser className='w-16 h-16 rounded full lg:w-20 lg:h-20' />
