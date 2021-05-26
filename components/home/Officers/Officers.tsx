@@ -28,7 +28,7 @@ const Officers = ({ data }: OfficersProps) => {
                   <div className='flex items-center space-x-4 lg:space-x-6'>
                     {officer.fields.profilePic ? (
                       <img
-                        className='object-cover rounded-full lg:w-20 lg:h-20'
+                        className='object-cover w-16 h-16 rounded-full lg:w-20 lg:h-20'
                         src={`https:${officer.fields.profilePic['fields'].file.url}`}
                         alt={officer.fields.profilePic['fields'].title}
                       />
