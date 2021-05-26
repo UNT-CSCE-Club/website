@@ -23,7 +23,7 @@ const Notifications = ({ open, setOpen, position }: NotificationsProps) => {
         <span className='block mb-2 font-bold'>Notifications</span>
         <ul>
           <li className='text-sm text-gray-600'>
-            Meetings every Thursday at 7:00pm. Come join us!
+            Meetings every other Friday at 6:00pm. Come join us!
           </li>
         </ul>
       </div>

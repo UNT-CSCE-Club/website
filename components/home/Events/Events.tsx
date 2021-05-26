@@ -5,24 +5,24 @@ const features = [
   {
     name: 'Hackathons',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'Students with different technical backgrounds come together, form teams around a problem or idea, and collaboratively code a unique solution from scratch.',
     icon: FiCode,
   },
   {
     name: 'Cyber Security CTF',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'Capture The Flags are a kind of computer security competition. Teams of competitors (or just individuals) are pitted against each other in a test of computer security skill.',
     icon: FiFlag,
   },
   {
     name: 'LinkedIn Learning',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'LinkedIn Learning provides video courses that help you learn business, creative, and technology skills to achieve your personal and professional goals.',
     icon: FiLinkedin,
   },
 ];
 
-const Events = () => {
+const Events = ({ data }) => {
   return (
     <section id='events' className='py-12'>
       <div className='my-container'>
@@ -31,11 +31,11 @@ const Events = () => {
             Events
           </h2>
           <p className='mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl'>
-            Lorem ipsum dolor sit amet consectetur
+            Get involved with events and competitions
           </p>
           <p className='max-w-4xl mt-4 text-xl text-gray-500 dark:text-gray-300 lg:mx-auto'>
-            Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam
-            voluptatum cupiditate veritatis in accusamus quisquam.
+            Compete in events like hackathons and cyber security capture the
+            flag tournaments. Enhance your skills with LinkedIn Learning.
           </p>
         </header>
         <div className='mt-10'>

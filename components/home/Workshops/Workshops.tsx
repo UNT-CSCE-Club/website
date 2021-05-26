@@ -6,15 +6,45 @@ import { CgWebsite } from 'react-icons/cg';
 import { FaRobot } from 'react-icons/fa';
 
 const features = [
-  { name: 'Game Development', icon: BiGame },
-  { name: 'Dogecoin 2.0', icon: LockClosedIcon },
-  { name: 'Crypto Investments', icon: BiBitcoin },
-  { name: 'AI / Machine Learning', icon: FaRobot },
-  { name: 'Data Science', icon: FiBarChart2 },
-  { name: 'Web Development', icon: CgWebsite },
+  {
+    name: 'Game Development',
+    icon: BiGame,
+    description:
+      'Build your own video game from the ground up, using the same language as your coursework (C++).',
+  },
+  {
+    name: 'Dogecoin 2.0',
+    icon: LockClosedIcon,
+    description:
+      'Stay up to date with all of the latest information about Dogecoin. Follow the journey to the moon!',
+  },
+  {
+    name: 'Crypto Investments',
+    icon: BiBitcoin,
+    description:
+      'Explore the basics of cryptocurrencies and strategies for how to get started with investing.',
+  },
+  {
+    name: 'AI / Machine Learning',
+    icon: FaRobot,
+    description:
+      'Dive in to the world of AI and Machine Learning by by training your own model on real world data.',
+  },
+  {
+    name: 'Data Science',
+    icon: FiBarChart2,
+    description:
+      'Use scientific methods and systems to extract knowledge and insights from structured and unstructured data.',
+  },
+  {
+    name: 'Web Development',
+    icon: CgWebsite,
+    description:
+      'Learn the basics of web development by building your own website from scratch, using HTML5 and CSS3.',
+  },
 ];
 
-const Workshops = () => {
+const Workshops = ({ data }) => {
   return (
     <section id='workshops' className='py-12'>
       <div className='my-container'>
@@ -56,8 +86,7 @@ const Workshops = () => {
                       {feature.name}
                     </h3>
                     <p className='mt-5 text-base text-gray-500 dark:text-gray-300'>
-                      Ac tincidunt sapien vehicula erat auctor pellentesque
-                      rhoncus. Et magna sit morbi lobortis.
+                      {feature.description}
                     </p>
                   </div>
                 </div>

@@ -3,7 +3,7 @@ import React from 'react';
 import { FiInfo } from 'react-icons/fi';
 import { SiDiscord } from 'react-icons/si';
 
-const Hero = () => {
+const Hero = ({ data }) => {
   return (
     <header className='bg-right-top bg-no-repeat lg:abstract-bg'>
       <div className='my-container lg:flex'>

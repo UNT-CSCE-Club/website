@@ -1,51 +1,44 @@
 import React from 'react';
+import { FiUser } from 'react-icons/fi';
 
-const people = [
+interface Person {
+  name: string;
+  role: string;
+  image?: string;
+}
+
+const people: Person[] = [
   {
     name: 'Meg M',
     role: 'President',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
   {
     name: 'Kobe E',
     role: 'Vice President',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
   {
     name: 'Oriana B',
     role: 'Secretary',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
   {
     name: 'Mario T',
     role: 'Social Media Manager',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
   {
     name: 'Caden C',
     role: 'Public Relations',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
   {
     name: 'David C',
     role: 'Treasurer / Game Dev',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
   {
     name: 'Zach Scroggins',
     role: 'Web Development',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
 ];
 
-const Officers = () => {
+const Officers = ({ data }) => {
   return (
     <section id='officers'>
       <div className='py-12 my-container lg:py-24'>
@@ -65,11 +58,16 @@ const Officers = () => {
               {people.map(person => (
                 <li key={person.name}>
                   <div className='flex items-center space-x-4 lg:space-x-6'>
-                    <img
-                      className='w-16 h-16 rounded-full lg:w-20 lg:h-20'
-                      src={person.imageUrl}
-                      alt=''
-                    />
+                    {person.image ? (
+                      <img
+                        className='w-16 h-16 rounded-full lg:w-20 lg:h-20'
+                        src={person.image}
+                        alt=''
+                      />
+                    ) : (
+                      <FiUser className='w-16 h-16 rounded full lg:w-20 lg:h-20' />
+                    )}
+
                     <div className='space-y-1 text-lg font-medium leading-6'>
                       <h3 className='dark:text-gray-50'>{person.name}</h3>
                       <p className='text-primary dark:text-primary-light'>

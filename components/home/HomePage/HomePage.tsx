@@ -9,7 +9,13 @@ import {
   Workshops,
 } from 'components/home';
 
-const HomePage = () => {
+const HomePage = ({ page }) => {
+  console.log(page);
+
+  if (!page) {
+    return <p>Oops</p>;
+  }
+
   return (
     <>
       <NextSeo
@@ -17,12 +23,12 @@ const HomePage = () => {
         description='University of North Texas Computer Science Club offical website. Come join the community!'
         canonical='https://untcsce.club/'
       />
-      <Hero />
-      <About />
-      <Events />
-      <Workshops />
-      <Officers />
-      <Contact />
+      <Hero data={page.hero.fields} />
+      <About data={page.about.fields} />
+      <Events data={page.events.fields} />
+      <Workshops data={page.workshops.fields} />
+      <Officers data={page.officers.fields} />
+      <Contact data={page.contact.fields} />
     </>
   );
 };

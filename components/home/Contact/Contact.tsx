@@ -1,7 +1,7 @@
 import React from 'react';
 import { FiSend } from 'react-icons/fi';
 
-const Contact = () => {
+const Contact = ({ data }) => {
   return (
     <section id='contact'>
       <div className='my-container'>
