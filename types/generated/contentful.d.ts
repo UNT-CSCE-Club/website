@@ -84,6 +84,9 @@ export interface IEventFields {
 
   /** Description */
   description: string;
+
+  /** Icon */
+  icon?: string | undefined;
 }
 
 /** Item with event information. */
@@ -270,6 +273,9 @@ export interface IWorkshopFields {
 
   /** Description */
   description: string;
+
+  /** Icon */
+  icon: string;
 }
 
 /** Item with information about each Workshop. */

@@ -9,6 +9,7 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
+  // let response: Entry<IHomePageFields>;
   let response: Entry<IHomePageFields>;
 
   try {

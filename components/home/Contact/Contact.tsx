@@ -1,18 +1,22 @@
 import React from 'react';
 import { FiSend } from 'react-icons/fi';
+import { IContactFields } from 'types/generated/contentful';
 
-const Contact = ({ data }) => {
+interface ContactProps {
+  data: IContactFields;
+}
+
+const Contact = ({ data }: ContactProps) => {
+  const { title, description, contactFormTitle } = data;
+
   return (
     <section id='contact'>
       <div className='my-container'>
         <h2 className='sr-only'>Contact us</h2>
         <div className='grid grid-cols-1 lg:grid-cols-3'>
           <div className='p-4 py-10 -mx-4 overflow-hidden lg:-ml-4 lg:mr-4 dark:text-gray-300'>
-            <h3 className='text-lg font-medium'>Contact information</h3>
-            <p className='max-w-3xl mt-6 text-base'>
-              Want to get in touch? Use the contact form or send us an email,
-              and we will get back to you as soon as possible.
-            </p>
+            <h3 className='text-lg font-medium'>{title}</h3>
+            <p className='max-w-3xl mt-6 text-base'>{description}</p>
             <dl className='mt-8 space-y-6'>
               <dt>
                 <span className='sr-only'>Email</span>
@@ -43,7 +47,7 @@ const Contact = ({ data }) => {
           {/* Contact form */}
           <div className='py-10 lg:col-span-2'>
             <h3 className='text-lg font-medium text-gray-900 dark:text-gray-50'>
-              Send us a message
+              {contactFormTitle}
             </h3>
             <form
               name='contact'
