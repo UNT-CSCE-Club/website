@@ -30,6 +30,34 @@ export default class MyDocument extends Document {
           />
           <meta name='msapplication-TileColor' content='#ffffff' />
           <meta name='theme-color' content='#00853e' />
+          <link
+            rel='preload'
+            href='/fonts/nunito-v16-latin-regular.woff2'
+            crossOrigin='anonymous'
+            as='font'
+            type='font/woff2'
+          />
+          <link
+            rel='preload'
+            href='/fonts/nunito-v16-latin-600.woff2'
+            crossOrigin='anonymous'
+            as='font'
+            type='font/woff2'
+          />
+          <link
+            rel='preload'
+            href='/fonts/nunito-v16-latin-700.woff2'
+            crossOrigin='anonymous'
+            as='font'
+            type='font/woff2'
+          />
+          <link
+            rel='preload'
+            href='/fonts/nunito-v16-latin-800.woff2'
+            crossOrigin='anonymous'
+            as='font'
+            type='font/woff2'
+          />
         </Head>
         <body>
           <Main />
