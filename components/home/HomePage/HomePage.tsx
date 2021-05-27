@@ -22,7 +22,11 @@ const HomePage = ({ page }: HomePageProps) => {
   return (
     <>
       <NextSeo
-        title='UNT Computer Science Club'
+        title={
+          process.env.NODE_ENV === 'development'
+            ? '(Dev) UNT Computer Science Club'
+            : 'UNT Computer Science Club'
+        }
         description='University of North Texas Computer Science Club offical website. Come join the community!'
         canonical='https://untcsce.club/'
       />
