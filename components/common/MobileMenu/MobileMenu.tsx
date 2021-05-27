@@ -11,6 +11,7 @@ import {
   FiMessageSquare,
   FiUsers,
 } from 'react-icons/fi';
+import { Logo } from 'components/ui';
 
 interface MobileMenuProps {
   show: boolean;
@@ -43,13 +44,7 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
                 onClick={() => toggle(false)}
                 className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700'
               >
-                <img
-                  className='w-auto h-9'
-                  src='/vectors/logo.svg'
-                  alt='Image of logo'
-                  width='200'
-                  height='200'
-                />
+                <Logo className='w-9 h-9' />
                 <div className='ml-4 text-xl font-bold text-gray-900 dark:text-gray-50'>
                   UNT CSCE Club
                 </div>

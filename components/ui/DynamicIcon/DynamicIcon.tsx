@@ -1,5 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
+import { DogeSvg } from 'components/ui';
 
 interface Props extends React.SVGProps<SVGSVGElement> {
   name: string;
@@ -10,17 +11,7 @@ const DynamicIcon = ({ name, ...rest }: Props) => {
 
   const iconSet = name.slice(0, 2);
 
-  if (name === 'doge') {
-    return (
-      <img
-        src='/vectors/doge.svg'
-        alt='Doge icon'
-        className='w-6 h-6'
-        width='50'
-        height='50'
-      />
-    );
-  }
+  if (name === 'doge') return <DogeSvg className='w-6 h-6' />;
 
   switch (iconSet) {
     case 'Fi':
