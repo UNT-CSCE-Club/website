@@ -24,6 +24,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   return {
     props: { page: response?.fields ?? null },
+    revalidate: 1,
   };
 };
 
