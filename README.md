@@ -6,7 +6,7 @@ The official University of North Texas Computer Science Club website.
 
 ## Tech Stack
 
-- [TypeScrip](https://www.typescriptlang.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [Next.js](https://nextjs.org/)
 - [React](https://reactjs.org/)
 - [Node.js](https://nodejs.org/)
