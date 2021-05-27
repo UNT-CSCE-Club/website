@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { FiInfo } from 'react-icons/fi';
 import { SiDiscord } from 'react-icons/si';
 import { IHeroFields } from 'types/generated/contentful';
+import { ClubMembersSvg } from 'components/ui';
 
 interface HeroProps {
   data: IHeroFields;
@@ -113,12 +114,13 @@ const Hero = ({ data }: HeroProps) => {
           </span>
         </section>
         <div className='lg:w-1/2'>
-          <img
+          {/* <img
             src='/vectors/club-members.svg'
             alt='club members learning'
             width='1412'
             height='984'
-          />
+          /> */}
+          <ClubMembersSvg />
         </div>
       </div>
     </header>
