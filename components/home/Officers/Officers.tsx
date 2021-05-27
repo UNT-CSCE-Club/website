@@ -8,7 +8,7 @@ interface OfficersProps {
 
 const Officers = ({ data }: OfficersProps) => {
   const { title, description, officers } = data;
-
+  console.log(officers);
   return (
     <section id='officers'>
       <div className='py-12 my-container lg:py-24'>
@@ -30,7 +30,7 @@ const Officers = ({ data }: OfficersProps) => {
                       <img
                         className='object-cover w-16 h-16 rounded-full lg:w-20 lg:h-20'
                         src={`https:${officer.fields.profilePic['fields'].file.url}?w=200`}
-                        alt={officer.fields.profilePic['fields'].description}
+                        alt={officer.fields.profilePic['fields'].title}
                         width={
                           officer.fields.profilePic['fields'].file.details.image
                             .width
@@ -43,7 +43,6 @@ const Officers = ({ data }: OfficersProps) => {
                     ) : (
                       <FiUser className='w-16 h-16 rounded full lg:w-20 lg:h-20' />
                     )}
-
                     <div className='space-y-1 text-lg font-medium leading-6'>
                       <h3 className='dark:text-gray-50'>
                         {officer.fields.name}

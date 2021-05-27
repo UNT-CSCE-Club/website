@@ -113,7 +113,12 @@ const Hero = ({ data }: HeroProps) => {
           </span>
         </section>
         <div className='lg:w-1/2'>
-          <img src='/vectors/club-members.svg' alt='club members learning' />
+          <img
+            src='/vectors/club-members.svg'
+            alt='club members learning'
+            width='1412'
+            height='984'
+          />
         </div>
       </div>
     </header>

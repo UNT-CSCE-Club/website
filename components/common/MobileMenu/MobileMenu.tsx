@@ -47,6 +47,8 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
                   className='w-auto h-9'
                   src='/vectors/logo.svg'
                   alt='Image of logo'
+                  width='200'
+                  height='200'
                 />
                 <div className='ml-4 text-xl font-bold text-gray-900 dark:text-gray-50'>
                   UNT CSCE Club

@@ -80,6 +80,8 @@ const Nav = ({ open, setOpen }: NavProps) => {
                   className='block w-auto h-8 mr-2 sm:mr-0 lg:mr-2'
                   src='/vectors/logo.svg'
                   alt='Image of logo'
+                  width='200'
+                  height='200'
                 />
                 {/* <DiScriptcs className='block w-12 h-12 text-primary sm:ml-0' /> */}
                 <span className='text-2xl font-bold sm:hidden text-primary lg:block dark:text-primary-light'>

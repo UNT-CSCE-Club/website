@@ -11,7 +11,15 @@ const DynamicIcon = ({ name, ...rest }: Props) => {
   const iconSet = name.slice(0, 2);
 
   if (name === 'doge') {
-    return <img src='/vectors/doge.svg' alt='Doge icon' className='w-6 h-6' />;
+    return (
+      <img
+        src='/vectors/doge.svg'
+        alt='Doge icon'
+        className='w-6 h-6'
+        width='50'
+        height='50'
+      />
+    );
   }
 
   switch (iconSet) {
