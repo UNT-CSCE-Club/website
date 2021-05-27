@@ -67,7 +67,7 @@ export default class MyDocument extends Document {
             </React.Fragment>
           ))}
         </Head>
-        <body>
+        <body className='h-full !m-0'>
           <Main />
           <NextScript />
         </body>
