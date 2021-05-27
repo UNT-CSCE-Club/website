@@ -49,7 +49,7 @@ const Officers = ({ data }: OfficersProps) => {
                         />
                       </picture>
                     ) : (
-                      <FiUser className='w-16 h-16 rounded full lg:w-20 lg:h-20' />
+                      <FiUser className='w-16 h-16 rounded stroke-1 full lg:w-20 lg:h-20 dark:text-gray-50' />
                     )}
                     <div className='space-y-1 text-lg font-medium leading-6'>
                       <h3 className='dark:text-gray-50'>

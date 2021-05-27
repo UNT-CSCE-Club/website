@@ -24,20 +24,18 @@ const Workshops = ({ data }: WorkshopsProps) => {
           </p>
         </header>
         <div className='mx-auto mt-10 text-center'>
-          <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3'>
+          <ul className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3'>
             {workshops.map(workshop => (
-              <div key={workshop.sys.id} className='pt-6'>
-                <div className='flow-root px-6 pb-8 bg-white rounded-lg shadow-lg dark:bg-gray-900 dark:shadow-2xl'>
+              <li key={workshop.sys.id} className='h-full pt-6'>
+                <div className='flow-root h-full px-6 pb-8 bg-white rounded-lg shadow-lg dark:bg-gray-900 dark:shadow-2xl'>
                   <div className='-mt-6'>
-                    <div>
-                      <span className='inline-flex items-center justify-center p-3 rounded-md shadow-lg bg-primary dark:shadow-2xl'>
-                        <DynamicIcon
-                          name={workshop.fields.icon as string}
-                          className='w-6 h-6 text-white'
-                          aria-hidden='true'
-                        />
-                      </span>
-                    </div>
+                    <span className='inline-flex items-center justify-center p-3 rounded-md shadow-lg bg-primary dark:shadow-2xl'>
+                      <DynamicIcon
+                        name={workshop.fields.icon as string}
+                        className='w-6 h-6 text-white'
+                        aria-hidden='true'
+                      />
+                    </span>
                     <h3 className='mt-8 text-lg font-medium tracking-tight text-gray-900 dark:text-gray-50'>
                       {workshop.fields.title}
                     </h3>
@@ -46,9 +44,9 @@ const Workshops = ({ data }: WorkshopsProps) => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </section>
