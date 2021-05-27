@@ -64,14 +64,21 @@ const About = ({ data }: AboutProps) => {
           <div className='mt-12 sm:mt-16 lg:mt-0 lg:col-start-1'>
             <div className='pr-4 -ml-48 sm:pr-6 md:-ml-16 lg:px-0 lg:m-0 lg:relative lg:h-full'>
               <a href={`https:${section1Image.fields.file.url}`}>
-                <img
-                  className='w-full shadow-xl rounded-xl cursor-zoom-in ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none'
-                  src={`https:${section1Image.fields.file.url}?w=1200`}
-                  alt={section1Image.fields.description}
-                  width={section1Image.fields.file.details.image.width}
-                  height={section1Image.fields.file.details.image.height}
-                  loading='lazy'
-                />
+                <picture>
+                  <source
+                    media='(max-width: 12000px)'
+                    srcSet={`https:${section1Image.fields.file.url}?w=1200&fm=webp`}
+                    type='image/webp'
+                  />
+                  <img
+                    className='w-full shadow-xl rounded-xl cursor-zoom-in ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none'
+                    src={`https:${section1Image.fields.file.url}?w=1200`}
+                    alt={section1Image.fields.description}
+                    width={section1Image.fields.file.details.image.width}
+                    height={section1Image.fields.file.details.image.height}
+                    loading='lazy'
+                  />
+                </picture>
               </a>
             </div>
           </div>
@@ -110,14 +117,21 @@ const About = ({ data }: AboutProps) => {
           <div className='mt-12 sm:mt-16 lg:mt-0'>
             <div className='pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full'>
               <a href={`https:${section2image.fields.file.url}`}>
-                <img
-                  className='w-full shadow-xl cursor-zoom-in rounded-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none'
-                  src={`https:${section2image.fields.file.url}?w=1200`}
-                  alt={section2image.fields.description}
-                  width={section2image.fields.file.details.image.width}
-                  height={section2image.fields.file.details.image.height}
-                  loading='lazy'
-                />
+                <picture>
+                  <source
+                    media='(max-width: 12000px)'
+                    srcSet={`https:${section2image.fields.file.url}?w=1200&fm=webp`}
+                    type='image/webp'
+                  />
+                  <img
+                    className='w-full shadow-xl cursor-zoom-in rounded-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none'
+                    src={`https:${section2image.fields.file.url}?w=1200`}
+                    alt={section2image.fields.description}
+                    width={section2image.fields.file.details.image.width}
+                    height={section2image.fields.file.details.image.height}
+                    loading='lazy'
+                  />
+                </picture>
               </a>
             </div>
           </div>

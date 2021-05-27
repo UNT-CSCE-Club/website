@@ -27,20 +27,27 @@ const Officers = ({ data }: OfficersProps) => {
                 <li key={officer.sys.id}>
                   <div className='flex items-center space-x-4 lg:space-x-6'>
                     {officer.fields.profilePic ? (
-                      <img
-                        className='object-cover w-16 h-16 rounded-full lg:w-20 lg:h-20'
-                        src={`https:${officer.fields.profilePic['fields'].file.url}?w=200`}
-                        alt={officer.fields.profilePic['fields'].title}
-                        loading='lazy'
-                        width={
-                          officer.fields.profilePic['fields'].file.details.image
-                            .width
-                        }
-                        height={
-                          officer.fields.profilePic['fields'].file.details.image
-                            .height
-                        }
-                      />
+                      <picture>
+                        <source
+                          media='(max-width: 12000px)'
+                          srcSet={`https:${officer.fields.profilePic['fields'].file.url}?w=200&fm=webp`}
+                          type='image/webp'
+                        />
+                        <img
+                          className='object-cover w-16 h-16 rounded-full lg:w-20 lg:h-20'
+                          src={`https:${officer.fields.profilePic['fields'].file.url}?w=200`}
+                          alt={officer.fields.profilePic['fields'].title}
+                          loading='lazy'
+                          width={
+                            officer.fields.profilePic['fields'].file.details
+                              .image.width
+                          }
+                          height={
+                            officer.fields.profilePic['fields'].file.details
+                              .image.height
+                          }
+                        />
+                      </picture>
                     ) : (
                       <FiUser className='w-16 h-16 rounded full lg:w-20 lg:h-20' />
                     )}
