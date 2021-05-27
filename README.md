@@ -2,7 +2,7 @@
 
 The official University of North Texas Computer Science Club website.
 
-[Roadmap]('https://www.notion.so/2b0096ed0833491cb5707b48f1969746?v=b11ab5f5b6b14343baf5df3930e93de8') 🛣 ️
+[Roadmap](https://www.notion.so/2b0096ed0833491cb5707b48f1969746?v=b11ab5f5b6b14343baf5df3930e93de8) 🛣 ️
 
 ## Tech Stack
 
@@ -14,7 +14,7 @@ The official University of North Texas Computer Science Club website.
 
 ### CMS
 
-We use [Contentful]('https://www.contentful.com') as our website's [Headless Content Management System]('https://en.wikipedia.org/wiki/Headless_content_management_system').
+We use [Contentful](https://www.contentful.com) as our website's [Headless Content Management System](https://en.wikipedia.org/wiki/Headless_content_management_system).
 
 A headless CMS works by:
 
@@ -35,7 +35,7 @@ If you're interested in creating and managing content for the site, get in touch
 
 #### Contentful Documentation
 
-- [Resources]('https://www.contentful.com/resources/')
-- [Learning Center]('https://training.contentful.com/student/catalog')
-- [Learning Center Resources]('https://training.contentful.com/student/page/751231-resources')
-- [Content Creator Guides / Courses]('https://training.contentful.com/student/activity/769625-contentful-essentials#content-authors-2')
+- [Resources](https://www.contentful.com/resources/)
+- [Learning Center](https://training.contentful.com/student/catalog)
+- [Learning Center Resources](https://training.contentful.com/student/page/751231-resources)
+- [Content Creator Guides / Courses](https://training.contentful.com/student/activity/769625-contentful-essentials#content-authors-2)
