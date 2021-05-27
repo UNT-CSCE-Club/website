@@ -55,7 +55,7 @@ export default class MyDocument extends Document {
                 href={`/fonts/${font}.woff`}
                 crossOrigin='anonymous'
                 as='font'
-                type='font/woff2'
+                type='font/woff'
               />
               <link
                 rel='preload'
