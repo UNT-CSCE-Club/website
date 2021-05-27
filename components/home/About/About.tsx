@@ -19,7 +19,7 @@ const About = ({ data }: AboutProps) => {
   } = data;
 
   return (
-    <section id='about' className='relative pb-16 overflow-hidden pt-28'>
+    <section id='about' className='pb-16 overflow-hidden pt-28'>
       <header className='mb-16 lg:text-center my-container'>
         <h2 className='text-base font-semibold tracking-wide uppercase text-primary dark:text-primary-light'>
           About
@@ -31,7 +31,7 @@ const About = ({ data }: AboutProps) => {
           {description}
         </p>
       </header>
-      <section className=''>
+      <section>
         <div className='lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24'>
           <div className='max-w-xl px-4 mx-auto sm:px-6 lg:py-32 lg:max-w-none lg:mx-0 lg:px-0 lg:col-start-2'>
             <div>
