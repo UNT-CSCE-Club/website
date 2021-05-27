@@ -72,6 +72,7 @@ const About = ({ data }: AboutProps) => {
                   alt={section1Image.fields.description}
                   width={section1Image.fields.file.details.image.width}
                   height={section1Image.fields.file.details.image.height}
+                  loading='lazy'
                 />
               </a>
             </div>
@@ -117,6 +118,7 @@ const About = ({ data }: AboutProps) => {
                   alt={section2image.fields.description}
                   width={section2image.fields.file.details.image.width}
                   height={section2image.fields.file.details.image.height}
+                  loading='lazy'
                 />
               </a>
             </div>

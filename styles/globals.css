@@ -34,6 +34,7 @@
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 200;
+    font-display: swap;
     src: url('/fonts/nunito-v16-latin-200.eot'); /* IE9 Compat Modes */
     src: local(''),
       url('/fonts/nunito-v16-latin-200.eot?#iefix') format('embedded-opentype'),
@@ -50,6 +51,7 @@
     font-family: 'Nunito';
     font-style: italic;
     font-weight: 200;
+    font-display: swap;
     src: url('/fonts/nunito-v16-latin-200italic.eot'); /* IE9 Compat Modes */
     src: local(''),
       url('/fonts/nunito-v16-latin-200italic.eot?#iefix')
@@ -68,6 +70,7 @@
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 300;
+    font-display: swap;
     src: url('/fonts/nunito-v16-latin-300.eot'); /* IE9 Compat Modes */
     src: local(''),
       url('/fonts/nunito-v16-latin-300.eot?#iefix') format('embedded-opentype'),
@@ -84,6 +87,7 @@
     font-family: 'Nunito';
     font-style: italic;
     font-weight: 300;
+    font-display: swap;
     src: url('/fonts/nunito-v16-latin-300italic.eot'); /* IE9 Compat Modes */
     src: local(''),
       url('/fonts/nunito-v16-latin-300italic.eot?#iefix')
@@ -102,6 +106,7 @@
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 400;
+    font-display: swap;
     src: url('/fonts/nunito-v16-latin-regular.eot'); /* IE9 Compat Modes */
     src: local(''),
       url('/fonts/nunito-v16-latin-regular.eot?#iefix')
@@ -119,6 +124,7 @@
     font-family: 'Nunito';
     font-style: italic;
     font-weight: 400;
+    font-display: swap;
     src: url('/fonts/nunito-v16-latin-italic.eot'); /* IE9 Compat Modes */
     src: local(''),
       url('/fonts/nunito-v16-latin-italic.eot?#iefix')
@@ -136,6 +142,7 @@
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 600;
+    font-display: swap;
     src: url('/fonts/nunito-v16-latin-600.eot'); /* IE9 Compat Modes */
     src: local(''),
       url('/fonts/nunito-v16-latin-600.eot?#iefix') format('embedded-opentype'),
@@ -152,6 +159,7 @@
     font-family: 'Nunito';
     font-style: italic;
     font-weight: 600;
+    font-display: swap;
     src: url('/fonts/nunito-v16-latin-600italic.eot'); /* IE9 Compat Modes */
     src: local(''),
       url('/fonts/nunito-v16-latin-600italic.eot?#iefix')
@@ -170,6 +178,7 @@
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 700;
+    font-display: swap;
     src: url('/fonts/nunito-v16-latin-700.eot'); /* IE9 Compat Modes */
     src: local(''),
       url('/fonts/nunito-v16-latin-700.eot?#iefix') format('embedded-opentype'),
@@ -186,6 +195,7 @@
     font-family: 'Nunito';
     font-style: italic;
     font-weight: 700;
+    font-display: swap;
     src: url('/fonts/nunito-v16-latin-700italic.eot'); /* IE9 Compat Modes */
     src: local(''),
       url('/fonts/nunito-v16-latin-700italic.eot?#iefix')
@@ -204,6 +214,7 @@
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 800;
+    font-display: swap;
     src: url('/fonts/nunito-v16-latin-800.eot'); /* IE9 Compat Modes */
     src: local(''),
       url('/fonts/nunito-v16-latin-800.eot?#iefix') format('embedded-opentype'),
@@ -220,6 +231,7 @@
     font-family: 'Nunito';
     font-style: italic;
     font-weight: 800;
+    font-display: swap;
     src: url('/fonts/nunito-v16-latin-800italic.eot'); /* IE9 Compat Modes */
     src: local(''),
       url('/fonts/nunito-v16-latin-800italic.eot?#iefix')
@@ -238,6 +250,7 @@
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 900;
+    font-display: swap;
     src: url('/fonts/nunito-v16-latin-900.eot'); /* IE9 Compat Modes */
     src: local(''),
       url('/fonts/nunito-v16-latin-900.eot?#iefix') format('embedded-opentype'),
@@ -254,6 +267,7 @@
     font-family: 'Nunito';
     font-style: italic;
     font-weight: 900;
+    font-display: swap;
     src: url('/fonts/nunito-v16-latin-900italic.eot'); /* IE9 Compat Modes */
     src: local(''),
       url('/fonts/nunito-v16-latin-900italic.eot?#iefix')

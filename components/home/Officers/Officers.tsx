@@ -31,6 +31,7 @@ const Officers = ({ data }: OfficersProps) => {
                         className='object-cover w-16 h-16 rounded-full lg:w-20 lg:h-20'
                         src={`https:${officer.fields.profilePic['fields'].file.url}?w=200`}
                         alt={officer.fields.profilePic['fields'].title}
+                        loading='lazy'
                         width={
                           officer.fields.profilePic['fields'].file.details.image
                             .width
