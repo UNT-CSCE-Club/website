@@ -1,21 +1,30 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import React from 'react';
 
+// const fonts = [
+//   'nunito-v16-latin-regular',
+//   'nunito-v16-latin-italic',
+//   'nunito-v16-latin-200',
+//   'nunito-v16-latin-200italic',
+//   'nunito-v16-latin-300',
+//   'nunito-v16-latin-300italic',
+//   'nunito-v16-latin-600',
+//   'nunito-v16-latin-600italic',
+//   'nunito-v16-latin-700',
+//   'nunito-v16-latin-700italic',
+//   'nunito-v16-latin-800',
+//   'nunito-v16-latin-800italic',
+//   'nunito-v16-latin-900',
+//   'nunito-v16-latin-900italic',
+// ];
 const fonts = [
   'nunito-v16-latin-regular',
-  'nunito-v16-latin-italic',
   'nunito-v16-latin-200',
-  'nunito-v16-latin-200italic',
   'nunito-v16-latin-300',
-  'nunito-v16-latin-300italic',
   'nunito-v16-latin-600',
-  'nunito-v16-latin-600italic',
   'nunito-v16-latin-700',
-  'nunito-v16-latin-700italic',
   'nunito-v16-latin-800',
-  'nunito-v16-latin-800italic',
   'nunito-v16-latin-900',
-  'nunito-v16-latin-900italic',
 ];
 
 export default class MyDocument extends Document {
