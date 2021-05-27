@@ -8,7 +8,7 @@ interface OfficersProps {
 
 const Officers = ({ data }: OfficersProps) => {
   const { title, description, officers } = data;
-  console.log(officers);
+
   return (
     <section id='officers'>
       <div className='py-12 my-container lg:py-24'>

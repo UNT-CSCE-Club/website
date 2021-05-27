@@ -18,8 +18,6 @@ const About = ({ data }: AboutProps) => {
     section2image,
   } = data;
 
-  console.log(data);
-
   return (
     <section id='about' className='relative pb-16 overflow-hidden pt-28'>
       <header className='mb-16 lg:text-center my-container'>

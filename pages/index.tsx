@@ -20,8 +20,6 @@ export const getStaticProps: GetStaticProps = async ({
     console.log(error.message);
   }
 
-  // console.log(response);
-
   return {
     props: { page: response?.fields ?? null },
     revalidate: 1,
