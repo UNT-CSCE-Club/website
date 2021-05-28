@@ -8,10 +8,10 @@ import {
   Officers,
   Workshops,
 } from 'components/home';
-import { IHomePageFields } from 'types/generated/contentful';
+import { HomePageFields } from 'types';
 
 interface HomePageProps {
-  page: IHomePageFields;
+  page: HomePageFields;
 }
 
 const HomePage = ({ page }: HomePageProps) => {

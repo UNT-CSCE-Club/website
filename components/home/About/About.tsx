@@ -1,9 +1,9 @@
 import React from 'react';
 import { ChatAlt2Icon, UserGroupIcon } from '@heroicons/react/outline';
-import { IAboutFields } from 'types/generated/contentful';
+import { AboutFields } from 'types';
 
 interface AboutProps {
-  data: IAboutFields;
+  data: AboutFields;
 }
 
 const About = ({ data }: AboutProps) => {

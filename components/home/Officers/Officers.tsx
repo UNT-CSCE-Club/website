@@ -1,9 +1,9 @@
 import React from 'react';
 import { FiUser } from 'react-icons/fi';
-import { IOfficersFields } from 'types/generated/contentful';
+import { OfficersFields } from 'types';
 
 interface OfficersProps {
-  data: IOfficersFields;
+  data: OfficersFields;
 }
 
 const Officers = ({ data }: OfficersProps) => {
@@ -30,21 +30,21 @@ const Officers = ({ data }: OfficersProps) => {
                       <picture>
                         <source
                           media='(max-width: 12000px)'
-                          srcSet={`https:${officer.fields.profilePic['fields'].file.url}?w=200&fm=webp`}
+                          srcSet={`https:${officer.fields.profilePic.fields.file.url}?w=200&fm=webp`}
                           type='image/webp'
                         />
                         <img
                           className='object-cover w-16 h-16 rounded-full lg:w-20 lg:h-20'
-                          src={`https:${officer.fields.profilePic['fields'].file.url}?w=200`}
-                          alt={officer.fields.profilePic['fields'].title}
+                          src={`https:${officer.fields.profilePic.fields.file.url}?w=200`}
+                          alt={officer.fields.profilePic.fields.title}
                           loading='lazy'
                           width={
-                            officer.fields.profilePic['fields'].file.details
-                              .image.width
+                            officer.fields.profilePic.fields.file.details.image
+                              .width
                           }
                           height={
-                            officer.fields.profilePic['fields'].file.details
-                              .image.height
+                            officer.fields.profilePic.fields.file.details.image
+                              .height
                           }
                         />
                       </picture>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { DynamicIcon } from 'components/ui';
-import { IEventsFields } from 'types/generated/contentful';
+import { EventsFields } from 'types';
 
 interface EventsProps {
-  data: IEventsFields;
+  data: EventsFields;
 }
 
 const Events = ({ data }: EventsProps) => {

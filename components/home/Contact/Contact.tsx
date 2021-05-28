@@ -1,9 +1,9 @@
 import React from 'react';
 import { FiSend } from 'react-icons/fi';
-import { IContactFields } from 'types/generated/contentful';
+import { ContactFields } from 'types';
 
 interface ContactProps {
-  data: IContactFields;
+  data: ContactFields;
 }
 
 const Contact = ({ data }: ContactProps) => {

@@ -2,11 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import { FiInfo } from 'react-icons/fi';
 import { SiDiscord } from 'react-icons/si';
-import { IHeroFields } from 'types/generated/contentful';
+import { HeroFields } from 'types';
 import { ClubMembersSvg } from 'components/ui';
 
 interface HeroProps {
-  data: IHeroFields;
+  data: HeroFields;
 }
 
 const Hero = ({ data }: HeroProps) => {
@@ -113,15 +113,7 @@ const Hero = ({ data }: HeroProps) => {
             </a>
           </span>
         </section>
-        {/* <div className='lg:w-1/2'> */}
-        {/* <img
-            src='/vectors/club-members.svg'
-            alt='club members learning'
-            width='1412'
-            height='984'
-          /> */}
         <ClubMembersSvg className='w-full h-auto lg:w-1/2' />
-        {/* </div> */}
       </div>
     </header>
   );
