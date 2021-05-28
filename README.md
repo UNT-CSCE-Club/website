@@ -23,7 +23,7 @@ A headless CMS works by:
 
 ## Contributing
 
-You must be a club member or an officer to contribute to the website.
+You must be an active club member or an officer to contribute to the website.
 
 ### Developers
 
