@@ -25,7 +25,7 @@ export const getStaticProps: GetStaticProps = async ({
   return {
     props: { page: response?.fields ?? null },
     // revalidate: process.env.NODE_ENV === 'development' ? false : 1,
-    revalidate: 1,
+    revalidate: 60,
   };
 };
 
