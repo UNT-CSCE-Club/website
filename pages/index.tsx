@@ -20,9 +20,11 @@ export const getStaticProps: GetStaticProps = async ({
   }
 
   // console.log(JSON.stringify(response.fields));
+  // console.log('ran');
 
   return {
     props: { page: response?.fields ?? null },
+    // revalidate: process.env.NODE_ENV === 'development' ? false : 1,
     revalidate: 1,
   };
 };
