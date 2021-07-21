@@ -14,12 +14,14 @@
     "generate": "graphql-codegen --config codegen.yml --require dotenv/config"
   },
   "dependencies": {
+    "@chec/commerce.js": "^2.7.2",
     "@headlessui/react": "^0.3.1",
     "@heroicons/react": "^1.0.1",
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@tailwindcss/forms": "^0.2.1",
     "@tailwindcss/line-clamp": "^0.2.0",
     "@tailwindcss/typography": "^0.4.0",
+    "@types/chec__commerce.js": "^2.7.2",
     "contentful": "^8.3.6",
     "next": "latest",
     "next-seo": "^4.23.0",
