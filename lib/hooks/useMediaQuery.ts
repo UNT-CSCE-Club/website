@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import isClient from 'lib/isClient';
-import isAPISupported from 'lib/isApiSupported';
+import isClient from 'lib/utils/isClient';
+import isAPISupported from 'lib/utils/isApiSupported';
 
 /**
  * Accepts a media query string then uses the

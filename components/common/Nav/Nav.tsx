@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import useNav from './useNav';
-import { classNames } from 'lib/classNames';
+import { classNames } from 'lib/utils/classNames';
 import { MobileMenu } from 'components/common';
 import { DiscordMenu, Logo, Notifications } from 'components/ui';
 import { SiDiscord } from 'react-icons/si';

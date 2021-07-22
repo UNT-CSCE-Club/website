@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Transition } from '@headlessui/react';
 import useMobileMenu from './useMobileMenu';
-import { classNames } from 'lib/classNames';
+import { classNames } from 'lib/utils/classNames';
 import { SiDiscord } from 'react-icons/si';
 import {
   FiCalendar,

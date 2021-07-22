@@ -1,31 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import React from 'react';
-
-// const fonts = [
-//   'nunito-v16-latin-regular',
-//   'nunito-v16-latin-italic',
-//   'nunito-v16-latin-200',
-//   'nunito-v16-latin-200italic',
-//   'nunito-v16-latin-300',
-//   'nunito-v16-latin-300italic',
-//   'nunito-v16-latin-600',
-//   'nunito-v16-latin-600italic',
-//   'nunito-v16-latin-700',
-//   'nunito-v16-latin-700italic',
-//   'nunito-v16-latin-800',
-//   'nunito-v16-latin-800italic',
-//   'nunito-v16-latin-900',
-//   'nunito-v16-latin-900italic',
-// ];
-const fonts = [
-  'nunito-v16-latin-regular',
-  'nunito-v16-latin-200',
-  'nunito-v16-latin-300',
-  'nunito-v16-latin-600',
-  'nunito-v16-latin-700',
-  'nunito-v16-latin-800',
-  'nunito-v16-latin-900',
-];
+import { PreloadFonts } from 'lib/fonts';
 
 export default class MyDocument extends Document {
   render() {
@@ -57,24 +32,7 @@ export default class MyDocument extends Document {
           />
           <meta name='msapplication-TileColor' content='#ffffff' />
           <meta name='theme-color' content='#00853e' />
-          {fonts.map(font => (
-            <React.Fragment key={font}>
-              <link
-                rel='preload'
-                href={`/fonts/${font}.woff`}
-                crossOrigin='anonymous'
-                as='font'
-                type='font/woff'
-              />
-              <link
-                rel='preload'
-                href={`/fonts/${font}.woff2`}
-                crossOrigin='anonymous'
-                as='font'
-                type='font/woff2'
-              />
-            </React.Fragment>
-          ))}
+          <PreloadFonts />
         </Head>
         <body className='h-full !m-0 font-sans'>
           <Main />
