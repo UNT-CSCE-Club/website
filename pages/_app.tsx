@@ -11,6 +11,8 @@ import { Layout } from 'components/common';
 import { Elements } from '@stripe/react-stripe-js';
 import getStripe from 'lib/stripe/get-stripejs';
 import { stripeFontList } from 'lib/fonts';
+import { CartProvider } from 'context/cart';
+import { CheckoutProvider } from 'context/checkout';
 
 const stripePromise = getStripe();
 
@@ -24,9 +26,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           fonts: stripeFontList,
         }}
       >
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <CartProvider>
+          <CheckoutProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </CheckoutProvider>
+        </CartProvider>
       </Elements>
     </>
   );

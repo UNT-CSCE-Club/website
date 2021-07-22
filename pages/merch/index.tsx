@@ -6,6 +6,8 @@ import { CategoryList } from '@/merch/categories';
 import { Category } from '@chec/commerce.js/types/category';
 import { Product } from '@chec/commerce.js/types/product';
 import { Merchant } from '@chec/commerce.js/types/merchant';
+import { Checkout } from '@/merch/checkout';
+import { useCartState } from 'context/cart';
 
 interface MerchPageProps {
   merchant: Merchant;
@@ -15,6 +17,7 @@ interface MerchPageProps {
 
 const MerchPage = ({ merchant, categories, products }: MerchPageProps) => {
   console.log({ merchant, categories, products });
+  const { id } = useCartState();
   return (
     <>
       <header className='mb-6'>
@@ -36,6 +39,7 @@ const MerchPage = ({ merchant, categories, products }: MerchPageProps) => {
         </h3>
         <ProductList products={products} />
       </section>
+      <Checkout cartId={id} />
     </>
   );
 };
