@@ -62,14 +62,25 @@ function AddressFields({ prefix = '', countries = {}, subdivisions = {} }) {
           />
         </div>
         <div className='md:w-1/3'>
-          <FormSelect
-            label='County / State'
-            name={`${prefix}.region`}
-            options={formattedSubdivisions}
-            placeholder='Select region'
-            required
-            disabled={formattedSubdivisions.length === 0}
-          />
+          {prefix === 'shipping' ? (
+            <FormSelect
+              label='County / State'
+              name={`${prefix}.county_state`}
+              options={formattedSubdivisions}
+              placeholder='Select region'
+              required
+              disabled={formattedSubdivisions.length === 0}
+            />
+          ) : (
+            <FormSelect
+              label='County / State'
+              name={`${prefix}.region`}
+              options={formattedSubdivisions}
+              placeholder='Select region'
+              required
+              disabled={formattedSubdivisions.length === 0}
+            />
+          )}
         </div>
         <div className='md:w-1/3'>
           <FormInput

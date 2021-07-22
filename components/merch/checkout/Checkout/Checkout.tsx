@@ -161,8 +161,21 @@ function Checkout({ cartId }) {
       </div>
     );
 
+  const steps = ['extrafields', 'shipping', 'billing', 'success'];
+
   return (
     <FormProvider {...methods}>
+      <div>
+        {steps.map(step => (
+          <button
+            type='button'
+            onClick={() => setCurrentStep(step)}
+            className='mx-2'
+          >
+            {step}
+          </button>
+        ))}
+      </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className='flex flex-col justify-between h-full pt-6 md:pt-12'

@@ -39,16 +39,15 @@ function FormSelect({
             {placeholder || `Select a ${label}`}
           </option>
 
+          <option value='US'>Plain US</option>
+          <option value='TX'>Plain TX</option>
+
           {options.map(({ value, label }) => (
             <option key={value} value={value}>
               {label || value}
             </option>
           ))}
         </select>
-
-        <div className='absolute inset-y-0 right-0 flex items-center px-2 text-black pointer-events-none'>
-          ^
-        </div>
       </div>
 
       <FormError name={name} />
