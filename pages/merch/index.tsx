@@ -14,6 +14,7 @@ interface MerchPageProps {
 }
 
 const MerchPage = ({ merchant, categories, products }: MerchPageProps) => {
+  console.log({ merchant, categories, products });
   return (
     <>
       <header className='mb-6'>
