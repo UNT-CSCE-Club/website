@@ -41,6 +41,21 @@ const useNav: NavHook = () => {
       case '/#contact':
         setCurrentIndex(5);
         break;
+      case '/merch':
+        setCurrentIndex(6);
+        break;
+      case '/merch/products':
+        setCurrentIndex(7);
+        break;
+      case '/merch/categories':
+        setCurrentIndex(8);
+        break;
+      case '/merch/categories/accessories':
+        setCurrentIndex(9);
+        break;
+      case '/merch/categories/apparel':
+        setCurrentIndex(10);
+        break;
       default:
         break;
     }
