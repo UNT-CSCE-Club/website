@@ -27,25 +27,6 @@ const fonts = [
   { name: 'nunito-v16-latin-900', weight: '900' },
 ];
 
-export const genStripeFonts = () => {
-  const woffs = fonts.map(font => ({
-    family: 'Nunito',
-    src: `url(/fonts/${font.name}.woff)`,
-    weight: font.weight,
-    display: 'swap',
-  }));
-  const woff2s = fonts.map(font => ({
-    family: 'Nunito',
-    src: `url(/fonts/${font.name}.woff2)`,
-    weight: font.weight,
-    display: 'swap',
-  }));
-
-  return [...woffs, ...woff2s];
-};
-
-export const stripeFontList = genStripeFonts();
-
 export const PreloadFonts = () => (
   <>
     {fonts.map((font, index) => (

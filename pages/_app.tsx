@@ -10,7 +10,6 @@ import { Layout } from 'components/common';
 
 import { Elements } from '@stripe/react-stripe-js';
 import getStripe from 'lib/stripe/get-stripejs';
-import { stripeFontList } from 'lib/fonts';
 import { CartProvider } from 'context/cart';
 import { CheckoutProvider } from 'context/checkout';
 
@@ -23,7 +22,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Elements
         stripe={stripePromise}
         options={{
-          fonts: stripeFontList,
+          fonts: [
+            {
+              cssSrc:
+                'https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap',
+            },
+          ],
         }}
       >
         <CartProvider>
