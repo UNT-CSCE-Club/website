@@ -16,7 +16,7 @@ import {
   FiUsers,
 } from 'react-icons/fi';
 import { IoShirtOutline } from 'react-icons/io5';
-import { Logo } from 'components/ui';
+import { Logo, ThemeChanger } from 'components/ui';
 
 import {
   CalendarIcon,
@@ -29,6 +29,9 @@ import {
   XIcon,
 } from '@heroicons/react/outline';
 import isMerchRoute from 'lib/utils/isMerchRoute';
+
+import { useTheme } from 'next-themes';
+import isClient from 'lib/utils/isClient';
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
@@ -47,6 +50,8 @@ interface MobileMenuProps {
 
 const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
   const { menuRef } = useMobileMenu({ toggle });
+
+  const { theme, setTheme } = useTheme();
 
   return (
     <div className='flex h-screen overflow-hidden bg-white md:hidden'>
@@ -324,13 +329,7 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
                   Join the Discord
                 </a>
                 <span className='flex justify-center mt-6 space-x-8 text-base font-medium text-center text-gray-500'>
-                  <button
-                    title='Toggle light/dark theme'
-                    className='text-gray-500 rounded dark:text-gray-300 hover:text-gray-500'
-                    onClick={() => null}
-                  >
-                    <FiMoon className='w-6 h-6' />
-                  </button>
+                  <ThemeChanger className='text-gray-500 rounded dark:text-gray-300 hover:text-gray-500' />
                   <a
                     href={process.env.NEXT_PUBLIC_TWITTER_URL}
                     target='_blank'
@@ -392,7 +391,7 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
                   </a>
                   <Link href='/merch/cart'>
                     <a
-                      title='Cart'
+                      title='Shopping Cart'
                       className='text-gray-500 rounded dark:text-gray-300 hover:text-gray-500'
                       onClick={() => toggle(false)}
                     >

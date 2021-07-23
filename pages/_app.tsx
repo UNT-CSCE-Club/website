@@ -5,11 +5,12 @@ import { DefaultSeo } from 'next-seo';
 import SEO from 'next-seo.config';
 
 import '../styles/globals.css';
-
+import { ThemeProvider } from 'next-themes';
 import { Layout } from 'components/common';
 
 import { Elements } from '@stripe/react-stripe-js';
 import getStripe from 'lib/stripe/get-stripejs';
+
 import { CartProvider } from 'context/cart';
 import { CheckoutProvider } from 'context/checkout';
 
@@ -30,13 +31,15 @@ function MyApp({ Component, pageProps }: AppProps) {
           ],
         }}
       >
-        <CartProvider>
-          <CheckoutProvider>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          </CheckoutProvider>
-        </CartProvider>
+        <ThemeProvider attribute='class'>
+          <CartProvider>
+            <CheckoutProvider>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </CheckoutProvider>
+          </CartProvider>
+        </ThemeProvider>
       </Elements>
     </>
   );

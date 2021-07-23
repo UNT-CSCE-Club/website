@@ -3,10 +3,11 @@ import Link from 'next/link';
 import useNav from './useNav';
 import { classNames } from 'lib/utils/classNames';
 import { MobileMenu } from 'components/common';
-import { DiscordMenu, Logo, Notifications } from 'components/ui';
+import { DiscordMenu, Logo, Notifications, ThemeChanger } from 'components/ui';
 import { SiDiscord } from 'react-icons/si';
 import { DiScriptcs } from 'react-icons/di';
 import { BiCodeBlock } from 'react-icons/bi';
+import { FiShoppingCart } from 'react-icons/fi';
 
 interface NavProps {
   open: boolean;
@@ -77,7 +78,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
                 className='flex items-center flex-shrink-0 rounded'
               >
                 <Logo className='w-8 h-8 mr-2 sm:mr-0 lg:mr-2' />
-                <span className='text-2xl font-bold sm:hidden text-primary lg:block dark:text-primary-light'>
+                <span className='hidden text-2xl font-bold xs:block sm:hidden text-primary lg:block dark:text-primary-light'>
                   CSCE Club
                 </span>
               </a>
@@ -146,37 +147,49 @@ const Nav = ({ open, setOpen }: NavProps) => {
             </div>
           </div>
           <div className='absolute inset-y-0 right-0 flex items-center sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
-            <div ref={notificationsRef} className='relative flex items-center'>
-              <button
+            <ThemeChanger className='text-gray-400 rounded-full hover:text-gray-500 focus:text-gray-500 dark:text-gray-300 dark:hover:text-gray-100 dark:focus:text-gray-100' />
+            <div
+              ref={notificationsRef}
+              className='relative flex items-center ml-4'
+            >
+              {/* <button
                 title='Open Notifications'
                 aria-expanded={notificationsOpen}
                 aria-haspopup='true'
                 className='text-gray-400 rounded-full hover:text-gray-500 focus:text-gray-500 dark:text-gray-300 dark:hover:text-gray-100 dark:focus:text-gray-100'
                 onClick={() => setNotificationsOpen(!notificationsOpen)}
-              >
-                <svg
-                  className='w-6 h-6'
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                  aria-hidden='true'
                 >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9'
-                  />
+                <svg
+                className='w-6 h-6'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+                aria-hidden='true'
+                >
+                <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
+                d='M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9'
+                />
                 </svg>
-              </button>
-              <Notifications
+                </button>
+                <Notifications
                 open={notificationsOpen}
                 setOpen={setNotificationsOpen}
                 position='right-4 top-8 origin-top-right'
-              />
+              /> */}
+              <Link href='/merch/cart'>
+                <a
+                  title='Shopping Cart'
+                  className='text-gray-400 rounded-full hover:text-gray-500 focus:text-gray-500 dark:text-gray-300 dark:hover:text-gray-100 dark:focus:text-gray-100'
+                >
+                  <FiShoppingCart className='w-6 h-6' />
+                </a>
+              </Link>
             </div>
-            <div ref={discordRef} className='relative ml-3'>
+            <div ref={discordRef} className='relative ml-4'>
               <button
                 type='button'
                 title='Open Discord Menu'

@@ -4,3 +4,4 @@ export { default as DynamicIcon } from './DynamicIcon';
 export { default as ClubMembersSvg } from './ClubMembersSvg';
 export { default as DogeSvg } from './DogeSvg';
 export { default as Logo } from './Logo';
+export { default as ThemeChanger } from './ThemeChanger';
