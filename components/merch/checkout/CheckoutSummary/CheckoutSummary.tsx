@@ -1,7 +1,13 @@
 import { useCheckoutState } from 'context/checkout';
 import { classNames } from 'lib/utils/classNames';
 
-function CheckoutSummary({ subtotal, tax, shipping, line_items = [], total }) {
+function CheckoutSummary({
+  subtotal,
+  tax,
+  shipping,
+  line_items = [],
+  total_due,
+}) {
   const { processing, error } = useCheckoutState();
   const count = line_items.length;
 
@@ -15,9 +21,9 @@ function CheckoutSummary({ subtotal, tax, shipping, line_items = [], total }) {
             {shipping && (
               <li>Shipping: {shipping.price.formatted_with_symbol}</li>
             )}
-            {total && (
+            {total_due && (
               <li className='py-3 text-lg md:text-xl'>
-                Total: {total.formatted_with_symbol}, {count}{' '}
+                Total: {total_due.formatted_with_symbol}, {count}{' '}
                 {count === 1 ? 'item' : 'items'}
               </li>
             )}

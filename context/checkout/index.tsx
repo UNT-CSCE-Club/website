@@ -74,6 +74,21 @@ export const CheckoutProvider = ({ children }) => {
     }
   };
 
+  const setTax = async (country, region, postal_zip_code) => {
+    try {
+      const { live } = await commerce.checkout.setTaxZone(state.id, {
+        country,
+        region,
+        postal_zip_code,
+      });
+
+      dispatch({ type: SET_LIVE, payload: live });
+    } catch (err) {
+      console.log('setTax Failed');
+      console.log(err);
+    }
+  };
+
   const setCurrentStep = step =>
     dispatch({ type: SET_CURRENT_STEP, payload: step });
 
@@ -100,6 +115,7 @@ export const CheckoutProvider = ({ children }) => {
       value={{
         generateToken,
         setShippingMethod,
+        setTax,
         setCurrentStep,
         nextStepFrom,
         capture,

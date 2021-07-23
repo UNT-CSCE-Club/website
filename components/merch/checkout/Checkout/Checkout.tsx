@@ -29,6 +29,7 @@ function Checkout({ cartId }) {
     capture,
     setProcessing,
     setError: setCheckoutError,
+    setTax,
   } = useCheckoutDispatch();
   const methods = useForm({
     shouldUnregister: false,
@@ -97,7 +98,6 @@ function Checkout({ cartId }) {
         },
       });
 
-      console.log('ran');
       handleOrderSuccess(newOrder);
       setProcessing(false);
     } catch (res) {
@@ -146,8 +146,21 @@ function Checkout({ cartId }) {
     resetCart();
   };
 
+  const calculateTax = async values => {
+    const { country, county_state, postal_zip_code } = values?.shipping;
+    await setTax(country, county_state, postal_zip_code);
+  };
+
   const onSubmit = values => {
-    console.log(values);
+    const country = values?.shipping?.country;
+    const county_state = values?.shipping?.county_state;
+    const postal_zip_code = values?.shipping?.postal_zip_code;
+    const hasTaxValues =
+      country && county_state && postal_zip_code ? true : false;
+
+    if (currentStep === 'shipping' && hasTaxValues) {
+      calculateTax(values);
+    }
     if (currentStep === 'billing') return captureOrder(values);
 
     return setCurrentStep(nextStepFrom(currentStep));
@@ -171,6 +184,7 @@ function Checkout({ cartId }) {
             type='button'
             onClick={() => setCurrentStep(step)}
             className='mx-2'
+            key={step}
           >
             {step}
           </button>

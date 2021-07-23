@@ -39,9 +39,6 @@ function FormSelect({
             {placeholder || `Select a ${label}`}
           </option>
 
-          <option value='US'>Plain US</option>
-          <option value='TX'>Plain TX</option>
-
           {options.map(({ value, label }) => (
             <option key={value} value={value}>
               {label || value}

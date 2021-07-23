@@ -1,4 +1,4 @@
-function CheckoutSummary({ has, fulfillment, order }) {
+function OrderSummary({ has, fulfillment, order }) {
   const { subtotal, tax, shipping, line_items, total } = order;
 
   const count = line_items.length;
@@ -55,4 +55,4 @@ function CheckoutSummary({ has, fulfillment, order }) {
   );
 }
 
-export default CheckoutSummary;
+export default OrderSummary;
