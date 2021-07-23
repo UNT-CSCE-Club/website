@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, SetStateAction } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useDebounce } from 'use-debounce';
 
@@ -17,9 +17,7 @@ function ShippingForm() {
   const [subdivisions, setSubdivisions] = useState<{
     [name: string]: string;
   }>();
-  const [shippingOptions, setShippingOptions] = useState<
-    GetShippingOptionsResponse | [] | null | undefined
-  >([]);
+  const [shippingOptions, setShippingOptions] = useState<any>([]);
   const methods = useFormContext();
   const { watch, setValue } = methods;
 
@@ -78,15 +76,18 @@ function ShippingForm() {
     setValue('fulfillment.shipping_method', null);
 
     try {
-      const shippingOptions = await commerce.checkout.getShippingOptions(
+      let shippingOptions: any[] | GetShippingOptionsResponse[];
+      shippingOptions = (await commerce.checkout.getShippingOptions(
         checkoutId,
         {
           country,
           ...(region && { region }),
         }
-      );
+      )) as any;
 
-      setShippingOptions(shippingOptions);
+      setShippingOptions(
+        shippingOptions as SetStateAction<GetShippingOptionsResponse | []>
+      );
 
       if (shippingOptions.length === 1) {
         const [shippingOption] = shippingOptions;
