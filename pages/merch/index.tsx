@@ -21,6 +21,17 @@ const MerchPage = ({ merchant, categories, products }: MerchPageProps) => {
     <>
       <header className='mb-6'>
         <h1>{merchant.business_name} Merch</h1>
+        <nav className='space-x-2'>
+          <Link href='/merch'>
+            <a>Merch</a>
+          </Link>
+          <Link href='/merch/cart'>
+            <a>Cart</a>
+          </Link>
+          <Link href='/merch/checkout'>
+            <a>Checkout</a>
+          </Link>
+        </nav>
       </header>
       <section className='mb-6'>
         <h3>
@@ -38,7 +49,7 @@ const MerchPage = ({ merchant, categories, products }: MerchPageProps) => {
         </h3>
         <ProductList products={products} />
       </section>
-      <Checkout cartId={id} />
+      {/* <Checkout cartId={id} /> */}
     </>
   );
 };

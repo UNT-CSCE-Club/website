@@ -2,7 +2,13 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { Product } from '@chec/commerce.js/types/product';
 import commerce from 'lib/commerce';
 import { useCartDispatch } from 'context/cart';
-import { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import {
+  ProductAttributes,
+  ProductImages,
+  RelatedProducts,
+  VariantPicker,
+} from '@/merch/products';
 
 interface ProductPageProps {
   product: Product;
@@ -66,11 +72,24 @@ const ProductPage = ({ product }: ProductPageProps) => {
 
   return (
     <>
-      <h1>{product.name}</h1>
+      <h1 className='text-4xl'>{product.name}</h1>
+      <div
+        className='mt-2 md:leading-relaxed lg:leading-loose lg:text-lg'
+        dangerouslySetInnerHTML={{ __html: product.description }}
+      />
+      <ProductImages images={images} />
       <p>{product.price.formatted_with_symbol}</p>
+      <VariantPicker
+        variantGroups={variantGroups}
+        defaultValues={initialVariants}
+        onChange={handleVariantChange}
+      />
       <button type='button' onClick={addToCart}>
         Add to Bag
       </button>
+      <ProductAttributes {...meta} />
+      <hr className='my-6 text-gray-400' />
+      <RelatedProducts products={relatedProducts} />
     </>
   );
 };

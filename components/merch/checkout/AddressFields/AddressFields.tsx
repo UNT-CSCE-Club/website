@@ -87,7 +87,7 @@ function AddressFields({ prefix = '', countries = {}, subdivisions = {} }) {
             label='ZIP / Postcode'
             name={`${prefix}.postal_zip_code`}
             placeholder='ZIP'
-            // required
+            required
           />
         </div>
       </div>
