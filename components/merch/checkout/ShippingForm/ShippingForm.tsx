@@ -71,25 +71,31 @@ function ShippingForm() {
   };
 
   const fetchShippingOptions = async (checkoutId, country, region?) => {
+    console.log('before return');
     if (!checkoutId && !country) return;
+    console.log('after return');
 
     setValue('fulfillment.shipping_method', null);
 
     try {
-      const shippingOptions = await commerce.checkout.getShippingOptions(
+      let shippingMethods: any[] | GetShippingOptionsResponse[];
+      console.log('before fetch');
+      shippingMethods = (await commerce.checkout.getShippingOptions(
         checkoutId,
         {
           country,
           ...(region && { region }),
         }
-      );
+      )) as any;
+      console.log('before fetch');
 
       setShippingOptions(
-        shippingOptions as SetStateAction<GetShippingOptionsResponse | []>
+        shippingMethods as SetStateAction<GetShippingOptionsResponse | []>
       );
+      console.log(shippingMethods);
 
-      if (shippingOptions.length === 1) {
-        const [shippingOption] = shippingOptions;
+      if (shippingMethods.length === 1) {
+        const [shippingOption] = shippingMethods;
 
         setValue('fulfillment.shipping_method', shippingOption.id);
         selectShippingMethod(shippingOption.id);
