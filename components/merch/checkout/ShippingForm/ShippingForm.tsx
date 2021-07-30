@@ -8,7 +8,6 @@ import { useCheckoutState, useCheckoutDispatch } from 'context/checkout';
 
 import { AddressFields } from '@/merch/checkout';
 import { FormCheckbox as FormRadio, FormError } from '@/merch/form';
-import { GetShippingOptionsResponse } from '@chec/commerce.js/features/checkout';
 
 function ShippingForm() {
   const { id } = useCheckoutState();
@@ -71,28 +70,20 @@ function ShippingForm() {
   };
 
   const fetchShippingOptions = async (checkoutId, country, region?) => {
-    console.log('before return');
     if (!checkoutId && !country) return;
-    console.log('after return');
 
     setValue('fulfillment.shipping_method', null);
 
     try {
-      let shippingMethods: any[] | GetShippingOptionsResponse[];
-      console.log('before fetch');
-      shippingMethods = (await commerce.checkout.getShippingOptions(
+      const shippingMethods = await commerce.checkout.getShippingOptions(
         checkoutId,
         {
           country,
           ...(region && { region }),
         }
-      )) as any;
-      console.log('before fetch');
-
-      setShippingOptions(
-        shippingMethods as SetStateAction<GetShippingOptionsResponse | []>
       );
-      console.log(shippingMethods);
+
+      setShippingOptions(shippingMethods);
 
       if (shippingMethods.length === 1) {
         const [shippingOption] = shippingMethods;
