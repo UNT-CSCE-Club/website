@@ -12,7 +12,7 @@ index 88c111f..e911709 100755
          token: string,
          data: { ip_address?: string | undefined; country?: string | undefined; region?: string | undefined; postal_zip_code?: string | undefined },
 diff --git a/node_modules/@types/chec__commerce.js/types/line-item.d.ts b/node_modules/@types/chec__commerce.js/types/line-item.d.ts
-index 28d2908..5b025fb 100755
+index 28d2908..04d2155 100755
 --- a/node_modules/@types/chec__commerce.js/types/line-item.d.ts
 +++ b/node_modules/@types/chec__commerce.js/types/line-item.d.ts
 @@ -1,6 +1,8 @@
@@ -31,7 +31,7 @@ index 28d2908..5b025fb 100755
 -    media: any; // todo
 -    variants: SelectedVariant[];
 +    // media: any; // todo // edited by me
-+    variants: SelectedVariant[]; // edited by me
++    // variants: SelectedVariant[]; // edited by me
      price: Price;
      line_total: Price;
 +    // added by me
