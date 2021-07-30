@@ -76,14 +76,13 @@ function ShippingForm() {
     setValue('fulfillment.shipping_method', null);
 
     try {
-      let shippingOptions: any[] | GetShippingOptionsResponse[];
-      shippingOptions = (await commerce.checkout.getShippingOptions(
+      const shippingOptions = await commerce.checkout.getShippingOptions(
         checkoutId,
         {
           country,
           ...(region && { region }),
         }
-      )) as any;
+      );
 
       setShippingOptions(
         shippingOptions as SetStateAction<GetShippingOptionsResponse | []>

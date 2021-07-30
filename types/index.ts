@@ -198,25 +198,3 @@ export interface WorkshopsFields {
   description: string;
   workshops: EventsList[];
 }
-
-// --- Commerce.js ----
-
-// export interface LineItem extends ChecLineItem {
-//   is_valid: boolean;
-//   selected_options: {
-//     group_id: string;
-//     group_name: string;
-//     option_id: string;
-//     option_name: string;
-//     price: Price;
-//   }[];
-//   permalink: string;
-//   media: { source: string; type: string };
-//   product_meta: any[];
-//   variant: any;
-//   variants: null;
-// }
-
-// export interface Cart extends ChecCart {
-//   line_items: LineItem[];
-// }

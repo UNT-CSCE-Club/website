@@ -1,3 +1,16 @@
+diff --git a/node_modules/@types/chec__commerce.js/features/checkout.d.ts b/node_modules/@types/chec__commerce.js/features/checkout.d.ts
+index 88c111f..e911709 100755
+--- a/node_modules/@types/chec__commerce.js/features/checkout.d.ts
++++ b/node_modules/@types/chec__commerce.js/features/checkout.d.ts
+@@ -115,7 +115,7 @@ export class Checkout {
+         token: string,
+         data: { shipping_option_id: string; country: string; region?: string | undefined },
+     ): Promise<CheckShippingOptionResponse>;
+-    getShippingOptions(token: string, data: { country: string; region?: string | undefined }): Promise<GetShippingOptionsResponse>;
++    getShippingOptions(token: string, data: { country: string; region?: string | undefined }): Promise<GetShippingOptionsResponse[]>; // I changed this with patch-package from Promise<GetShippingOptionsResponse> to Promise<GetShippingOptionsResponse[]>
+     setTaxZone(
+         token: string,
+         data: { ip_address?: string | undefined; country?: string | undefined; region?: string | undefined; postal_zip_code?: string | undefined },
 diff --git a/node_modules/@types/chec__commerce.js/types/line-item.d.ts b/node_modules/@types/chec__commerce.js/types/line-item.d.ts
 index 28d2908..04d2155 100755
 --- a/node_modules/@types/chec__commerce.js/types/line-item.d.ts
