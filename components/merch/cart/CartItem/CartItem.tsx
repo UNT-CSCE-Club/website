@@ -1,60 +1,28 @@
-import React from 'react';
+import { Fragment } from 'react';
 import Image from 'next/image';
-
-import commerce from 'lib/commerce';
-import { useCartDispatch } from 'context/cart';
 import Link from 'next/link';
+import { LineItem } from 'types';
+import useCartItem from './useCartItem';
 
-function CartItem({
-  id,
-  media,
-  name,
-  quantity,
-  line_total,
-  selected_options,
-  permalink,
-}) {
-  const { setCart } = useCartDispatch();
-  const hasVariants = selected_options.length >= 1;
+interface Props {
+  item: LineItem;
+}
 
-  const handleUpdateCart = ({ cart }) => {
-    setCart(cart);
-
-    return cart;
-  };
-
-  const handleRemoveItem = () =>
-    commerce.cart
-      .remove(id)
-      .then(handleUpdateCart)
-      .then(({ subtotal }) =>
-        console.log(
-          `${name} has been removed from your cart. Your new subtotal is now ${subtotal.formatted_with_symbol}`
-        )
-      );
-
-  const decrementQuantity = () => {
-    quantity > 1
-      ? commerce.cart
-          .update(id, { quantity: quantity - 1 })
-          .then(handleUpdateCart)
-          .then(({ subtotal }) =>
-            console.log(
-              `1 "${name}" has been removed from your cart. Your new subtotal is now ${subtotal.formatted_with_symbol}`
-            )
-          )
-      : handleRemoveItem();
-  };
-
-  const incrementQuantity = () =>
-    commerce.cart
-      .update(id, { quantity: quantity + 1 })
-      .then(handleUpdateCart)
-      .then(({ subtotal }) =>
-        console.log(
-          `Another "${name}" has been added to your cart. Your new subtotal is now ${subtotal.formatted_with_symbol}`
-        )
-      );
+function CartItem({ item }: Props) {
+  const {
+    media,
+    name,
+    quantity,
+    line_total,
+    selected_options,
+    permalink,
+  } = item;
+  const {
+    hasVariants,
+    handleRemoveItem,
+    decrementQuantity,
+    incrementQuantity,
+  } = useCartItem(item);
 
   return (
     <div className='flex py-3 space-x-3 border-b border-black md:py-4 lg:py-5 md:items-end md:space-x-4 lg:space-x-5'>
@@ -78,9 +46,9 @@ function CartItem({
           {hasVariants && (
             <p>
               {selected_options.map(({ option_name }, index) => (
-                <React.Fragment key={index}>
+                <Fragment key={index}>
                   {index ? `, ${option_name}` : option_name}
-                </React.Fragment>
+                </Fragment>
               ))}
             </p>
           )}

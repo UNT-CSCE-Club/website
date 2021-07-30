@@ -1,8 +1,8 @@
 import { createContext, useReducer, useEffect, useContext } from 'react';
-
+import { Cart } from 'types';
 import commerce from 'lib/commerce';
 
-const CartStateContext = createContext(null);
+const CartStateContext = createContext<Cart>(null);
 const CartDispatchContext = createContext(null);
 
 const SET_CART = 'SET_CART';
@@ -35,6 +35,7 @@ export const CartProvider = ({ children }) => {
   const getCart = async () => {
     try {
       const cart = await commerce.cart.retrieve();
+      console.log('get cart');
 
       dispatch({ type: SET_CART, payload: cart });
     } catch (err) {
@@ -42,7 +43,8 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  const setCart = async payload => dispatch({ type: SET_CART, payload });
+  const setCart = async (payload: Cart) =>
+    dispatch({ type: SET_CART, payload });
 
   const reset = async () => dispatch({ type: RESET });
 

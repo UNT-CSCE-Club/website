@@ -1,0 +1,57 @@
+import { LineItem } from 'types';
+import { useCartDispatch } from 'context/cart';
+import commerce from 'lib/commerce';
+
+const useCartItem = (item: LineItem) => {
+  const { id, name, quantity, selected_options } = item;
+  const { setCart } = useCartDispatch();
+  const hasVariants = selected_options.length >= 1;
+
+  const handleUpdateCart = ({ cart }) => {
+    setCart(cart);
+
+    return cart;
+  };
+
+  const handleRemoveItem = () =>
+    commerce.cart
+      .remove(id)
+      .then(handleUpdateCart)
+      .then(({ subtotal }) =>
+        console.log(
+          `${name} has been removed from your cart. Your new subtotal is now ${subtotal.formatted_with_symbol}`
+        )
+      );
+
+  const decrementQuantity = () => {
+    quantity > 1
+      ? commerce.cart
+          .update(id, { quantity: quantity - 1 })
+          .then(handleUpdateCart)
+          .then(({ subtotal }) =>
+            console.log(
+              `1 "${name}" has been removed from your cart. Your new subtotal is now ${subtotal.formatted_with_symbol}`
+            )
+          )
+      : handleRemoveItem();
+  };
+
+  const incrementQuantity = () =>
+    commerce.cart
+      .update(id, { quantity: quantity + 1 })
+      .then(handleUpdateCart)
+      .then(({ subtotal }) =>
+        console.log(
+          `Another "${name}" has been added to your cart. Your new subtotal is now ${subtotal.formatted_with_symbol}`
+        )
+      );
+
+  return {
+    hasVariants,
+    handleRemoveItem,
+    decrementQuantity,
+    incrementQuantity,
+  };
+};
+
+export default useCartItem;

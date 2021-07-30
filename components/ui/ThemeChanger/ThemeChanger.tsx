@@ -8,7 +8,7 @@ interface Props {
 
 const ThemeChanger = ({ className }: Props) => {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   useEffect(() => setMounted(true), []);
 
@@ -16,7 +16,7 @@ const ThemeChanger = ({ className }: Props) => {
 
   return (
     <>
-      {theme === 'light' ? (
+      {resolvedTheme === 'light' ? (
         <button
           title='Toggle light/dark theme'
           type='button'
