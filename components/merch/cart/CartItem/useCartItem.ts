@@ -1,13 +1,14 @@
+import { Cart } from '@chec/commerce.js/types/cart';
 import { LineItem } from '@chec/commerce.js/types/line-item';
 import { useCartDispatch } from 'context/cart';
 import commerce from 'lib/commerce';
 
 const useCartItem = (item: LineItem) => {
   const { id, name, quantity, selected_options } = item;
-  const { setCart } = useCartDispatch();
   const hasVariants = selected_options.length >= 1;
+  const { setCart } = useCartDispatch();
 
-  const handleUpdateCart = ({ cart }) => {
+  const handleUpdateCart = ({ cart }: { cart: Cart }): Cart => {
     setCart(cart);
 
     return cart;

@@ -38,11 +38,10 @@ export const CartProvider = ({ children }) => {
   const getCart = async () => {
     try {
       const cart = await commerce.cart.retrieve();
-      console.log('get cart');
 
       dispatch({ type: SET_CART, payload: cart });
     } catch (err) {
-      console.log('no cart');
+      console.error('error getting cart');
     }
   };
 
