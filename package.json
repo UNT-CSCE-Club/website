@@ -9,6 +9,7 @@
     "start": "next start",
     "build": "next build",
     "postbuild": "next-sitemap",
+    "postinstall": "patch-package",
     "cypress:open": "cypress open",
     "contentful-typescript-codegen": "contentful-typescript-codegen --output types/generated/contentful.d.ts",
     "generate": "graphql-codegen --config codegen.yml --require dotenv/config"
@@ -46,6 +47,7 @@
     "cypress": "^8.0.0",
     "dotenv": "^10.0.0",
     "next-sitemap": "^1.6.140",
+    "patch-package": "^6.4.7",
     "postcss": "^8.3.6",
     "tailwindcss": "^2.2.6",
     "typescript": "^4.3.5"

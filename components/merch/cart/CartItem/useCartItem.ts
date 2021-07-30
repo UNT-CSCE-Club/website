@@ -1,4 +1,4 @@
-import { LineItem } from 'types';
+import { LineItem } from '@chec/commerce.js/types/line-item';
 import { useCartDispatch } from 'context/cart';
 import commerce from 'lib/commerce';
 

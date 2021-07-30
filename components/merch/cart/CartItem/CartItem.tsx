@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { LineItem } from 'types';
+import { LineItem } from '@chec/commerce.js/types/line-item';
 import useCartItem from './useCartItem';
 
 interface Props {

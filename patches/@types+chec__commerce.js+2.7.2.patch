@@ -1,0 +1,37 @@
+diff --git a/node_modules/@types/chec__commerce.js/types/line-item.d.ts b/node_modules/@types/chec__commerce.js/types/line-item.d.ts
+index 28d2908..04d2155 100755
+--- a/node_modules/@types/chec__commerce.js/types/line-item.d.ts
++++ b/node_modules/@types/chec__commerce.js/types/line-item.d.ts
+@@ -1,6 +1,8 @@
+ import { Price } from './price';
+ import { SelectedVariant } from './selected-variant';
+ 
++// edited with patch-package
++
+ export interface LineItem {
+     id: string;
+     name: string;
+@@ -8,8 +10,21 @@ export interface LineItem {
+     product_id: string;
+     product_name: string;
+     sku: string;
+-    media: any; // todo
+-    variants: SelectedVariant[];
++    // media: any; // todo // edited by me
++    // variants: SelectedVariant[]; // edited by me
+     price: Price;
+     line_total: Price;
++    // added by me
++    is_valid: boolean;
++    selected_options: {
++      group_id: string;
++      group_name: string;
++      option_id: string;
++      option_name: string;
++      price: Price;
++    }[];
++    permalink: string;
++    media: { source: string; type: string };
++    product_meta: any[];
++    variant: any;
+ }

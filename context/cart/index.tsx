@@ -1,9 +1,12 @@
 import { createContext, useReducer, useEffect, useContext } from 'react';
-import { Cart } from 'types';
+import { Cart } from '@chec/commerce.js/types/cart';
 import commerce from 'lib/commerce';
 
 const CartStateContext = createContext<Cart>(null);
-const CartDispatchContext = createContext(null);
+const CartDispatchContext = createContext<{
+  reset: () => void;
+  setCart: (payload: Cart) => void;
+}>(null);
 
 const SET_CART = 'SET_CART';
 const RESET = 'RESET';
