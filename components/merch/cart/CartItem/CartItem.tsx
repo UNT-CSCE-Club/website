@@ -8,7 +8,7 @@ interface Props {
   item: LineItem;
 }
 
-function CartItem({ item }: Props) {
+const CartItem = ({ item }: Props) => {
   const {
     media,
     name,
@@ -87,6 +87,6 @@ function CartItem({ item }: Props) {
       </div>
     </div>
   );
-}
+};
 
 export default CartItem;
