@@ -6,14 +6,10 @@ import { MobileMenu } from 'components/common';
 import {
   DiscordMenu,
   Logo,
-  Notifications,
   ShoppingCartButton,
   ThemeChanger,
 } from 'components/ui';
 import { SiDiscord } from 'react-icons/si';
-import { DiScriptcs } from 'react-icons/di';
-import { BiCodeBlock } from 'react-icons/bi';
-import { FiShoppingCart } from 'react-icons/fi';
 
 interface NavProps {
   open: boolean;
@@ -24,10 +20,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
   const {
     discordMenuOpen,
     setDiscordMenuOpen,
-    notificationsOpen,
-    setNotificationsOpen,
     discordRef,
-    notificationsRef,
     currentIndex,
   } = useNav();
 
