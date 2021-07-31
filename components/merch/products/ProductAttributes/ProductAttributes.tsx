@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ProductAttributes = ({ attributes = [] }) => {
   if (!attributes || attributes.length === 0) return null;
 

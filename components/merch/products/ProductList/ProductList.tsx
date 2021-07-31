@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { Product } from '@chec/commerce.js/types/product';
 import { ProductListItem } from '@/merch/products';

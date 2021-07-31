@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { classNames } from 'lib/utils/classNames';
+
 const RelatedProduct = ({ media, name, permalink, price, className }) => {
   const imageClass = classNames(
     'relative rounded-lg hover:rounded-none overflow-hidden w-full transition-all',
