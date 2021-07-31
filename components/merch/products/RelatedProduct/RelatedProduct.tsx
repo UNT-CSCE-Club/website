@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { classNames } from 'lib/utils/classNames';
-const Product = ({ media, name, permalink, price, className }) => {
+const RelatedProduct = ({ media, name, permalink, price, className }) => {
   const imageClass = classNames(
     'relative rounded-lg hover:rounded-none overflow-hidden w-full transition-all',
     className
@@ -14,7 +14,7 @@ const Product = ({ media, name, permalink, price, className }) => {
           <div className={imageClass}>
             <Image
               src={media.source}
-              alt={Product.name}
+              alt={RelatedProduct.name}
               layout='fill'
               sizes='616px, (min-width: 768px): 352px, (min-width: 1024px): 232px, (min-width: 1280px): 288px'
               className='object-cover'
@@ -33,4 +33,4 @@ const Product = ({ media, name, permalink, price, className }) => {
   );
 };
 
-export default Product;
+export default RelatedProduct;
