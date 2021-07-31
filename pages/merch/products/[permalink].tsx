@@ -9,6 +9,8 @@ import {
   RelatedProducts,
   VariantPicker,
 } from '@/merch/products';
+import toast from 'react-hot-toast';
+import { AddToCartToast } from 'components/ui';
 
 interface ProductPageProps {
   product: Product;
@@ -55,19 +57,14 @@ const ProductPage = ({ product }: ProductPageProps) => {
         return cart;
       })
       .then(({ subtotal }) =>
-        // toast(
-        //   `${product.name} is now in your cart. Your subtotal is now ${subtotal.formatted_with_symbol}. Click to view what's in your cart.`,
-        //   {
-        //     onClick: openModal,
-        //   }
-        // )
-        console.log(
-          `${product.name} is now in your cart. Your subtotal is now ${subtotal.formatted_with_symbol}. Click to view what's in your cart.`
+        toast.custom(
+          t => <AddToCartToast t={t} product={product} subTotal={subtotal} />,
+          { duration: 5000 }
         )
       )
-      .catch(() => {
-        // toast('Please try again.');
-        console.log('Error adding to cartPlease try again.');
+      .catch(e => {
+        toast.error('Could not add item to cart');
+        console.error(e);
       });
 
   return (

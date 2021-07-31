@@ -7,12 +7,15 @@ import SEO from 'next-seo.config';
 import '../styles/globals.css';
 import { ThemeProvider } from 'next-themes';
 import { Layout } from 'components/common';
+import { Toaster } from 'react-hot-toast';
 
 import { Elements } from '@stripe/react-stripe-js';
 import getStripe from 'lib/stripe/get-stripejs';
 
 import { CartProvider } from 'context/cart';
 import { CheckoutProvider } from 'context/checkout';
+
+import isMobile from 'lib/utils/isMobile';
 
 const stripePromise = getStripe();
 
@@ -37,6 +40,13 @@ function MyApp({ Component, pageProps }: AppProps) {
               <Layout>
                 <Component {...pageProps} />
               </Layout>
+              <Toaster
+                reverseOrder={isMobile() ? true : false}
+                position={isMobile() ? 'bottom-center' : 'top-right'}
+                containerStyle={{
+                  top: '5rem',
+                }}
+              />
             </CheckoutProvider>
           </CartProvider>
         </ThemeProvider>

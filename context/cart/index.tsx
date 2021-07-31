@@ -1,6 +1,7 @@
 import { createContext, useReducer, useEffect, useContext } from 'react';
 import { Cart } from '@chec/commerce.js/types/cart';
 import commerce from 'lib/commerce';
+import toast from 'react-hot-toast';
 
 const CartStateContext = createContext<Cart>(null);
 const CartDispatchContext = createContext<{
@@ -41,7 +42,8 @@ export const CartProvider = ({ children }) => {
 
       dispatch({ type: SET_CART, payload: cart });
     } catch (err) {
-      console.error('error getting cart');
+      toast.error('Could not get cart');
+      console.error(err);
     }
   };
 
