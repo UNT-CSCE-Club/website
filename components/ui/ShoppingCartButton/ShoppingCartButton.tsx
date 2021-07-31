@@ -4,13 +4,18 @@ import { useCartState } from 'context/cart';
 import { classNames } from 'lib/utils/classNames';
 import { FiShoppingCart } from 'react-icons/fi';
 
-const ShoppingCartButton = ({
-  className,
-  ...rest
-}: React.DetailedHTMLProps<
-  React.AnchorHTMLAttributes<HTMLAnchorElement>,
-  HTMLAnchorElement
->) => {
+interface Props
+  extends Omit<
+    React.DetailedHTMLProps<
+      React.AnchorHTMLAttributes<HTMLAnchorElement>,
+      HTMLAnchorElement
+    >,
+    'title' | 'href' | 'children'
+  > {
+  className: string;
+}
+
+const ShoppingCartButton = ({ className, ...rest }: Props) => {
   const { total_unique_items } = useCartState();
 
   return (

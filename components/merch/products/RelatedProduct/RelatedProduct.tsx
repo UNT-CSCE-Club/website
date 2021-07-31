@@ -1,8 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { classNames } from 'lib/utils/classNames';
+import { RelatedProductType } from 'types';
 
-const RelatedProduct = ({ media, name, permalink, price, className }) => {
+interface Props {
+  product: RelatedProductType;
+  className?: string;
+}
+
+const RelatedProduct = ({
+  product: { media, name, permalink, price },
+  className,
+}: Props) => {
   const imageClass = classNames(
     'relative rounded-lg hover:rounded-none overflow-hidden w-full transition-all',
     className

@@ -1,6 +1,10 @@
 import { Product } from '@chec/commerce.js/types/product';
 
-const ProductListItem = ({ name, price }: Product) => {
+interface Props {
+  product: Product;
+}
+
+const ProductListItem = ({ product: { name, price } }: Props) => {
   return (
     <p>
       {name}: {price.formatted_with_symbol}

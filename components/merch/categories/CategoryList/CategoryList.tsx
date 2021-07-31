@@ -15,7 +15,7 @@ export default function CategoryList({ categories }: CategoryListProps) {
         <li key={category.slug}>
           <Link href={`/merch/categories/${category.slug}`}>
             <a>
-              <CategoryListItem {...category} />
+              <CategoryListItem category={category} />
             </a>
           </Link>
         </li>

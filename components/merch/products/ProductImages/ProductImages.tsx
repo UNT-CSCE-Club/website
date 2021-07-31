@@ -1,6 +1,11 @@
+import { Asset } from '@chec/commerce.js/types/asset';
 import Image from 'next/image';
 
-const ProductImages = ({ images = [] }) => {
+interface Props {
+  images: Asset[];
+}
+
+const ProductImages = ({ images = [] }: Props) => {
   if (!images || images.length === 0) return null;
 
   return (

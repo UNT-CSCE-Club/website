@@ -15,7 +15,7 @@ const ProductList = ({ products }: ProductListProps) => {
         <li key={product.permalink}>
           <Link href={`/merch/products/${product.permalink}`}>
             <a>
-              <ProductListItem {...product} />
+              <ProductListItem product={product} />
             </a>
           </Link>
         </li>

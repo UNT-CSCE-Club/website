@@ -1,6 +1,10 @@
 import { Category } from '@chec/commerce.js/types/category';
 
-const CategoryListItem = ({ name }: Category) => {
+interface Props {
+  category: Category;
+}
+
+const CategoryListItem = ({ category: { name } }: Props) => {
   return (
     <div>
       <p>{name}</p>

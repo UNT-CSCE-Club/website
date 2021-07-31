@@ -1,95 +1,15 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { Product } from '@chec/commerce.js/types/product';
+import { Product as ProductType } from '@chec/commerce.js/types/product';
 import commerce from 'lib/commerce';
-import { useCartDispatch } from 'context/cart';
-import React, { useEffect, useMemo, useState } from 'react';
-import {
-  ProductAttributes,
-  ProductImages,
-  RelatedProducts,
-  VariantPicker,
-} from '@/merch/products';
-import toast from 'react-hot-toast';
-import { AddToCartToast } from 'components/ui';
+import { Product } from '@/merch/products';
 
 interface ProductPageProps {
-  product: Product;
+  product: ProductType;
 }
 
-const ProductPage = ({ product }: ProductPageProps) => {
-  const { setCart } = useCartDispatch();
-  const {
-    variant_groups: variantGroups,
-    assets,
-    meta,
-    related_products: relatedProducts,
-  } = product;
-  const images = assets.filter(({ is_image }) => is_image);
-
-  const initialVariants = useMemo(
-    () =>
-      variantGroups.reduce((all, { id, options }) => {
-        const [firstOption] = options;
-
-        return { ...all, [id]: firstOption.id };
-      }, {}),
-    [product.permalink]
-  );
-
-  const [selectedVariants, setSelectedVariants] = useState(initialVariants);
-
-  useEffect(() => {
-    setSelectedVariants(initialVariants);
-  }, [product.permalink]);
-
-  const handleVariantChange = ({ target: { id, value } }) =>
-    setSelectedVariants({
-      ...selectedVariants,
-      [id]: value,
-    });
-
-  const addToCart = () =>
-    commerce.cart
-      .add(product.id, 1, selectedVariants)
-      .then(({ cart }) => {
-        setCart(cart);
-
-        return cart;
-      })
-      .then(({ subtotal }) =>
-        toast.custom(
-          t => <AddToCartToast t={t} product={product} subTotal={subtotal} />,
-          { duration: 5000 }
-        )
-      )
-      .catch(e => {
-        toast.error('Could not add item to cart');
-        console.error(e);
-      });
-
-  return (
-    <>
-      <h1 className='text-4xl'>{product.name}</h1>
-      <div
-        className='mt-2 md:leading-relaxed lg:leading-loose lg:text-lg'
-        dangerouslySetInnerHTML={{ __html: product.description }}
-      />
-      <ProductImages images={images} />
-      <p>{product.price.formatted_with_symbol}</p>
-      <VariantPicker
-        variantGroups={variantGroups}
-        defaultValues={initialVariants}
-        onChange={handleVariantChange}
-      />
-      <button type='button' onClick={addToCart}>
-        Add to Bag
-      </button>
-      <ProductAttributes {...meta} />
-      <hr className='my-6 text-gray-400' />
-      <RelatedProducts products={relatedProducts} />
-    </>
-  );
-};
+const ProductPage = ({ product }: ProductPageProps) => (
+  <Product product={product} />
+);
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { permalink } = params;
