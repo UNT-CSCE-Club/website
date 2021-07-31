@@ -1,8 +1,8 @@
-import React, { AnchorHTMLAttributes } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { FiShoppingCart } from 'react-icons/fi';
-import { classNames } from 'lib/utils/classNames';
 import { useCartState } from 'context/cart';
+import { classNames } from 'lib/utils/classNames';
+import { FiShoppingCart } from 'react-icons/fi';
 
 const ShoppingCartButton = ({
   className,
