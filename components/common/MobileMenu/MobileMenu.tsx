@@ -16,7 +16,7 @@ import {
   FiUsers,
 } from 'react-icons/fi';
 import { IoShirtOutline } from 'react-icons/io5';
-import { Logo, ThemeChanger } from 'components/ui';
+import { Logo, ShoppingCartButton, ThemeChanger } from 'components/ui';
 
 import {
   CalendarIcon,
@@ -389,15 +389,10 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
                       />
                     </svg>
                   </a>
-                  <Link href='/merch/cart'>
-                    <a
-                      title='Shopping Cart'
-                      className='text-gray-500 rounded dark:text-gray-300 hover:text-gray-500'
-                      onClick={() => toggle(false)}
-                    >
-                      <FiShoppingCart className='w-6 h-6' />
-                    </a>
-                  </Link>
+                  <ShoppingCartButton
+                    className='text-gray-500 rounded dark:text-gray-300 hover:text-gray-500'
+                    onClick={() => toggle(false)}
+                  />
                 </span>
               </div>
             </div>
