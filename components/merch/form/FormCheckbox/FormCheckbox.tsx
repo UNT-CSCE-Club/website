@@ -1,23 +1,25 @@
-import { useFormContext } from 'react-hook-form';
+import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
+import { RegisterOptions, useFormContext } from 'react-hook-form';
 
-interface Props {
-  label: string;
-  children?: any;
+interface Props
+  extends Omit<
+    DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
+    'required'
+  > {
   name: string;
+  label: string;
   required?: boolean | string;
-  validation?: any;
-  [x: string]: any;
+  validation?: Omit<RegisterOptions, 'required'>;
 }
 
-function FormCheckbox({
-  label,
-  children,
+const FormCheckbox = ({
   name,
+  id,
+  label,
   required = false,
   validation = {},
-
-  ...props
-}: Props) {
+  ...rest
+}: Props) => {
   const { register } = useFormContext();
 
   const isRequired = required
@@ -29,24 +31,21 @@ function FormCheckbox({
   return (
     <div className='py-1 md:py-2'>
       <label
-        htmlFor={props.id || name}
+        htmlFor={id || name}
         className='flex items-center w-full cursor-pointer'
       >
         <input
           {...register(name, { required: isRequired, ...validation })}
-          id={props.id || name}
+          id={id || name}
           name={name}
           type='checkbox'
           className='w-5 h-5 text-black bg-transparent border rounded appearance-none cursor-pointer checked:bg-black border-faded-black checked:border-black hover:border-black focus:border-black focus:checked:outline-none focus:outline-none'
-          {...props}
+          {...rest}
         />
-
-        {(children || label) && (
-          <span className='ml-2'>{children || label}</span>
-        )}
+        <span className='ml-2'>{label}</span>
       </label>
     </div>
   );
-}
+};
 
 export default FormCheckbox;

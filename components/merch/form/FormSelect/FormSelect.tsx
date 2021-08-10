@@ -1,25 +1,33 @@
-import { useFormContext } from 'react-hook-form';
+import { DetailedHTMLProps, SelectHTMLAttributes } from 'react';
+import { RegisterOptions, useFormContext } from 'react-hook-form';
 import { FormError } from '@/merch/form';
 
-interface Props {
+interface Props
+  extends Omit<
+    DetailedHTMLProps<
+      SelectHTMLAttributes<HTMLSelectElement>,
+      HTMLSelectElement
+    >,
+    'id' | 'name' | 'className' | 'defaultValue'
+  > {
   label: string;
   name: string;
-  options: any;
-  required?: boolean | string;
-  validation?: any;
-  placeholder?: any;
-  [x: string]: any;
+  options: {
+    value: any;
+    label: any;
+  }[];
+  validation?: Omit<RegisterOptions, 'required'>;
 }
 
-function FormSelect({
+const FormSelect = ({
   label,
   name,
   options,
   required = false,
   validation = {},
   placeholder,
-  ...props
-}: Props) {
+  ...rest
+}: Props) => {
   const { register } = useFormContext();
 
   const isRequired = required ? `${label || name} is required` : false;
@@ -33,7 +41,7 @@ function FormSelect({
           name={name}
           className='appearance-none bg-transparent w-full py-1 pr-6 pl-1.5 text-base placeholder-faded-black focus:outline-none'
           defaultValue=''
-          {...props}
+          {...rest}
         >
           <option disabled value=''>
             {placeholder || `Select a ${label}`}
@@ -50,6 +58,6 @@ function FormSelect({
       <FormError name={name} />
     </div>
   );
-}
+};
 
 export default FormSelect;

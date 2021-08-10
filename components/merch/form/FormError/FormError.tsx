@@ -4,26 +4,21 @@ import { ErrorMessage } from '@hookform/error-message';
 interface Props {
   name: string;
   className?: string;
-  [x: string]: any;
 }
 
-function FormError({ name, className, ...props }: Props) {
+const FormError = ({ name, className }: Props) => {
   return (
     <div className='pt-1'>
       <ErrorMessage
         name={name}
-        {...props}
         render={({ message }) => (
-          <span
-            className={classNames('text-red-500 text-sm', className)}
-            {...props}
-          >
+          <span className={classNames('text-red-500 text-sm', className)}>
             {message}
           </span>
         )}
       />
     </div>
   );
-}
+};
 
 export default FormError;

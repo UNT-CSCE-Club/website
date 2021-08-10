@@ -1,23 +1,26 @@
-import { useFormContext } from 'react-hook-form';
+import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
+import { RegisterOptions, useFormContext } from 'react-hook-form';
 import { FormError } from '@/merch/form';
 
-interface Props {
+interface Props
+  extends Omit<
+    DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
+    'required' | 'id' | 'name' | 'className'
+  > {
   label?: string;
   name: string;
-  type?: string;
-  required?: boolean | string;
-  validation?: any;
-  [x: string]: any;
+  required?: boolean;
+  validation?: Omit<RegisterOptions, 'required'>;
 }
 
-function FormInput({
+const FormInput = ({
   label,
   name,
   type = 'text',
   required = false,
   validation = {},
   ...props
-}: Props) {
+}: Props) => {
   const { register } = useFormContext();
 
   const isRequired = required ? `${label || name} is required` : false;
@@ -35,6 +38,6 @@ function FormInput({
       <FormError name={name} />
     </div>
   );
-}
+};
 
 export default FormInput;
