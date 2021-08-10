@@ -1,7 +1,7 @@
 import { Price } from '@chec/commerce.js/types/price';
 import { Product } from '@chec/commerce.js/types/product';
 import { CheckCircleIcon } from '@heroicons/react/outline';
-import isMobile from 'lib/utils/isMobile';
+import isDesktop from 'lib/utils/isDesktop';
 import Link from 'next/link';
 import React from 'react';
 import toast from 'react-hot-toast';
@@ -27,7 +27,7 @@ const AddToCartToast = ({ t, product, subTotal }: Props) => {
           </div>
           <div className='w-full'>
             <p className='text-sm font-medium text-gray-900'>
-              {isMobile() ? 'Item' : product.name} Added to Cart
+              {isDesktop() ? 'Item' : product.name} Added to Cart
             </p>
             <p className='mt-1 text-sm text-gray-500'>
               Your subtotal is now {subTotal.formatted_with_symbol}.
