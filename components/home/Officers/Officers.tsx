@@ -23,45 +23,47 @@ const Officers = ({ data }: OfficersProps) => {
           </header>
           <div className='lg:col-span-2'>
             <ul className='space-y-12 sm:grid sm:grid-cols-2 sm:gap-12 sm:space-y-0 lg:gap-x-8'>
-              {officers.map(officer => (
-                <li key={officer.sys.id}>
-                  <div className='flex items-center space-x-4 lg:space-x-6'>
-                    {officer.fields.profilePic ? (
-                      <picture>
-                        <source
-                          media='(max-width: 12000px)'
-                          srcSet={`https:${officer.fields.profilePic.fields.file.url}?w=200&fm=webp`}
-                          type='image/webp'
-                        />
-                        <img
-                          className='object-cover w-16 h-16 rounded-full lg:w-20 lg:h-20'
-                          src={`https:${officer.fields.profilePic.fields.file.url}?w=200`}
-                          alt={officer.fields.profilePic.fields.title}
-                          loading='lazy'
-                          width={
-                            officer.fields.profilePic.fields.file.details.image
-                              .width
-                          }
-                          height={
-                            officer.fields.profilePic.fields.file.details.image
-                              .height
-                          }
-                        />
-                      </picture>
-                    ) : (
-                      <FiUser className='w-16 h-16 rounded stroke-1 full lg:w-20 lg:h-20 dark:text-gray-50' />
-                    )}
-                    <div className='space-y-1 text-lg font-medium leading-6'>
-                      <h3 className='dark:text-gray-50'>
-                        {officer.fields.name}
-                      </h3>
-                      <p className='text-primary dark:text-primary-light'>
-                        {officer.fields.title}
-                      </p>
+              {officers.map(officer =>
+                officer?.fields ? (
+                  <li key={officer.sys.id}>
+                    <div className='flex items-center space-x-4 lg:space-x-6'>
+                      {officer.fields?.profilePic ? (
+                        <picture>
+                          <source
+                            media='(max-width: 12000px)'
+                            srcSet={`https:${officer.fields.profilePic.fields.file.url}?w=200&fm=webp`}
+                            type='image/webp'
+                          />
+                          <img
+                            className='object-cover w-16 h-16 rounded-full lg:w-20 lg:h-20'
+                            src={`https:${officer.fields.profilePic.fields.file.url}?w=200`}
+                            alt={officer.fields.profilePic.fields.title}
+                            loading='lazy'
+                            width={
+                              officer.fields.profilePic.fields.file.details
+                                .image.width
+                            }
+                            height={
+                              officer.fields.profilePic.fields.file.details
+                                .image.height
+                            }
+                          />
+                        </picture>
+                      ) : (
+                        <FiUser className='w-16 h-16 rounded stroke-1 full lg:w-20 lg:h-20 dark:text-gray-50' />
+                      )}
+                      <div className='space-y-1 text-lg font-medium leading-6'>
+                        <h3 className='dark:text-gray-50'>
+                          {officer.fields?.name}
+                        </h3>
+                        <p className='text-primary dark:text-primary-light'>
+                          {officer.fields?.title}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              ))}
+                  </li>
+                ) : null
+              )}
             </ul>
           </div>
         </div>
