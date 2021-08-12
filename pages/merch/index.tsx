@@ -1,10 +1,9 @@
-import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import commerce from 'lib/commerce';
 import { Category } from '@chec/commerce.js/types/category';
 import { Product } from '@chec/commerce.js/types/product';
 import { Merchant } from '@chec/commerce.js/types/merchant';
-import { CategorySection, MerchHero } from '@/merch/home';
+import { CategorySection, FavoritesSection, MerchHero } from '@/merch/home';
 
 interface MerchPageProps {
   merchant: Merchant;
@@ -19,6 +18,7 @@ const MerchPage = ({ merchant, categories, products }: MerchPageProps) => {
     <>
       <MerchHero />
       <CategorySection categories={categories} />
+      <FavoritesSection products={products} />
     </>
   );
 };

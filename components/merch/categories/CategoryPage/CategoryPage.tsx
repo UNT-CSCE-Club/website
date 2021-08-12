@@ -12,6 +12,7 @@ import { classNames } from 'lib/utils/classNames';
 import { Category } from '@chec/commerce.js/types/category';
 import { Product } from '@chec/commerce.js/types/product';
 import Link from 'next/link';
+import { ProductList } from '@/merch/products';
 
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
@@ -77,6 +78,7 @@ const CategoryPage = ({
   categoriesList,
 }: CategoryPageProps) => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [isLargeGrid, setIsLargeGrid] = useState(false);
 
   console.log({ category, categoriesList, products });
 
@@ -280,7 +282,8 @@ const CategoryPage = ({
             <div className='flex items-center'>
               <button
                 type='button'
-                className='p-2 ml-5 -m-2 text-gray-400 sm:ml-7 hover:text-gray-500'
+                onClick={() => setIsLargeGrid(!isLargeGrid)}
+                className='hidden p-2 ml-5 -m-2 text-gray-400 lg:block sm:ml-7 hover:text-gray-500'
               >
                 <span className='sr-only'>View grid</span>
                 <ViewGridIcon className='w-5 h-5' aria-hidden='true' />
@@ -390,40 +393,14 @@ const CategoryPage = ({
                 </div>
               </div>
             ) : (
-              <div className='lg:col-span-3'>
-                <div className='grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8'>
-                  {products.map(product => (
-                    <Link
-                      key={product.id}
-                      href={`/merch/products/${product.permalink}`}
-                    >
-                      <a className='group'>
-                        <div className='w-full overflow-hidden bg-gray-100 rounded-lg aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8'>
-                          {product.has.images &&
-                          product?.assets[0]?.is_image ? (
-                            <img
-                              src={product.assets[0].url}
-                              width={product.assets[0].image_dimensions.width}
-                              height={product.assets[0].image_dimensions.height}
-                              alt={
-                                product?.assets[0]?.description ||
-                                `${product.name} image`
-                              }
-                              className='object-contain object-center w-full h-full group-hover:opacity-75'
-                            />
-                          ) : null}
-                        </div>
-                        <h3 className='mt-4 text-sm text-gray-700'>
-                          {product.name}
-                        </h3>
-                        <p className='mt-1 text-lg font-medium text-gray-900'>
-                          {product.price.formatted_with_symbol}
-                        </p>
-                      </a>
-                    </Link>
-                  ))}
+              <>
+                <div className='lg:col-span-3 xl:hidden'>
+                  <ProductList products={products} large={isLargeGrid} />
                 </div>
-              </div>
+                <div className='hidden lg:col-span-3 xl:block'>
+                  <ProductList products={products} large={!isLargeGrid} />
+                </div>
+              </>
             )}
           </div>
         </section>
