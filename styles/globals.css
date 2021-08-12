@@ -26,7 +26,7 @@
 
   a,
   button {
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-soft dark:focus:ring-primary-dark dark:focus:ring-offset-transparent;
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-secondary-soft dark:focus-visible:ring-primary-dark dark:focus-visible:ring-offset-transparent;
   }
 
   /* nunito-200 - latin */

@@ -5,6 +5,7 @@ import { DefaultSeo } from 'next-seo';
 import SEO from 'next-seo.config';
 
 import '../styles/globals.css';
+import 'focus-visible';
 import { ThemeProvider } from 'next-themes';
 import { Layout } from 'components/common';
 import { Toaster } from 'react-hot-toast';

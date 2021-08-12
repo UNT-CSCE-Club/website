@@ -40,7 +40,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      textDecoration: ['focus-visible'],
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),

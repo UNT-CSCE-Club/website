@@ -7,12 +7,19 @@ type NavHook = () => {
   setDiscordMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
   discordRef: React.RefObject<HTMLDivElement>;
   currentIndex: number;
+  isAboutIndex: boolean;
 };
 
 const useNav: NavHook = () => {
   const router = useRouter();
   const [discordMenuOpen, setDiscordMenuOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const isAboutIndex =
+    currentIndex === 1 ||
+    currentIndex === 2 ||
+    currentIndex === 3 ||
+    currentIndex === 4;
 
   const discordRef = useRef<HTMLDivElement>(null);
 
@@ -63,6 +70,7 @@ const useNav: NavHook = () => {
     setDiscordMenuOpen,
     discordRef,
     currentIndex,
+    isAboutIndex,
   };
 };
 

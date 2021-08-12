@@ -17,7 +17,7 @@ const DiscordMenu = ({ open, setOpen, position }: DiscordMenuProps) => {
       leave='transition ease-in duration-75'
       leaveFrom='transform opacity-100 scale-100'
       leaveTo='transform opacity-0 scale-0'
-      className={`${position} absolute w-48 py-1 mt-2 bg-white rounded-md shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none`}
+      className={`${position} absolute w-48 py-1 mt-6 bg-white z-40 rounded-md shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none`}
     >
       <div role='menu' aria-orientation='vertical' aria-labelledby='user-menu'>
         <a
