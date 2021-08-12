@@ -244,18 +244,6 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
                                 All Products
                               </a>
                             </Link>
-                            <Link href='/merch/categories'>
-                              <a
-                                className={classNames(
-                                  'block py-2 pl-2 pr-4 text-base font-medium text-gray-900 border-l-4 border-transparent rounded-lg dark:text-gray-50',
-                                  currentIndex === 8 &&
-                                    'bg-white dark:bg-gray-800'
-                                )}
-                                onClick={() => toggle(false)}
-                              >
-                                Categories
-                              </a>
-                            </Link>
                             <Link href='/merch/categories/accessories'>
                               <a
                                 className={classNames(

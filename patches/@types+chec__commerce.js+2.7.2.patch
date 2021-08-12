@@ -11,6 +11,22 @@ index 88c111f..e911709 100755
      setTaxZone(
          token: string,
          data: { ip_address?: string | undefined; country?: string | undefined; region?: string | undefined; postal_zip_code?: string | undefined },
+diff --git a/node_modules/@types/chec__commerce.js/types/category.d.ts b/node_modules/@types/chec__commerce.js/types/category.d.ts
+index baf3336..5bed953 100755
+--- a/node_modules/@types/chec__commerce.js/types/category.d.ts
++++ b/node_modules/@types/chec__commerce.js/types/category.d.ts
+@@ -1,3 +1,5 @@
++import { Asset } from "@chec/commerce.js/types/asset";
++
+ export interface Category {
+     id: string;
+     slug: string;
+@@ -6,4 +8,5 @@ export interface Category {
+     products: number;
+     created: number;
+     meta: any;
++    assets: Asset[] // I added with patch-package
+ }
 diff --git a/node_modules/@types/chec__commerce.js/types/line-item.d.ts b/node_modules/@types/chec__commerce.js/types/line-item.d.ts
 index 28d2908..ce1a51d 100755
 --- a/node_modules/@types/chec__commerce.js/types/line-item.d.ts

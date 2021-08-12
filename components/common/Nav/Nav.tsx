@@ -96,6 +96,16 @@ const Nav = ({ open, setOpen }: NavProps) => {
               currentIndex={currentIndex}
               isAboutIndex={isAboutIndex}
             />
+            <Link href='/merch'>
+              <a
+                className={classNames(
+                  'inline-flex items-center px-1 pt-1 text-base font-medium border-b-2 text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100',
+                  currentIndex === 6 ? 'border-primary' : 'border-transparent'
+                )}
+              >
+                Merch
+              </a>
+            </Link>
             <Link href='/#contact'>
               <a
                 className={classNames(

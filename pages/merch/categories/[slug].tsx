@@ -2,19 +2,26 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { Category } from '@chec/commerce.js/types/category';
 import { Product } from '@chec/commerce.js/types/product';
 import commerce from 'lib/commerce';
-import { ProductList } from '@/merch/products';
+import { CategoryPage } from '@/merch/categories';
 
-interface CategoryPageProps {
+interface CategoriesPageProps {
   category: Category;
   products: Product[];
+  categories: Category[];
 }
 
-const CategoryPage = ({ category, products }: CategoryPageProps) => {
+const CategoriesPage = ({
+  category,
+  products,
+  categories,
+}: CategoriesPageProps) => {
   return (
     <>
-      <h1>{category.name}</h1>
-
-      <ProductList products={products} />
+      <CategoryPage
+        category={category}
+        products={products}
+        categoriesList={categories}
+      />
     </>
   );
 };
@@ -45,12 +52,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const products = data ?? null;
 
+  const { data: categories } = await commerce.categories.list();
+
   return {
     props: {
       category,
       products,
+      categories,
     },
   };
 };
 
-export default CategoryPage;
+export default CategoriesPage;
