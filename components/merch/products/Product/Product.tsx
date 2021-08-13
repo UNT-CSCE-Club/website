@@ -233,57 +233,8 @@ const Product = ({ product }: Props) => {
       <RelatedProducts products={relatedProducts} /> */}
 
       <div className='sm:pt-16 my-container'>
-        {/* Product */}
         <div className='pb-10 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start'>
-          {/* Image gallery */}
-          <Tab.Group as='div' className='flex flex-col-reverse'>
-            {/* Image selector */}
-            <div className='hidden w-full max-w-2xl mx-auto mt-6 sm:block lg:max-w-none'>
-              <Tab.List className='grid grid-cols-4 gap-6'>
-                {images.map(image => (
-                  <Tab
-                    key={image.id}
-                    className='relative flex items-center justify-center h-24 text-sm font-medium text-gray-900 uppercase bg-white rounded-md cursor-pointer hover:bg-gray-50'
-                  >
-                    {({ selected }) => (
-                      <>
-                        <div className='absolute inset-0 overflow-hidden rounded-md'>
-                          <img
-                            src={image.url}
-                            alt={image?.description || `${product.name} image`}
-                            width={image.image_dimensions.width}
-                            height={image.image_dimensions.height}
-                            className='object-cover object-center w-full h-full'
-                          />
-                        </div>
-                        <div
-                          className={classNames(
-                            selected ? 'ring-primary' : 'ring-transparent',
-                            'absolute inset-0 rounded-md ring-2 ring-offset-2 pointer-events-none'
-                          )}
-                          aria-hidden='true'
-                        />
-                      </>
-                    )}
-                  </Tab>
-                ))}
-              </Tab.List>
-            </div>
-
-            <Tab.Panels className='w-full aspect-w-1 aspect-h-1'>
-              {images.map(image => (
-                <Tab.Panel key={image.id}>
-                  <img
-                    src={image.url}
-                    alt={image?.description || `${product.name} image`}
-                    width={image.image_dimensions.width}
-                    height={image.image_dimensions.height}
-                    className='object-cover object-center w-full h-full sm:rounded-lg'
-                  />
-                </Tab.Panel>
-              ))}
-            </Tab.Panels>
-          </Tab.Group>
+          <ProductImages images={images} product={product} />
 
           {/* Product info */}
           <div className='px-4 mt-10 sm:px-0 sm:mt-16 lg:mt-0'>
