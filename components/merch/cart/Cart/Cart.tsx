@@ -90,7 +90,7 @@ const Cart = () => {
                           <Link href='/merch'>
                             <a
                               onClick={() => setIsOpen(false)}
-                              className='flex items-center justify-center px-6 py-3 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-primary hover:bg-primary-light'
+                              className='flex items-center justify-center px-6 py-3 text-base font-medium text-white border border-transparent rounded-md shadow-lg bg-primary hover:bg-primary-light'
                             >
                               Check Out the Store
                             </a>
