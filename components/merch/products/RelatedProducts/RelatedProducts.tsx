@@ -1,5 +1,6 @@
-import { RelatedProduct } from '@/merch/products';
+import Link from 'next/link';
 import { RelatedProductType } from 'types';
+import { RelatedProduct } from '@/merch/products';
 
 interface Props {
   products: RelatedProductType[];
@@ -9,21 +10,20 @@ const RelatedProducts = ({ products }: Props) => {
   if (!products || products.length === 0) return null;
 
   return (
-    <div>
-      <h3 className='w-1/3 text-xl leading-tight md:w-full md:leading-normal md:text-3xl'>
-        Some other things you might like
-      </h3>
+    <section
+      aria-labelledby='related-heading'
+      className='px-4 py-16 border-t border-gray-200 sm:px-0'
+    >
+      <h2 id='related-heading' className='text-xl font-bold text-gray-900'>
+        Customers also bought
+      </h2>
 
-      <div className='grid w-full grid-cols-2 gap-4 pt-4 xl:grid-cols-4 md:gap-8 md:pt-8'>
+      <div className='grid grid-cols-1 mt-8 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8'>
         {products.map(product => (
-          <RelatedProduct
-            key={product.id}
-            product={product}
-            className='w-56 h-56'
-          />
+          <RelatedProduct product={product} key={product.id} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
