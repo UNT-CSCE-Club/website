@@ -12,7 +12,7 @@ interface MerchPageProps {
 }
 
 const MerchPage = ({ merchant, categories, products }: MerchPageProps) => {
-  console.log({ categories, merchant, products });
+  // console.log({ categories, merchant, products });
 
   return (
     <>

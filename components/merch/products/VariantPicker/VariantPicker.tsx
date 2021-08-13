@@ -1,20 +1,7 @@
+import React, { Fragment } from 'react';
 import { ProductVariantGroup } from '@chec/commerce.js/types/product-variant-group';
-import { RadioGroup } from '@headlessui/react';
-import { classNames } from 'lib/utils/classNames';
-import React, { Fragment, useState } from 'react';
 import { SizePicker, ColorPicker, GeneralPicker } from '@/merch/products';
 
-// interface Props
-//   extends Omit<
-//     React.DetailedHTMLProps<
-//       React.SelectHTMLAttributes<HTMLSelectElement>,
-//       HTMLSelectElement
-//     >,
-//     'id' | 'defaultValue' | 'className' | 'children'
-//   > {
-//   variantGroups: ProductVariantGroup[];
-//   defaultValues: any;
-// }
 interface Props {
   variantGroups: ProductVariantGroup[];
   defaultValues: any;

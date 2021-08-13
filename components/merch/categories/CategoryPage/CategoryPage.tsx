@@ -1,5 +1,10 @@
 import { Fragment, useState } from 'react';
+import Link from 'next/link';
 import { Transition, Dialog, Disclosure, Menu } from '@headlessui/react';
+import { classNames } from 'lib/utils/classNames';
+import { Category } from '@chec/commerce.js/types/category';
+import { Product } from '@chec/commerce.js/types/product';
+import { ProductList } from '@/merch/products';
 import {
   XIcon,
   MinusSmIcon,
@@ -8,11 +13,6 @@ import {
   ViewGridIcon,
   FilterIcon,
 } from '@heroicons/react/outline';
-import { classNames } from 'lib/utils/classNames';
-import { Category } from '@chec/commerce.js/types/category';
-import { Product } from '@chec/commerce.js/types/product';
-import Link from 'next/link';
-import { ProductList } from '@/merch/products';
 
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
@@ -20,13 +20,6 @@ const sortOptions = [
   { name: 'Newest', href: '#', current: false },
   { name: 'Price: Low to High', href: '#', current: false },
   { name: 'Price: High to Low', href: '#', current: false },
-];
-const subCategories = [
-  { name: 'Totes', href: '#' },
-  { name: 'Backpacks', href: '#' },
-  { name: 'Travel Bags', href: '#' },
-  { name: 'Hip Bags', href: '#' },
-  { name: 'Laptop Sleeves', href: '#' },
 ];
 const filters = [
   {
@@ -80,7 +73,7 @@ const CategoryPage = ({
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [isLargeGrid, setIsLargeGrid] = useState(false);
 
-  console.log({ category, categoriesList, products });
+  // console.log({ category, categoriesList, products });
 
   return (
     <>

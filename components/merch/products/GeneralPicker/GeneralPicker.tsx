@@ -1,11 +1,11 @@
 import { Fragment, useState } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
-import { classNames } from 'lib/utils/classNames';
-import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 import {
   ProductVariantGroup,
   ProductVariantOption,
 } from '@chec/commerce.js/types/product-variant-group';
+import { classNames } from 'lib/utils/classNames';
+import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 
 interface Props {
   group: Omit<ProductVariantGroup, 'options'>;
@@ -23,7 +23,7 @@ interface Props {
 
 const GeneralPicker = ({ group, options, defaultValues, onChange }: Props) => {
   const [selected, setSelected] = useState(options[0]);
-  // console.log({ default: defaultValues[group.id], options });
+
   return (
     <Listbox
       value={selected}
