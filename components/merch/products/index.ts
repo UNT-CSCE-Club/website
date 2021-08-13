@@ -1,6 +1,9 @@
 export { default as ProductList } from './ProductList';
 export { default as ProductListItem } from './ProductListItem';
 export { default as VariantPicker } from './VariantPicker';
+export { default as ColorPicker } from './ColorPicker';
+export { default as SizePicker } from './SizePicker';
+export { default as GeneralPicker } from './GeneralPicker';
 export { default as ProductImages } from './ProductImages';
 export { default as RelatedProducts } from './RelatedProducts';
 export { default as RelatedProduct } from './RelatedProduct';
