@@ -11,6 +11,7 @@ import {
 } from 'components/ui';
 
 import { SiDiscord } from 'react-icons/si';
+import { Cart } from '@/merch/cart';
 
 interface NavProps {
   open: boolean;
@@ -144,6 +145,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
           </div>
         </div>
         <MobileMenu show={open} toggle={setOpen} currentIndex={currentIndex} />
+        <Cart />
       </div>
       {/* </div> */}
     </Popover>

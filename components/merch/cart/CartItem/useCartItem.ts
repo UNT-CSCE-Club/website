@@ -6,7 +6,7 @@ import commerce from 'lib/commerce';
 const useCartItem = (item: LineItem) => {
   const { id, name, quantity, selected_options } = item;
   const hasVariants = selected_options.length >= 1;
-  const { setCart } = useCartDispatch();
+  const { setCart, setIsOpen } = useCartDispatch();
 
   const handleUpdateCart = ({ cart }: { cart: Cart }): Cart => {
     setCart(cart);
@@ -52,6 +52,7 @@ const useCartItem = (item: LineItem) => {
     handleRemoveItem,
     decrementQuantity,
     incrementQuantity,
+    setIsOpen,
   };
 };
 

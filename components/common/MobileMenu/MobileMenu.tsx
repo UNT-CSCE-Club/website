@@ -350,7 +350,7 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
                 </a>
                 <ShoppingCartButton
                   className='text-gray-500 rounded dark:text-gray-300 hover:text-gray-500'
-                  onClick={() => toggle(false)}
+                  callback={() => toggle(false)}
                 />
               </span>
             </div>

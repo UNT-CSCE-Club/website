@@ -1,6 +1,7 @@
 import { Price } from '@chec/commerce.js/types/price';
 import { Product } from '@chec/commerce.js/types/product';
 import { CheckCircleIcon } from '@heroicons/react/outline';
+import { useCartDispatch } from 'context/cart';
 import isDesktop from 'lib/utils/isDesktop';
 import Link from 'next/link';
 import React from 'react';
@@ -15,6 +16,8 @@ interface Props {
 }
 
 const AddToCartToast = ({ t, product, subTotal }: Props) => {
+  const { setIsOpen } = useCartDispatch();
+
   return (
     <CustomToastTransition t={t}>
       <div className='flex w-full max-w-md bg-white divide-x divide-gray-200 rounded-lg shadow-2xl pointer-events-auto ring-1 ring-black ring-opacity-5'>
@@ -37,14 +40,16 @@ const AddToCartToast = ({ t, product, subTotal }: Props) => {
         <div className='flex'>
           <div className='flex flex-col divide-y divide-gray-200'>
             <div className='flex flex-1 h-0'>
-              <Link href='/merch/cart'>
-                <a
-                  onClick={() => toast.dismiss(t.id)}
-                  className='flex items-center justify-center w-full px-4 py-3 text-sm font-medium border border-transparent rounded-none rounded-tr-lg text-primary hover:text-primary-dark focus:outline-none'
-                >
-                  View Cart
-                </a>
-              </Link>
+              <button
+                type='button'
+                onClick={() => {
+                  setIsOpen(true);
+                  toast.dismiss(t.id);
+                }}
+                className='flex items-center justify-center w-full px-4 py-3 text-sm font-medium border border-transparent rounded-none rounded-tr-lg text-primary hover:text-primary-dark focus:outline-none'
+              >
+                View Cart
+              </button>
             </div>
             <div className='flex flex-1 h-0'>
               <button
