@@ -1,7 +1,10 @@
 import React, { Fragment } from 'react';
 import Link from 'next/link';
 import { Transition, Dialog, Disclosure } from '@headlessui/react';
+import { Category } from '@chec/commerce.js/types/category';
 import { classNames } from 'lib/utils/classNames';
+import isMerchRoute from 'lib/utils/isMerchRoute';
+import { Logo, ShoppingCartButton, ThemeChanger } from 'components/ui';
 import { SiDiscord } from 'react-icons/si';
 import {
   FiCalendar,
@@ -13,24 +16,27 @@ import {
   FiUsers,
 } from 'react-icons/fi';
 import { IoShirtOutline } from 'react-icons/io5';
-import { Logo, ShoppingCartButton, ThemeChanger } from 'components/ui';
-
 import { XIcon } from '@heroicons/react/outline';
-import isMerchRoute from 'lib/utils/isMerchRoute';
 
 interface MobileMenuProps {
   show: boolean;
   toggle: React.Dispatch<React.SetStateAction<boolean>>;
   currentIndex: number;
+  merchCategories: Category[] | null;
 }
 
-const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
+const MobileMenu = ({
+  show,
+  toggle,
+  currentIndex,
+  merchCategories,
+}: MobileMenuProps) => {
   return (
     <Transition.Root show={show} as={Fragment}>
       <Dialog
         as='div'
         static
-        className='fixed inset-0 z-40 flex md:hidden'
+        className='fixed inset-0 z-40 flex lg:hidden'
         open={show}
         onClose={toggle}
       >
@@ -211,7 +217,7 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
                               </div>
                             </a>
                           </Link>
-                          <div className='flex items-center -mr-2 sm:hidden'>
+                          <div className='flex items-center -mr-2 lg:hidden'>
                             {/* Open merch options button */}
                             <Disclosure.Button className='inline-flex items-center justify-center px-3 py-2 text-gray-400 rounded-md'>
                               <span className='sr-only'>Open merch menu</span>
@@ -229,45 +235,37 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
                             </Disclosure.Button>
                           </div>
                         </div>
-                        <Disclosure.Panel className='sm:hidden'>
+                        <Disclosure.Panel className='lg:hidden'>
                           <div className='pt-4 pb-3 space-y-1'>
-                            {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
                             <Link href='/merch/products'>
                               <a
-                                className={classNames(
-                                  'block py-2 pl-2 pr-4 text-base font-medium text-gray-900 border-l-4 border-transparent rounded-lg dark:text-gray-50',
-                                  currentIndex === 7 &&
-                                    'bg-white dark:bg-gray-800'
-                                )}
+                                className='block py-2 pl-2 pr-4 text-base font-medium text-gray-900 border-l-4 border-transparent rounded-lg dark:text-gray-50'
                                 onClick={() => toggle(false)}
                               >
                                 All Products
                               </a>
                             </Link>
-                            <Link href='/merch/categories/accessories'>
-                              <a
-                                className={classNames(
-                                  'block py-2 pl-2 pr-4 text-base font-medium text-gray-900 border-l-4 border-transparent rounded-lg dark:text-gray-50',
-                                  currentIndex === 9 &&
-                                    'bg-white dark:bg-gray-800'
-                                )}
-                                onClick={() => toggle(false)}
-                              >
-                                Accessories
-                              </a>
-                            </Link>
-                            <Link href='/merch/categories/apparel'>
-                              <a
-                                className={classNames(
-                                  'block py-2 pl-2 pr-4 text-base font-medium text-gray-900 border-l-4 border-transparent rounded-lg dark:text-gray-50',
-                                  currentIndex === 10 &&
-                                    'bg-white dark:bg-gray-800'
-                                )}
-                                onClick={() => toggle(false)}
-                              >
-                                Apparel
-                              </a>
-                            </Link>
+                            {merchCategories ? (
+                              <>
+                                {merchCategories.map(category => (
+                                  <Link
+                                    key={category.id}
+                                    href={`/merch/categories/${category.slug}`}
+                                  >
+                                    <a
+                                      className='block py-2 pl-2 pr-4 text-base font-medium text-gray-900 border-l-4 border-transparent rounded-lg dark:text-gray-50'
+                                      onClick={() => toggle(false)}
+                                    >
+                                      {category.name}
+                                    </a>
+                                  </Link>
+                                ))}
+                              </>
+                            ) : (
+                              <span className='block py-2 pl-2 pr-4 text-base font-medium text-gray-900 border-l-4 border-transparent rounded-lg dark:text-gray-50'>
+                                Loading...
+                              </span>
+                            )}
                           </div>
                         </Disclosure.Panel>
                       </>

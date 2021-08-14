@@ -97,7 +97,7 @@ const AboutMenu = ({ currentIndex, isAboutIndex }: Props) => {
             >
               <Popover.Panel
                 static
-                className='absolute inset-x-0 z-10 hidden transform bg-white shadow-lg sm:block top-full'
+                className='absolute inset-x-0 z-10 hidden transform bg-white shadow-lg lg:block top-full'
               >
                 <div className='grid py-6 mx-auto my-container gap-y-6 sm:grid-cols-2 sm:gap-8 sm:py-8 lg:grid-cols-4 lg:py-12 xl:py-16'>
                   {aboutLinks.map((item, index) => (

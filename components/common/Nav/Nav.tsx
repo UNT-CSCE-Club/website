@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Popover } from '@headlessui/react';
 import useNav from './useNav';
 import { classNames } from 'lib/utils/classNames';
-import { MobileMenu, AboutMenu } from 'components/common';
+import { MobileMenu, AboutMenu, MerchMenu } from 'components/common';
 import {
   DiscordMenu,
   Logo,
@@ -25,6 +25,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
     discordRef,
     currentIndex,
     isAboutIndex,
+    merchCategories,
   } = useNav();
 
   return (
@@ -36,9 +37,8 @@ const Nav = ({ open, setOpen }: NavProps) => {
         className='absolute inset-0 z-30 shadow pointer-events-none'
         aria-hidden='true'
       />
-      {/* <div className='my-container'> */}
       <div className='flex justify-between h-16 my-container'>
-        <div className='flex items-center -ml-4 sm:hidden'>
+        <div className='flex items-center -ml-4 lg:hidden'>
           {/* Mobile menu button */}
           <button
             type='button'
@@ -80,33 +80,24 @@ const Nav = ({ open, setOpen }: NavProps) => {
             </svg>
           </button>
         </div>
-        <div className='flex items-center justify-start flex-1 sm:items-stretch sm:justify-start'>
+        <div className='flex items-center justify-start flex-1 lg:items-stretch lg:justify-start'>
           <Link href='/'>
             <a
               title='Home Page'
               className='flex items-center flex-shrink-0 rounded'
             >
-              <Logo className='w-8 h-8 mr-2 sm:mr-0 lg:mr-2' />
-              <span className='hidden text-2xl font-bold xs:block sm:hidden text-primary lg:block dark:text-primary-light'>
+              <Logo className='w-8 h-8 mr-2' />
+              <span className='hidden text-2xl font-bold xs:block text-primary lg:block dark:text-primary-light'>
                 CSCE Club
               </span>
             </a>
           </Link>
-          <div className='hidden sm:ml-6 sm:flex sm:space-x-8'>
+          <div className='hidden lg:ml-6 lg:flex lg:space-x-8'>
             <AboutMenu
               currentIndex={currentIndex}
               isAboutIndex={isAboutIndex}
             />
-            <Link href='/merch'>
-              <a
-                className={classNames(
-                  'inline-flex items-center px-1 pt-1 text-base font-medium border-b-2 text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100',
-                  currentIndex === 6 ? 'border-primary' : 'border-transparent'
-                )}
-              >
-                Merch
-              </a>
-            </Link>
+            <MerchMenu categories={merchCategories} />
             <Link href='/#contact'>
               <a
                 className={classNames(
@@ -119,7 +110,7 @@ const Nav = ({ open, setOpen }: NavProps) => {
             </Link>
           </div>
         </div>
-        <div className='flex items-center sm:ml-6 sm:pr-0'>
+        <div className='flex items-center lg:ml-6 lg:pr-0'>
           <ThemeChanger className='text-gray-400 rounded-full hover:text-gray-500 focus:text-gray-500 dark:text-gray-300 dark:hover:text-gray-100 dark:focus:text-gray-100' />
           <ShoppingCartButton className='ml-4 text-gray-400 rounded-full hover:text-gray-500 focus:text-gray-500 dark:text-gray-300 dark:hover:text-gray-100 dark:focus:text-gray-100' />
           <div ref={discordRef} className='relative ml-5'>
@@ -144,10 +135,14 @@ const Nav = ({ open, setOpen }: NavProps) => {
             />
           </div>
         </div>
-        <MobileMenu show={open} toggle={setOpen} currentIndex={currentIndex} />
+        <MobileMenu
+          show={open}
+          toggle={setOpen}
+          currentIndex={currentIndex}
+          merchCategories={merchCategories}
+        />
         <Cart />
       </div>
-      {/* </div> */}
     </Popover>
   );
 };

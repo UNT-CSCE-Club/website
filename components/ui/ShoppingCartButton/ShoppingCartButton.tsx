@@ -19,7 +19,7 @@ interface Props
 const ShoppingCartButton = ({ className, callback, ...rest }: Props) => {
   const { total_unique_items, isOpen } = useCartState();
   const { setIsOpen } = useCartDispatch();
-  console.log(callback);
+
   return (
     <button
       type='button'

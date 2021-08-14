@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
+import { Category } from '@chec/commerce.js/types/category';
 import useClickAway from 'lib/hooks/useClickAway';
+import commerce from 'lib/commerce';
 
 type NavHook = () => {
   discordMenuOpen: boolean;
@@ -8,12 +10,16 @@ type NavHook = () => {
   discordRef: React.RefObject<HTMLDivElement>;
   currentIndex: number;
   isAboutIndex: boolean;
+  merchCategories: Category[] | null;
 };
 
 const useNav: NavHook = () => {
   const router = useRouter();
   const [discordMenuOpen, setDiscordMenuOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [merchCategories, setMerchCategories] = useState<Category[] | null>(
+    null
+  );
 
   const isAboutIndex =
     currentIndex === 1 ||
@@ -22,6 +28,13 @@ const useNav: NavHook = () => {
     currentIndex === 4;
 
   const discordRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    commerce.categories
+      .list()
+      .then(({ data: categories }) => setMerchCategories(categories))
+      .catch(err => console.error(err));
+  }, []);
 
   useEffect(() => {
     switch (router.asPath) {
@@ -71,6 +84,7 @@ const useNav: NavHook = () => {
     discordRef,
     currentIndex,
     isAboutIndex,
+    merchCategories,
   };
 };
 
