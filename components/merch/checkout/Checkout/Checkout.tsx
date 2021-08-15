@@ -4,7 +4,7 @@ import { useStripe, useElements } from '@stripe/react-stripe-js';
 
 import { useCartDispatch } from 'context/cart';
 import { useCheckoutState, useCheckoutDispatch } from 'context/checkout';
-import { FormCheckbox } from '@/merch/form';
+import { FormCheckbox, FormInput } from '@/merch/form';
 
 import {
   BillingForm,
@@ -20,12 +20,12 @@ import { DevTool } from '@hookform/devtools';
 
 function Checkout({ cartId }) {
   const [order, setOrder] = useState();
+  const [isBillingSameAsShipping, setIsBillingSameAsShipping] = useState(true);
   const { reset: resetCart } = useCartDispatch();
   const { currentStep, id, live } = useCheckoutState();
   const {
     generateToken,
     setCurrentStep,
-    nextStepFrom,
     capture,
     setProcessing,
     setError: setCheckoutError,
@@ -46,19 +46,14 @@ function Checkout({ cartId }) {
   const captureOrder = async values => {
     setProcessing(true);
 
-    const {
-      customer,
-      shipping,
-      billing: { firstname, lastname, region: county_state, ...billing },
-      ...data
-    } = values;
+    const checkoutPayload = generateCheckoutPayload(values);
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: elements.getElement('cardNumber'),
       billing_details: {
-        name: `${billing.firstname} ${billing.lastname}`,
-        email: customer.email,
+        name: `${checkoutPayload.billing.firstname} ${checkoutPayload.billing.lastname}`,
+        email: checkoutPayload.customer.email,
       },
     });
 
@@ -67,25 +62,6 @@ function Checkout({ cartId }) {
       setProcessing(false);
       return;
     }
-    const checkoutPayload = {
-      ...data,
-      customer: {
-        ...customer,
-        firstname,
-        lastname,
-      },
-      ...(shipping && {
-        shipping: {
-          ...shipping,
-          name: `${shipping.firstname} ${shipping.lastname}`,
-        },
-      }),
-      billing: {
-        ...billing,
-        name: `${firstname} ${lastname}`,
-        county_state,
-      },
-    };
 
     try {
       const newOrder = await capture({
@@ -140,6 +116,39 @@ function Checkout({ cartId }) {
     }
   };
 
+  const generateCheckoutPayload = values => {
+    const { customer, shipping, billing, ...data } = values;
+
+    if (isBillingSameAsShipping) {
+      return {
+        ...data,
+        customer,
+        shipping: {
+          ...shipping,
+          name: `${shipping.firstname} ${shipping.lastname}`,
+        },
+        billing: {
+          ...shipping,
+          name: `${shipping.firstname} ${shipping.lastname}`,
+        },
+      };
+    } else {
+      return {
+        ...data,
+        customer,
+        shipping: {
+          ...shipping,
+          name: `${shipping.firstname} ${shipping.lastname}`,
+        },
+        billing: {
+          ...billing,
+          name: `${billing.firstname} ${billing.lastname}`,
+          county_state: billing.region,
+        },
+      };
+    }
+  };
+
   const handleOrderSuccess = order => {
     setOrder(order);
     setCurrentStep('success');
@@ -152,18 +161,17 @@ function Checkout({ cartId }) {
   };
 
   const onSubmit = values => {
-    const country = values?.shipping?.country;
-    const county_state = values?.shipping?.county_state;
-    const postal_zip_code = values?.shipping?.postal_zip_code;
-    const hasTaxValues =
-      country && county_state && postal_zip_code ? true : false;
+    // const country = values?.shipping?.country;
+    // const county_state = values?.shipping?.county_state;
+    // const postal_zip_code = values?.shipping?.postal_zip_code;
+    // const hasTaxValues =
+    //   country && county_state && postal_zip_code ? true : false;
 
-    if (currentStep === 'shipping' && hasTaxValues) {
-      calculateTax(values);
-    }
-    if (currentStep === 'billing') return captureOrder(values);
+    // if (currentStep === 'shipping' && hasTaxValues) {
+    //   calculateTax(values);
+    // }
 
-    return setCurrentStep(nextStepFrom(currentStep));
+    return captureOrder(values);
   };
 
   if (!id)
@@ -174,34 +182,61 @@ function Checkout({ cartId }) {
       </div>
     );
 
-  const steps = ['extrafields', 'shipping', 'billing', 'success'];
-
   return (
     <FormProvider {...methods}>
-      <div>
-        {steps.map(step => (
-          <button
-            type='button'
-            onClick={() => setCurrentStep(step)}
-            className='mx-2'
-            key={step}
+      <div className='pt-16 pb-24 my-container'>
+        <div className='max-w-2xl mx-auto lg:max-w-none'>
+          <h1 className='sr-only'>Checkout</h1>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className='lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16'
           >
-            {step}
-          </button>
-        ))}
-      </div>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className='flex flex-col justify-between h-full pt-6 md:pt-12'
-      >
-        {currentStep === 'extrafields' && <ExtraFieldsForm />}
-        {currentStep === 'shipping' && <ShippingForm />}
-        {currentStep === 'billing' && <BillingForm />}
-        {currentStep === 'success' && <Success {...order} />}
+            <div>
+              <fieldset className='mb-3 md:mb-4'>
+                <legend className='block pb-3 text-lg font-medium text-black md:text-xl'>
+                  Contact information
+                </legend>
 
-        {order ? <OrderSummary {...order} /> : <CheckoutSummary {...live} />}
-      </form>
-      <DevTool control={control} placement='top-right' />
+                <FormInput
+                  label='First Name'
+                  name='customer.firstname'
+                  required
+                />
+                <FormInput
+                  label='Last Name'
+                  name='customer.lastname'
+                  required
+                />
+                <FormInput
+                  type='email'
+                  label='Email address'
+                  name='customer.email'
+                  required
+                  validation={{
+                    pattern: {
+                      value: /^\S+@\S+$/i,
+                      message: 'You must enter a valid email',
+                    },
+                  }}
+                />
+              </fieldset>
+              <ShippingForm />
+              <BillingForm
+                isBillingSameAsShipping={isBillingSameAsShipping}
+                setIsBillingSameAsShipping={setIsBillingSameAsShipping}
+              />
+            </div>
+            <CheckoutSummary {...live} />
+            {currentStep === 'success' && (
+              <>
+                <Success {...order} />
+                <OrderSummary {...order} />
+              </>
+            )}
+          </form>
+          <DevTool control={control} placement='top-right' />
+        </div>
+      </div>
     </FormProvider>
   );
 }

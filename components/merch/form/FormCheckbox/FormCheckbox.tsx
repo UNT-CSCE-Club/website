@@ -39,7 +39,8 @@ const FormCheckbox = ({
           id={id || name}
           name={name}
           type='checkbox'
-          className='w-5 h-5 text-black bg-transparent border rounded appearance-none cursor-pointer checked:bg-black border-faded-black checked:border-black hover:border-black focus:border-black focus:checked:outline-none focus:outline-none'
+          className='w-5 h-5 bg-transparent border rounded appearance-none cursor-pointer text-primary checked:bg-primary border-faded-black checked:border-primary hover:border-primary focus:border-primary focus:ring-primary focus:checked:outline-none focus:outline-none'
+          // className='relative flex p-4 bg-white border rounded-lg shadow-sm cursor-pointer focus:outline-none'
           {...rest}
         />
         <span className='ml-2'>{label}</span>

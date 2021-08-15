@@ -8,7 +8,7 @@ interface Props
       SelectHTMLAttributes<HTMLSelectElement>,
       HTMLSelectElement
     >,
-    'id' | 'name' | 'className' | 'defaultValue'
+    'id' | 'name' | 'className'
   > {
   label: string;
   name: string;
@@ -34,13 +34,16 @@ const FormSelect = ({
 
   return (
     <div className='py-2'>
-      <div className='relative w-full overflow-hidden border rounded-md border-faded-black focus:border-black focus:outline-none'>
+      <label htmlFor={name} className='block text-sm font-medium text-gray-700'>
+        {label}
+      </label>
+      <div className='mt-1'>
         <select
           {...register(name, { required: isRequired, ...validation })}
           id={name}
           name={name}
-          className='appearance-none bg-transparent w-full py-1 pr-6 pl-1.5 text-base placeholder-faded-black focus:outline-none'
-          defaultValue=''
+          className='block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm'
+          defaultValue={rest.defaultValue ? rest.defaultValue : ''}
           {...rest}
         >
           <option disabled value=''>

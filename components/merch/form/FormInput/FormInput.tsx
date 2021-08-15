@@ -27,14 +27,19 @@ const FormInput = ({
 
   return (
     <div className='py-2'>
-      <input
-        {...register(name, { required: isRequired, ...validation })}
-        id={name}
-        name={name}
-        type={type}
-        className='appearance-none bg-transparent placeholder-faded-black border border-faded-black focus:border-black focus:outline-none rounded-md w-full text-base px-1.5 py-1'
-        {...props}
-      />
+      <label htmlFor={name} className='block text-sm font-medium text-gray-700'>
+        {label}
+      </label>
+      <div className='mt-1'>
+        <input
+          {...register(name, { required: isRequired, ...validation })}
+          id={name}
+          name={name}
+          type={type}
+          className='block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm'
+          {...props}
+        />
+      </div>
       <FormError name={name} />
     </div>
   );

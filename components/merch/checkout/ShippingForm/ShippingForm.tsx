@@ -1,73 +1,40 @@
-import { useState, useEffect, SetStateAction } from 'react';
-import { useFormContext } from 'react-hook-form';
-import { useDebounce } from 'use-debounce';
+import React, { useState, useEffect } from 'react';
+import { Controller, useFormContext } from 'react-hook-form';
 
 import commerce from 'lib/commerce';
 
 import { useCheckoutState, useCheckoutDispatch } from 'context/checkout';
 
 import { AddressFields } from '@/merch/checkout';
-import { FormCheckbox as FormRadio, FormError } from '@/merch/form';
+import { FormError } from '@/merch/form';
+import { RadioGroup } from '@headlessui/react';
+import { classNames } from 'lib/utils/classNames';
+import { CheckCircleIcon } from '@heroicons/react/solid';
 
 function ShippingForm() {
   const { id } = useCheckoutState();
-  const { setShippingMethod } = useCheckoutDispatch();
-  const [countries, setCountries] = useState<{ [name: string]: string }>();
-  const [subdivisions, setSubdivisions] = useState<{
-    [name: string]: string;
-  }>();
+  const { setShippingMethod, setTax } = useCheckoutDispatch();
   const [shippingOptions, setShippingOptions] = useState<any>([]);
   const methods = useFormContext();
-  const { watch, setValue } = methods;
+  const { watch, setValue, control, setError, clearErrors } = methods;
 
-  const [watchCountry] = useDebounce(watch('shipping.country'), 600);
-  const watchSubdivision = watch('shipping.region');
-
-  useEffect(() => {
-    fetchCountries(id);
-  }, []);
+  const watchSubdivision = watch('shipping.county_state');
+  const watchZipCode = watch('shipping.postal_zip_code');
 
   useEffect(() => {
-    setValue('shipping.region', '');
-
-    if (watchCountry) {
-      fetchSubdivisions(id, watchCountry);
-      fetchShippingOptions(id, watchCountry);
+    if (!watchSubdivision) {
+      fetchShippingOptions(id, 'US');
     }
-  }, [watchCountry]);
-
-  useEffect(() => {
     if (watchSubdivision) {
-      fetchShippingOptions(id, watchCountry, watchSubdivision);
+      fetchShippingOptions(id, 'US', watchSubdivision);
     }
   }, [watchSubdivision]);
 
-  const fetchCountries = async checkoutId => {
-    try {
-      const { countries } = await commerce.services.localeListShippingCountries(
-        checkoutId
-      );
-
-      setCountries(countries);
-    } catch (err) {
-      console.log('couldnt fetch countries');
+  useEffect(() => {
+    if (watchSubdivision && watchZipCode.length === 5) {
+      setTax(watchSubdivision, watchZipCode, setError, clearErrors);
     }
-  };
-
-  const fetchSubdivisions = async (checkoutId, countryCode) => {
-    try {
-      const {
-        subdivisions,
-      } = await commerce.services.localeListShippingSubdivisions(
-        checkoutId,
-        countryCode
-      );
-
-      setSubdivisions(subdivisions);
-    } catch (err) {
-      console.log('couldnt fetchSubdivisions');
-    }
-  };
+  }, [watchSubdivision, watchZipCode]);
 
   const fetchShippingOptions = async (checkoutId, country, region?) => {
     if (!checkoutId && !country) return;
@@ -96,65 +63,102 @@ function ShippingForm() {
     }
   };
 
-  const onShippingSelect = ({ target: { value } }) =>
-    selectShippingMethod(value);
-
   const selectShippingMethod = async optionId => {
     try {
-      await setShippingMethod(optionId, watchCountry, watchSubdivision);
+      await setShippingMethod(optionId, 'US', watchSubdivision);
     } catch (err) {
       console.log('couldnt selectShippingMethod');
     }
   };
 
   return (
-    <div className='md:flex md:space-x-12 lg:space-x-24'>
-      <div className='md:w-1/2'>
+    <div className='pt-10 mt-10 border-t border-gray-200'>
+      <div className=''>
         <fieldset className='mb-3 md:mb-4'>
           <legend className='block py-3 text-lg font-medium text-black md:text-xl'>
-            Shipping address
+            Shipping information
           </legend>
 
-          <AddressFields
-            prefix='shipping'
-            countries={countries}
-            subdivisions={subdivisions}
-          />
+          <AddressFields prefix='shipping' />
         </fieldset>
       </div>
-      <div className='md:w-1/2'>
-        <fieldset className='mb-3 md:mb-4'>
-          <legend className='block py-3 text-lg font-medium text-black md:text-xl'>
-            Shipping
-          </legend>
-          <div>
-            {watchCountry ? (
-              <>
-                <div className='-space-y-1'>
+      <div className='pt-10 mt-10 border-t border-gray-200'>
+        <div>
+          <Controller
+            control={control}
+            defaultValue=''
+            name='fulfillment.shipping_method'
+            rules={{ required: 'You must select a shipping option' }}
+            render={({ field: { onChange, value } }) => (
+              <RadioGroup
+                value={value}
+                onChange={value => {
+                  onChange(value);
+                  selectShippingMethod(value);
+                }}
+              >
+                <RadioGroup.Label className='text-xl font-medium text-gray-900'>
+                  Delivery method
+                </RadioGroup.Label>
+
+                <div className='grid grid-cols-1 mt-4 gap-y-6 sm:grid-cols-2 sm:gap-x-4'>
                   {shippingOptions.map(({ id, description, price }) => (
-                    <div key={id}>
-                      <FormRadio
-                        id={id}
-                        type='radio'
-                        name='fulfillment.shipping_method'
-                        value={id}
-                        label={`${description}: ${price.formatted_with_symbol}`}
-                        onChange={onShippingSelect}
-                        required='You must select a shipping option'
-                      />
-                    </div>
+                    <RadioGroup.Option
+                      key={id}
+                      value={id}
+                      className={({ checked, active }) =>
+                        classNames(
+                          checked ? 'border-transparent' : 'border-gray-300',
+                          active ? 'ring-2 ring-primary-light' : '',
+                          'relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none'
+                        )
+                      }
+                    >
+                      {({ checked, active }) => (
+                        <>
+                          <div className='flex flex-1'>
+                            <div className='flex flex-col'>
+                              <RadioGroup.Label
+                                as='span'
+                                className='block text-sm font-medium text-gray-900'
+                              >
+                                {description}
+                              </RadioGroup.Label>
+                              <RadioGroup.Description
+                                as='span'
+                                className='mt-6 text-sm font-medium text-gray-900'
+                              >
+                                {price.formatted_with_symbol}
+                              </RadioGroup.Description>
+                            </div>
+                          </div>
+                          {checked ? (
+                            <CheckCircleIcon
+                              className='w-5 h-5 ml-1 text-primary'
+                              aria-hidden='true'
+                            />
+                          ) : null}
+                          <div
+                            className={classNames(
+                              active ? 'border' : 'border-2',
+                              checked
+                                ? 'border-primary-light'
+                                : 'border-transparent',
+                              'absolute -inset-px rounded-lg pointer-events-none'
+                            )}
+                            aria-hidden='true'
+                          />
+                        </>
+                      )}
+                    </RadioGroup.Option>
                   ))}
                 </div>
-
-                <FormError name='fulfillment.shipping_method' />
-              </>
-            ) : (
-              <p className='text-sm text-black'>
-                Please enter your address to fetch shipping options
-              </p>
+              </RadioGroup>
             )}
-          </div>
-        </fieldset>
+          />
+
+          <FormError name='fulfillment.shipping_method' />
+        </div>
       </div>
     </div>
   );

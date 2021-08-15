@@ -7,7 +7,6 @@ const CheckoutPage = () => {
 
   return (
     <>
-      <h1>Checkout</h1>
       <Checkout cartId={id} />
     </>
   );

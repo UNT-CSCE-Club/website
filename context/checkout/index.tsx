@@ -1,11 +1,13 @@
 import { createContext, useReducer, useContext } from 'react';
 
 import commerce from 'lib/commerce';
+import { useEffect } from 'react';
 
 const CheckoutStateContext = createContext(null);
 const CheckoutDispatchContext = createContext(null);
 
 const SET_CURRENT_STEP = 'SET_CURRENT_STEP';
+const SET_UNITED_STATES_SUBDIVISIONS = 'SET_UNITED_STATES_SUBDIVISIONS';
 const SET_CHECKOUT = 'SET_CHECKOUT';
 const SET_LIVE = 'SET_LIVE';
 const SET_PROCESSING = 'SET_PROCESSING';
@@ -14,6 +16,7 @@ const RESET = 'RESET';
 
 const initialState = {
   currentStep: 'extrafields',
+  unitedStatesSubdivisions: [],
   processing: false,
   error: null,
 };
@@ -24,6 +27,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         currentStep: action.payload,
+      };
+    case SET_UNITED_STATES_SUBDIVISIONS:
+      return {
+        ...state,
+        unitedStatesSubdivisions: action.payload,
       };
     case SET_CHECKOUT:
       return {
@@ -46,6 +54,10 @@ const reducer = (state, action) => {
 export const CheckoutProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  useEffect(() => {
+    getUnitedStatesSubdivisions();
+  }, []);
+
   const generateToken = async cartId => {
     if (!cartId) return;
 
@@ -57,6 +69,30 @@ export const CheckoutProvider = ({ children }) => {
       dispatch({ type: SET_CHECKOUT, payload });
     } catch (err) {
       console.log('generateToken failed');
+    }
+  };
+
+  const getUnitedStatesSubdivisions = async () => {
+    try {
+      const { subdivisions } = await commerce.services.localeListSubdivisions(
+        'US'
+      );
+
+      const reducer = ([code, name]) => ({
+        value: code,
+        label: name,
+      });
+
+      const formattedSubdivisions = subdivisions
+        ? Object.entries(subdivisions).map(reducer)
+        : [];
+
+      dispatch({
+        type: SET_UNITED_STATES_SUBDIVISIONS,
+        payload: formattedSubdivisions,
+      });
+    } catch (err) {
+      console.log('getUnitedStatesSubdivisions failed');
     }
   };
 
@@ -74,18 +110,28 @@ export const CheckoutProvider = ({ children }) => {
     }
   };
 
-  const setTax = async (country, region, postal_zip_code) => {
+  const setTax = async (
+    region,
+    postal_zip_code,
+    setTaxError,
+    clearTaxError
+  ) => {
+    clearTaxError('shipping.postal_zip_code');
     try {
-      const { live } = await commerce.checkout.setTaxZone(state.id, {
-        country,
+      const { live, valid } = await commerce.checkout.setTaxZone(state.id, {
+        country: 'US',
         region,
         postal_zip_code,
       });
 
       dispatch({ type: SET_LIVE, payload: live });
+
+      clearTaxError('shipping.postal_zip_code');
     } catch (err) {
-      console.log('setTax Failed');
-      console.log(err);
+      setTaxError('shipping.postal_zip_code', {
+        type: 'manual',
+        message: err?.data?.error?.message || 'Invalid ZIP / Postcode',
+      });
     }
   };
 

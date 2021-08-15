@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import { useRouter } from 'next/dist/client/router';
 import { useCartDispatch, useCartState } from 'context/cart';
 import { classNames } from 'lib/utils/classNames';
 import { FiShoppingCart } from 'react-icons/fi';
@@ -10,7 +10,7 @@ interface Props
       React.ButtonHTMLAttributes<HTMLButtonElement>,
       HTMLButtonElement
     >,
-    'title' | 'type' | 'children' | 'onClick'
+    'title' | 'type' | 'children' | 'onClick' | 'disabled'
   > {
   className: string;
   callback?: () => any;
@@ -19,6 +19,7 @@ interface Props
 const ShoppingCartButton = ({ className, callback, ...rest }: Props) => {
   const { total_unique_items, isOpen } = useCartState();
   const { setIsOpen } = useCartDispatch();
+  const router = useRouter();
 
   return (
     <button
@@ -30,7 +31,11 @@ const ShoppingCartButton = ({ className, callback, ...rest }: Props) => {
         }
       }}
       title='View Shopping Cart'
-      className={classNames('relative inline-block', className)}
+      className={classNames(
+        'relative',
+        className,
+        router.pathname === '/merch/checkout' ? 'hidden' : 'inline-block'
+      )}
       {...rest}
     >
       <FiShoppingCart className='w-6 h-6' />
