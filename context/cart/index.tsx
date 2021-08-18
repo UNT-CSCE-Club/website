@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 
 interface Cart extends CommerceCart {
   isOpen: boolean;
+  isCartLoading: boolean;
 }
 
 const CartStateContext = createContext<Cart>(null);
@@ -16,6 +17,7 @@ const CartDispatchContext = createContext<{
 
 const SET_CART = 'SET_CART';
 const SET_IS_OPEN = 'SET_IS_OPEN';
+const SET_IS_CART_LOADING = 'SET_IS_CART_LOADING';
 const RESET = 'RESET';
 
 const initialState = {
@@ -23,6 +25,7 @@ const initialState = {
   total_unique_items: 0,
   line_items: [],
   isOpen: false,
+  isCartLoading: true,
 };
 
 const reducer = (state, action) => {
@@ -33,6 +36,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         isOpen: action.payload,
+      };
+    case SET_IS_CART_LOADING:
+      return {
+        ...state,
+        isCartLoading: action.payload,
       };
     case RESET:
       return { ...initialState, isOpen: state.isOpen };
@@ -49,6 +57,7 @@ export const CartProvider = ({ children }) => {
   }, []);
 
   const getCart = async () => {
+    setIsCartLoading(true);
     try {
       const cart = await commerce.cart.retrieve();
 
@@ -56,6 +65,8 @@ export const CartProvider = ({ children }) => {
     } catch (err) {
       toast.error('Could not get cart');
       console.error(err);
+    } finally {
+      setIsCartLoading(false);
     }
   };
 
@@ -64,6 +75,9 @@ export const CartProvider = ({ children }) => {
 
   const setIsOpen = (payload: boolean) =>
     dispatch({ type: SET_IS_OPEN, payload });
+
+  const setIsCartLoading = (payload: boolean) =>
+    dispatch({ type: SET_IS_CART_LOADING, payload });
 
   const reset = async () => dispatch({ type: RESET });
 

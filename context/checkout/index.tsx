@@ -13,12 +13,14 @@ const SET_LIVE = 'SET_LIVE';
 const SET_PROCESSING = 'SET_PROCESSING';
 const SET_ERROR = 'SET_ERROR';
 const RESET = 'RESET';
+const SET_IS_CHECKOUT_LOADING = 'SET_IS_CHECKOUT_LOADING';
 
 const initialState = {
   currentStep: 'extrafields',
   unitedStatesSubdivisions: [],
   processing: false,
   error: null,
+  isCheckoutLoading: true,
 };
 
 const reducer = (state, action) => {
@@ -38,6 +40,8 @@ const reducer = (state, action) => {
         ...state,
         ...action.payload,
       };
+    case SET_IS_CHECKOUT_LOADING:
+      return { ...state, isCheckoutLoading: action.payload };
     case SET_LIVE:
       return { ...state, live: { ...state.live, ...action.payload } };
     case SET_PROCESSING:
@@ -45,7 +49,10 @@ const reducer = (state, action) => {
     case SET_ERROR:
       return { ...state, error: action.payload };
     case RESET:
-      return initialState;
+      return {
+        ...initialState,
+        unitedStatesSubdivisions: state.unitedStatesSubdivisions,
+      };
     default:
       throw new Error(`Unknown action: ${action.type}`);
   }
@@ -61,6 +68,8 @@ export const CheckoutProvider = ({ children }) => {
   const generateToken = async cartId => {
     if (!cartId) return;
 
+    setIsCheckoutLoading(true);
+
     try {
       const payload = await commerce.checkout.generateToken(cartId, {
         type: 'cart',
@@ -69,6 +78,9 @@ export const CheckoutProvider = ({ children }) => {
       dispatch({ type: SET_CHECKOUT, payload });
     } catch (err) {
       console.log('generateToken failed');
+      reset();
+    } finally {
+      setIsCheckoutLoading(false);
     }
   };
 
@@ -151,6 +163,9 @@ export const CheckoutProvider = ({ children }) => {
   const capture = values => commerce.checkout.capture(state.id, values);
 
   const setProcessing = payload => dispatch({ type: SET_PROCESSING, payload });
+
+  const setIsCheckoutLoading = payload =>
+    dispatch({ type: SET_IS_CHECKOUT_LOADING, payload });
 
   const setError = payload => dispatch({ type: SET_ERROR, payload });
 

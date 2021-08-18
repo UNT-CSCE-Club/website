@@ -1,13 +1,16 @@
 import { Checkout } from '@/merch/checkout';
 import { useCartState } from 'context/cart';
+import { CheckoutProvider } from 'context/checkout';
+import { useRouter } from 'next/dist/client/router';
 import React from 'react';
+import { useEffect } from 'react';
 
 const CheckoutPage = () => {
-  const { id } = useCartState();
-
   return (
     <>
-      <Checkout cartId={id} />
+      <CheckoutProvider>
+        <Checkout />
+      </CheckoutProvider>
     </>
   );
 };

@@ -1,35 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { useForm, FormProvider } from 'react-hook-form';
 import { useStripe, useElements } from '@stripe/react-stripe-js';
+import { useForm, FormProvider } from 'react-hook-form';
+import { DevTool } from '@hookform/devtools';
 
-import { useCartDispatch } from 'context/cart';
+import { useCartDispatch, useCartState } from 'context/cart';
 import { useCheckoutState, useCheckoutDispatch } from 'context/checkout';
-import { FormCheckbox, FormInput } from '@/merch/form';
-
+import { FormInput } from '@/merch/form';
 import {
   BillingForm,
   CheckoutSummary,
-  ExtraFieldsForm,
   OrderSummary,
   ShippingForm,
   Success,
 } from '@/merch/checkout';
-import { DevTool } from '@hookform/devtools';
+import { useRouter } from 'next/router';
+import toast from 'react-hot-toast';
+import { FiXCircle } from 'react-icons/fi';
+import { ClubMembersSvg, LinearProgress } from 'components/ui';
 
-// import LoadingSVG from '../../svg/loading.svg';
-
-function Checkout({ cartId }) {
+function Checkout() {
   const [order, setOrder] = useState();
   const [isBillingSameAsShipping, setIsBillingSameAsShipping] = useState(true);
   const { reset: resetCart } = useCartDispatch();
-  const { currentStep, id, live } = useCheckoutState();
+  const { currentStep, id, live, isCheckoutLoading } = useCheckoutState();
   const {
     generateToken,
     setCurrentStep,
     capture,
     setProcessing,
     setError: setCheckoutError,
-    setTax,
   } = useCheckoutDispatch();
   const methods = useForm({
     shouldUnregister: false,
@@ -39,9 +38,21 @@ function Checkout({ cartId }) {
   const stripe = useStripe();
   const elements = useElements();
 
-  useEffect(() => {
-    generateToken(cartId);
-  }, [cartId]);
+  const { id: cartId, isCartLoading, total_unique_items } = useCartState();
+  const router = useRouter();
+
+  // useEffect(() => {
+  //   if (!isCartLoading && total_unique_items < 1 && !isCheckoutLoading) {
+  //     router.push('/merch');
+  //     toast('Your cart is empty', {
+  //       icon: <FiXCircle className='flex-shrink-0 w-5 h-5 text-red-500' />,
+  //     });
+  //   }
+  // }, [isCartLoading, total_unique_items, isCheckoutLoading, router]);
+
+  // useEffect(() => {
+  //   cartId && generateToken(cartId);
+  // }, [cartId]);
 
   const captureOrder = async values => {
     setProcessing(true);
@@ -155,90 +166,79 @@ function Checkout({ cartId }) {
     resetCart();
   };
 
-  const calculateTax = async values => {
-    const { country, county_state, postal_zip_code } = values?.shipping;
-    await setTax(country, county_state, postal_zip_code);
-  };
+  const onSubmit = values => captureOrder(values);
 
-  const onSubmit = values => {
-    // const country = values?.shipping?.country;
-    // const county_state = values?.shipping?.county_state;
-    // const postal_zip_code = values?.shipping?.postal_zip_code;
-    // const hasTaxValues =
-    //   country && county_state && postal_zip_code ? true : false;
-
-    // if (currentStep === 'shipping' && hasTaxValues) {
-    //   calculateTax(values);
-    // }
-
-    return captureOrder(values);
-  };
-
-  if (!id)
+  // if (isCartLoading || total_unique_items < 1 || isCheckoutLoading || !id)
+  if (true)
     return (
-      <div className='flex flex-col items-center justify-center h-full space-y-6'>
-        {/* <LoadingSVG className='w-10 fill-current md:w-16' /> */}
-        <p className='text-black'>Preparing checkout</p>
+      <div className='flex items-center justify-center h-[calc(100vh-4rem)] my-container'>
+        <div className='flex flex-col items-center justify-center w-full p-8 bg-white shadow-xl max-w-screen-xs md:max-w-screen-sm 2xl:max-w-screen-lg rounded-xl'>
+          <p className='mb-8 text-2xl font-bold text-gray-900'>
+            Preparing checkout
+          </p>
+          <ClubMembersSvg className='xl:max-w-sm 2xl:max-w-screen-md' />
+        </div>
+        {/* <LinearProgress /> */}
       </div>
     );
 
-  return (
-    <FormProvider {...methods}>
-      <div className='pt-16 pb-24 my-container'>
-        <div className='max-w-2xl mx-auto lg:max-w-none'>
-          <h1 className='sr-only'>Checkout</h1>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className='lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16'
-          >
-            <div>
-              <fieldset className='mb-3 md:mb-4'>
-                <legend className='block pb-3 text-lg font-medium text-black md:text-xl'>
-                  Contact information
-                </legend>
+  // return (
+  //   <FormProvider {...methods}>
+  //     <div className='pt-16 pb-24 my-container'>
+  //       <div className='max-w-2xl mx-auto lg:max-w-none'>
+  //         <h1 className='sr-only'>Checkout</h1>
+  //         <form
+  //           onSubmit={handleSubmit(onSubmit)}
+  //           className='lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16'
+  //         >
+  //           <div>
+  //             <fieldset className='mb-3 md:mb-4'>
+  //               <legend className='block pb-3 text-lg font-medium text-black md:text-xl'>
+  //                 Contact information
+  //               </legend>
 
-                <FormInput
-                  label='First Name'
-                  name='customer.firstname'
-                  required
-                />
-                <FormInput
-                  label='Last Name'
-                  name='customer.lastname'
-                  required
-                />
-                <FormInput
-                  type='email'
-                  label='Email address'
-                  name='customer.email'
-                  required
-                  validation={{
-                    pattern: {
-                      value: /^\S+@\S+$/i,
-                      message: 'You must enter a valid email',
-                    },
-                  }}
-                />
-              </fieldset>
-              <ShippingForm />
-              <BillingForm
-                isBillingSameAsShipping={isBillingSameAsShipping}
-                setIsBillingSameAsShipping={setIsBillingSameAsShipping}
-              />
-            </div>
-            <CheckoutSummary {...live} />
-            {currentStep === 'success' && (
-              <>
-                <Success {...order} />
-                <OrderSummary {...order} />
-              </>
-            )}
-          </form>
-          <DevTool control={control} placement='top-right' />
-        </div>
-      </div>
-    </FormProvider>
-  );
+  //               <FormInput
+  //                 label='First Name'
+  //                 name='customer.firstname'
+  //                 required
+  //               />
+  //               <FormInput
+  //                 label='Last Name'
+  //                 name='customer.lastname'
+  //                 required
+  //               />
+  //               <FormInput
+  //                 type='email'
+  //                 label='Email address'
+  //                 name='customer.email'
+  //                 required
+  //                 validation={{
+  //                   pattern: {
+  //                     value: /^\S+@\S+$/i,
+  //                     message: 'You must enter a valid email',
+  //                   },
+  //                 }}
+  //               />
+  //             </fieldset>
+  //             <ShippingForm />
+  //             <BillingForm
+  //               isBillingSameAsShipping={isBillingSameAsShipping}
+  //               setIsBillingSameAsShipping={setIsBillingSameAsShipping}
+  //             />
+  //           </div>
+  //           <CheckoutSummary {...live} />
+  //           {currentStep === 'success' && (
+  //             <>
+  //               <Success {...order} />
+  //               <OrderSummary {...order} />
+  //             </>
+  //           )}
+  //         </form>
+  //         <DevTool control={control} placement='top-right' />
+  //       </div>
+  //     </div>
+  //   </FormProvider>
+  // );
 }
 
 export default Checkout;

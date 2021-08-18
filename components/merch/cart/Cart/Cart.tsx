@@ -86,7 +86,7 @@ const Cart = () => {
                           <p className='text-4xl font-bold text-gray-900 dark:text-gray-50 xs:text-5xl'>
                             Looks like your cart is empty
                           </p>
-                          <ClubMembersSvg className='w-full h-auto' />
+                          <ClubMembersSvg className='w-full h-auto' static />
                           <Link href='/merch'>
                             <a
                               onClick={() => setIsOpen(false)}

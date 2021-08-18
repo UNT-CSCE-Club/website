@@ -8,7 +8,7 @@ import '../styles/globals.css';
 import 'focus-visible';
 import { ThemeProvider } from 'next-themes';
 import { Layout } from 'components/common';
-import { Toaster } from 'react-hot-toast';
+import { resolveValue, ToastBar, Toaster } from 'react-hot-toast';
 
 import { Elements } from '@stripe/react-stripe-js';
 import getStripe from 'lib/stripe/get-stripejs';
@@ -17,6 +17,7 @@ import { CartProvider } from 'context/cart';
 import { CheckoutProvider } from 'context/checkout';
 
 import isDesktop from 'lib/utils/isDesktop';
+import { CustomToastTransition } from 'components/ui';
 
 const stripePromise = getStripe();
 
@@ -37,18 +38,25 @@ function MyApp({ Component, pageProps }: AppProps) {
       >
         <ThemeProvider attribute='class'>
           <CartProvider>
-            <CheckoutProvider>
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-              <Toaster
-                reverseOrder={isDesktop() ? true : false}
-                position={isDesktop() ? 'top-right' : 'bottom-center'}
-                containerStyle={{
-                  top: '5rem',
-                }}
-              />
-            </CheckoutProvider>
+            {/* <CheckoutProvider> */}
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+            <Toaster
+              reverseOrder={isDesktop() ? false : true}
+              position={isDesktop() ? 'top-right' : 'bottom-center'}
+              containerStyle={{
+                top: '5rem',
+              }}
+            >
+              {t => (
+                <CustomToastTransition t={t} all>
+                  <ToastBar toast={t} style={{ ...t.style, animation: '' }} />
+                  {/* {resolveValue(t.message, t)} */}
+                </CustomToastTransition>
+              )}
+            </Toaster>
+            {/* </CheckoutProvider> */}
           </CartProvider>
         </ThemeProvider>
       </Elements>

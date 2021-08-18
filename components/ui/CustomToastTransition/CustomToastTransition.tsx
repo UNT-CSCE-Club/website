@@ -2,10 +2,14 @@ import React, { Fragment } from 'react';
 import { Transition } from '@headlessui/react';
 import { Toast } from 'react-hot-toast/dist/core/types';
 
-const CustomToastTransition: React.FC<{ t: Toast }> = ({ t, children }) => {
+const CustomToastTransition: React.FC<{ t: Toast; all?: boolean }> = ({
+  t,
+  children,
+  all,
+}) => {
   return (
     <Transition
-      as={Fragment}
+      as={all ? 'span' : Fragment}
       show={t.visible}
       appear={true}
       enter='transform ease-out duration-300 transition'
