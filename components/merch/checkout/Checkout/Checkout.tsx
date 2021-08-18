@@ -41,18 +41,18 @@ function Checkout() {
   const { id: cartId, isCartLoading, total_unique_items } = useCartState();
   const router = useRouter();
 
-  // useEffect(() => {
-  //   if (!isCartLoading && total_unique_items < 1 && !isCheckoutLoading) {
-  //     router.push('/merch');
-  //     toast('Your cart is empty', {
-  //       icon: <FiXCircle className='flex-shrink-0 w-5 h-5 text-red-500' />,
-  //     });
-  //   }
-  // }, [isCartLoading, total_unique_items, isCheckoutLoading, router]);
+  useEffect(() => {
+    if (!isCartLoading && total_unique_items < 1 && !isCheckoutLoading) {
+      router.push('/merch');
+      toast('Your cart is empty', {
+        icon: <FiXCircle className='flex-shrink-0 w-5 h-5 text-red-500' />,
+      });
+    }
+  }, [isCartLoading, total_unique_items, isCheckoutLoading, router]);
 
-  // useEffect(() => {
-  //   cartId && generateToken(cartId);
-  // }, [cartId]);
+  useEffect(() => {
+    cartId && generateToken(cartId);
+  }, [cartId]);
 
   const captureOrder = async values => {
     setProcessing(true);
