@@ -1,10 +1,10 @@
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 
 interface Props extends React.SVGProps<SVGSVGElement> {
-  static?: boolean;
+  stationary?: boolean;
 }
 
-const ClubMembersSvg = (props: Props) => {
+const ClubMembersSvg = ({ stationary, ...rest }: Props) => {
   const container = {
     hidden: {
       transition: {
@@ -38,13 +38,13 @@ const ClubMembersSvg = (props: Props) => {
     },
   };
 
-  if (props.static) {
+  if (stationary) {
     return (
       <svg
         xmlns='http://www.w3.org/2000/svg'
         xmlnsXlink='http://www.w3.org/1999/xlink'
         viewBox='0 0 633.03027 578.89746'
-        {...props}
+        {...rest}
       >
         <defs>
           <linearGradient
@@ -750,7 +750,7 @@ const ClubMembersSvg = (props: Props) => {
       xmlns='http://www.w3.org/2000/svg'
       xmlnsXlink='http://www.w3.org/1999/xlink'
       viewBox='0 0 633.03027 578.89746'
-      {...props}
+      {...rest}
     >
       <defs>
         <linearGradient
