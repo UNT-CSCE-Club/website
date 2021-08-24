@@ -47,6 +47,7 @@ function AddressFields({ prefix = '' }) {
         </div>
         <div className='md:w-1/3'>
           <FormInput
+            type='number'
             label='ZIP / Postcode'
             name={`${prefix}.postal_zip_code`}
             required
