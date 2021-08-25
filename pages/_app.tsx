@@ -8,7 +8,7 @@ import '../styles/globals.css';
 import 'focus-visible';
 import { ThemeProvider } from 'next-themes';
 import { Layout } from 'components/common';
-import { resolveValue, ToastBar, Toaster } from 'react-hot-toast';
+import toast, { resolveValue, ToastBar, Toaster } from 'react-hot-toast';
 
 import { Elements } from '@stripe/react-stripe-js';
 import getStripe from 'lib/stripe/get-stripejs';
@@ -51,8 +51,25 @@ function MyApp({ Component, pageProps }: AppProps) {
             >
               {t => (
                 <CustomToastTransition t={t} all>
-                  <ToastBar toast={t} style={{ ...t.style, animation: '' }} />
-                  {/* {resolveValue(t.message, t)} */}
+                  <ToastBar
+                    toast={t}
+                    style={{
+                      ...t.style,
+                      animation: '',
+                      padding: 0,
+                    }}
+                  >
+                    {({ icon, message }) => (
+                      <button
+                        type='button'
+                        onClick={() => toast.dismiss(t.id)}
+                        className='flex items-center py-[8px] px-[10px]'
+                      >
+                        {icon}
+                        {message}
+                      </button>
+                    )}
+                  </ToastBar>
                 </CustomToastTransition>
               )}
             </Toaster>
