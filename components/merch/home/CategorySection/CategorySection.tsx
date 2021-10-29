@@ -2,7 +2,8 @@ import Link from 'next/link';
 import { Category } from '@chec/commerce.js/types/category';
 
 interface Props {
-  categories: Category[];
+  // categories: Category[];
+  categories: any; // bad type definition from @types/chec__commerce.js
 }
 
 const CategorySection = ({ categories }: Props) => {
@@ -11,6 +12,7 @@ const CategorySection = ({ categories }: Props) => {
   }
 
   const firstCategory = categories[0];
+  console.log(categories);
 
   return (
     <section aria-labelledby='category-heading' className='bg-white'>

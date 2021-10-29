@@ -10,6 +10,7 @@ import { FormError } from '@/merch/form';
 import { RadioGroup } from '@headlessui/react';
 import { classNames } from 'lib/utils/classNames';
 import { CheckCircleIcon } from '@heroicons/react/solid';
+import { GetShippingOptionsResponse } from '@chec/commerce.js/features/checkout';
 
 function ShippingForm() {
   const { id } = useCheckoutState();
@@ -42,13 +43,13 @@ function ShippingForm() {
     setValue('fulfillment.shipping_method', null);
 
     try {
-      const shippingMethods = await commerce.checkout.getShippingOptions(
+      const shippingMethods = (await commerce.checkout.getShippingOptions(
         checkoutId,
         {
           country,
           ...(region && { region }),
         }
-      );
+      )) as unknown as GetShippingOptionsResponse[]; // fix @types/chec__commerce.js incorrect return type
 
       setShippingOptions(shippingMethods);
 

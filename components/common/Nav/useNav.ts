@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router';
 import { Category } from '@chec/commerce.js/types/category';
 import useClickAway from 'lib/hooks/useClickAway';
 import commerce from 'lib/commerce';
