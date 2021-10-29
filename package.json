@@ -15,7 +15,6 @@
     "generate": "graphql-codegen --config codegen.yml --require dotenv/config"
   },
   "dependencies": {
-    "@babel/core": "^7.15.0",
     "@chec/commerce.js": "^2.8.0",
     "@headlessui/react": "^1.4.0",
     "@heroicons/react": "^1.0.2",
@@ -51,7 +50,6 @@
     "cypress": "^8.0.0",
     "dotenv": "^10.0.0",
     "next-sitemap": "^1.6.140",
-    "patch-package": "^6.4.7",
     "postcss": "^8.3.6",
     "postcss-focus-visible": "^5.0.0",
     "tailwindcss": "^2.2.6",
