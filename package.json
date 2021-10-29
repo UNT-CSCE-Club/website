@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "@hookform/devtools": "^4.0.1",
+    "@next/bundle-analyzer": "^12.0.1",
     "@types/chec__commerce.js": "^2.8.1",
     "@types/node": "^15.14.1",
     "@types/react": "^17.0.14",
