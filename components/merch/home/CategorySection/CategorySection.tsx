@@ -12,7 +12,6 @@ const CategorySection = ({ categories }: Props) => {
   }
 
   const firstCategory = categories[0];
-  console.log(categories);
 
   return (
     <section aria-labelledby='category-heading' className='bg-white'>
