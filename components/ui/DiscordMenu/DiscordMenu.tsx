@@ -23,7 +23,7 @@ const DiscordMenu = ({ open, setOpen, position }: DiscordMenuProps) => {
         <a
           href='https://discord.com/channels/@me'
           target='_blank'
-          rel='noopener'
+          rel='noreferrer'
           role='menuitem'
           className='block px-4 py-2 text-sm text-gray-700 rounded hover:bg-gray-100'
           onClick={() => setOpen(false)}
@@ -33,7 +33,7 @@ const DiscordMenu = ({ open, setOpen, position }: DiscordMenuProps) => {
         <a
           href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL}
           target='_blank'
-          rel='noopener'
+          rel='noreferrer'
           role='menuitem'
           className='block px-4 py-2 text-sm text-gray-700 rounded hover:bg-gray-100'
           onClick={() => setOpen(false)}

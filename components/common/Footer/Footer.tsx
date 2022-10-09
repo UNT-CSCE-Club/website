@@ -71,7 +71,7 @@ const Footer = () => {
           <a
             href={process.env.NEXT_PUBLIC_TWITTER_URL}
             target='_blank'
-            rel='noopener'
+            rel='noreferrer'
             title='UNT CSCE Club Twitter'
             className='text-gray-500 rounded hover:text-gray-600 dark:hover:text-gray-300'
           >
@@ -87,7 +87,7 @@ const Footer = () => {
           <a
             href={process.env.NEXT_PUBLIC_INSTAGRAM_URL}
             target='_blank'
-            rel='noopener'
+            rel='noreferrer'
             title='UNT CSCE Club Instagram'
             className='text-gray-500 rounded hover:text-gray-600 dark:hover:text-gray-300'
           >
@@ -107,7 +107,7 @@ const Footer = () => {
           <a
             href='https://github.com/UNT-CSCE-Club'
             target='_blank'
-            rel='noopener'
+            rel='noreferrer'
             title='UNT CSCE Club Github'
             className='text-gray-500 rounded hover:text-gray-600 dark:hover:text-gray-300'
           >

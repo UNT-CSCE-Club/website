@@ -11,7 +11,8 @@
     "postbuild": "next-sitemap",
     "cypress:open": "cypress open",
     "contentful-typescript-codegen": "contentful-typescript-codegen --output types/generated/contentful.d.ts",
-    "generate": "graphql-codegen --config codegen.yml --require dotenv/config"
+    "generate": "graphql-codegen --config codegen.yml --require dotenv/config",
+    "lint": "next lint"
   },
   "dependencies": {
     "@babel/core": "^7.15.0",
@@ -22,10 +23,10 @@
     "@tailwindcss/line-clamp": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
     "contentful": "^8.4.2",
-    "next": "^11.1.0",
+    "next": "^12.3.1",
     "next-seo": "^4.26.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.2.0"
   },
   "devDependencies": {
@@ -36,6 +37,8 @@
     "contentful-typescript-codegen": "^3.2.2",
     "cypress": "^8.0.0",
     "dotenv": "^10.0.0",
+    "eslint": "8.25.0",
+    "eslint-config-next": "12.3.1",
     "next-sitemap": "^1.6.140",
     "postcss": "^8.3.6",
     "tailwindcss": "^2.2.6",

@@ -11,9 +11,10 @@ import isAPISupported from 'lib/isApiSupported';
  *
  */
 
+
 const useMediaQuery = (mediaQuery: string): boolean => {
   if (!isClient || !isAPISupported('matchMedia')) {
-    return null;
+    throw new Error("Cannot use 'useMediaQuery' hook.")
   }
 
   const [isVerified, setIsVerified] = useState(

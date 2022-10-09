@@ -175,7 +175,7 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
           <a
             href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL}
             target='_blank'
-            rel='noopener'
+            rel='noreferrer'
             className='flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-primary hover:bg-primary-dark'
             onClick={() => toggle(false)}
           >
@@ -186,7 +186,7 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
             <a
               href={process.env.NEXT_PUBLIC_TWITTER_URL}
               target='_blank'
-              rel='noopener'
+              rel='noreferrer'
               title='UNT CSCE Club Twitter'
               className='text-gray-400 rounded hover:text-gray-500'
               onClick={() => toggle(false)}
@@ -203,7 +203,7 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
             <a
               href={process.env.NEXT_PUBLIC_INSTAGRAM_URL}
               target='_blank'
-              rel='noopener'
+              rel='noreferrer'
               title='UNT CSCE Club Instagram'
               className='text-gray-400 rounded hover:text-gray-500'
               onClick={() => toggle(false)}
@@ -224,7 +224,7 @@ const MobileMenu = ({ show, toggle, currentIndex }: MobileMenuProps) => {
             <a
               href='https://github.com/UNT-CSCE-Club'
               target='_blank'
-              rel='noopener'
+              rel='noreferrer'
               title='UNT CSCE Club GitHub'
               className='text-gray-400 rounded hover:text-gray-500'
               onClick={() => toggle(false)}

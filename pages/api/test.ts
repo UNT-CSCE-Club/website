@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const tests = async (req: NextApiRequest, res: NextApiResponse) => {
   const { method } = req;
 
   switch (method) {
@@ -11,7 +11,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     default:
       res.setHeader('Allow', 'GET');
       res
-        .status(405)
-        .json({ message: `Error 405: Method ${method} Not Allowed` });
+          .status(405)
+          .json({ message: `Error 405: Method ${method} Not Allowed` });
   }
 };
+
+export default tests
