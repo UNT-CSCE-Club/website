@@ -1,0 +1,16 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Dallas",
+			"country": {
+				"code": "US",
+				"name": "United States"
+			},
+			"subdivision": {
+				"code": "TX",
+				"name": "Texas"
+			}
+		},
+		"timestamp": 1665364992302
+	}
+}
