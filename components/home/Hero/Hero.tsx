@@ -38,7 +38,7 @@ const Hero = ({ data }: HeroProps) => {
               <a
                 href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL}
                 target='_blank'
-                rel='noopener'
+                rel='noreferrer'
                 className='flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white border border-transparent rounded-md bg-primary hover:bg-primary-light md:py-4 md:text-lg md:px-10 dark:shadow-2xl'
               >
                 <SiDiscord className='mr-2' />
@@ -58,7 +58,7 @@ const Hero = ({ data }: HeroProps) => {
             <a
               href={process.env.NEXT_PUBLIC_TWITTER_URL}
               target='_blank'
-              rel='noopener'
+              rel='noreferrer'
               title='UNT CSCE Club Twitter'
               className='text-gray-400 rounded hover:text-gray-500 dark:hover:text-gray-200'
             >
@@ -74,7 +74,7 @@ const Hero = ({ data }: HeroProps) => {
             <a
               href={process.env.NEXT_PUBLIC_INSTAGRAM_URL}
               target='_blank'
-              rel='noopener'
+              rel='noreferrer'
               title='UNT CSCE Club Instagram'
               className='text-gray-400 rounded hover:text-gray-500 dark:hover:text-gray-200'
             >
@@ -94,7 +94,7 @@ const Hero = ({ data }: HeroProps) => {
             <a
               href='https://github.com/UNT-CSCE-Club'
               target='_blank'
-              rel='noopener'
+              rel='noreferrer'
               title='UNT CSCE Club GitHub'
               className='text-gray-400 rounded hover:text-gray-500 dark:hover:text-gray-200'
             >
