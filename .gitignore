@@ -41,5 +41,3 @@ cypress/screenshots
 .nyc_output
 cypress.env.json
 
-# Local Netlify folder
-.netlify
