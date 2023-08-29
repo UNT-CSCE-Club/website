@@ -27,7 +27,7 @@ You must be an active club member or an officer to contribute to the website.
 
 ### Developers
 
-We are not currently accepting any contributions to the codebase, but we have big plans for the site and will be accepting contributions in the future.
+We are not currently accepting any contributions to the codebase.
 
 ### Content Creators / Editors
 
