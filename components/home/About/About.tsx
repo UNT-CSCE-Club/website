@@ -6,6 +6,7 @@ interface AboutProps {
   data: AboutFields;
 }
 
+//bump
 const About = ({ data }: AboutProps) => {
   const {
     title,
