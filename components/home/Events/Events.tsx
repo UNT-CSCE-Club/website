@@ -23,8 +23,8 @@ const Events = ({ data }: EventsProps) => {
             {description}
           </p>
         </header>
-        <div className='mt-10'>
-          <dl className='space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8'>
+        <div className='mt-10 flex flex-col'>
+          <dl className='space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:ml-10 lg:max-w-5xl lg:self-center'>
             {eventsList.map((e, index) => {
               return (
                 <div key={e.sys.id}>
