@@ -21,6 +21,8 @@ A headless CMS works by:
 1. Giving editors an interface for managing content.
 2. Providing that content via APIs for developers to query and build applications with.
 
+
+
 ## Contributing
 
 You must be an active club member or an officer to contribute to the website.
@@ -32,6 +34,11 @@ We are not currently accepting any contributions to the codebase.
 ### Content Creators / Editors
 
 If you're interested in creating and managing content for the site, get in touch with one of our officers on Discord.
+
+### Deployment
+
+We use [Netlify](https://app.netlify.com/sites/unt-csce-club/deploys) to build and deploy our site. (Must be logged in through the club Github account to view)
+
 
 #### Contentful Documentation
 
